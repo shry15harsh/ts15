@@ -1,0 +1,431 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+	background-color: #051729;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#051729)); 
+	background-image: -webkit-linear-gradient(top, #000000, #051729); 
+	background-image:    -moz-linear-gradient(top, #000000, #051729); 
+	background-image:     -ms-linear-gradient(top, #000000, #051729); 
+	background-image:      -o-linear-gradient(top, #000000, #051729); 
+	background-image:         linear-gradient(top, #000000, #051729);
+	background-attachment: fixed;
+	background-repeat: repeat-x;
+	color: white;
+	font: 20px/30px helvetica, arial, sans-serif;
+}
+
+.ie-bg {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#000000', EndColorStr='#051729');
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.home .main {
+	width: 3800px;
+}
+.home .section {
+	display: inline-block;
+	margin: 0 40px;
+}
+h2 {
+	color: transparent;
+	font-size: 200px;
+	height: 200px;
+	line-height: 200px;
+	letter-spacing: 5px;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.constellation {
+	float:left;
+	height: 196px;
+	position: relative;
+	width: 140px;
+}
+.star {
+	background-color: white;
+	border-radius: 4px;
+	box-shadow: 0 0 20px rgba(164, 204, 244, 0.65);
+	height: 8px;
+	left: 0;
+	margin: 1px;
+	position: absolute;
+	top: 0;
+	width: 8px;
+	z-index: 2;
+}
+.constellation .small {
+	border-radius: 2px;
+	height: 4px;
+	margin: 3px;
+	width: 4px;
+}
+.constellation .medium {
+	border-radius: 3px;
+	height: 6px;
+	margin: 2px;
+	width: 6px;
+}
+.constellation .large {
+	border-radius: 4px;
+	height: 8px;
+	margin: 1px;
+	width: 8px;
+}
+.constellation .xlarge {
+	border-radius: 6px;
+	height: 10px;
+	width: 10px;
+}
+
+.a .star1 {
+    top: 156px;
+    left: 7px;
+}
+.a .star2 {
+    top: 133px;
+    left: 17px;
+}
+.a .star3 {
+    top: 111px;
+    left: 26px;
+}
+.a .star4 {
+    top: 84px;
+    left: 37px;
+}
+.a .star5 {
+    top: 55px;
+    left: 49px;
+}
+.a .star6 {
+    top: 29px;
+    left: 60px;
+}
+.a .star7 {
+    left: 75px;
+    top: 50px;
+}
+.a .star8 {
+    left: 85px;
+    top: 81px;
+}
+.a .star9 {
+    left: 95px;
+    top: 110px;
+}
+.a .star10 {
+    left: 103px;
+    top: 133px;
+}
+.a .star11 {
+    left: 110px;
+    top: 155px;
+}
+.a .star12 {
+    top: 111px;
+    left: 49px;
+}
+.a .star13 {
+    top: 110px;
+    left: 71px;
+}
+
+/* C */
+.c .star1 {
+	left: 111px;
+	top: 54px;
+}
+.c .star2 {
+	left: 95px;
+	top: 31px;
+}
+.c .star3 {
+	left: 69px;
+	top: 24px;
+}
+.c .star4 {
+	left: 43px;
+	top: 27px;
+}
+.c .star5 {
+	left: 23px;
+	top: 40px;
+}
+.c .star6 {
+	left: 12px;
+	top: 61px;
+}
+.c .star7 {
+	left: 7px;
+	top: 86px;
+}
+.c .star8 {
+	left: 9px;
+	top: 112px;
+}
+.c .star9 {
+	left: 18px;
+	top: 135px;
+}
+.c .star10 {
+	left: 36px;
+	top: 153px;
+}
+.c .star11 {
+	left: 60px;
+	top: 159px;
+}
+.c .star12 {
+	left: 88px;
+	top: 153px;
+}
+.c .star13 {
+	left: 109px;
+	top: 136px;
+}
+.c .star14 {
+	left: 116px;
+	top: 115px;
+}
+
+/* E */
+/*2 3 12 13*/
+.e .star1 {
+	top: 31px;
+	left: 25px;
+}
+.e .star2 {
+    top: 29px;
+    left: 52px;
+}
+.e .star3 {
+    top: 58px;
+    left: 108px;
+}
+.e .star4 {
+    top: 31px;
+    left: 108px;
+}
+.e .star5 {
+    top: 58px;
+    left: 24px;
+}
+.e .star6 {
+    top: 87px;
+    left: 22px;
+}
+.e .star7 {
+    top: 89px;
+    left: 50px;
+}
+.e .star8 {
+    top: 88px;
+    left: 80px;
+}
+.e .star9 {
+    top: 88px;
+    left: 104px;
+}
+.e .star10 {
+    top: 121px;
+    left: 22px;
+}
+.e .star11 {
+    top: 153px;
+    left: 22px;
+}
+.e .star12 {
+    top: 155px;
+    left: 51px;
+}
+.e .star13 {
+    top: 154px;
+    left: 80px;
+}
+.e .star14 {
+    top: 155px;
+    left: 106px;
+}
+.e .star15 {
+	left: 75px;
+	top: 108px;
+}
+.e .star16 {
+	left: 90px;
+	top: 131px;
+}
+.e .star17 {
+	left: 105px;
+	top: 154px;
+}
+
+.s .star1 {
+	left: 103px;
+	top: 55px;
+}
+.s .star2 {
+	left: 89px;
+	top: 33px;
+}
+.s .star3 {
+	left: 63px;
+	top: 24px;
+}
+.s .star4 {
+	left: 40px;
+	top: 29px;
+}
+.s .star5 {
+	left: 21px;
+	top: 43px;
+}
+.s .star6 {
+	left: 20px;
+	top: 70px;
+}
+.s .star7 {
+	left: 44px;
+	top: 88px;
+}
+.s .star8 {
+	left: 70px;
+	top: 94px;
+}
+.s .star9 {
+	left: 98px;
+	top: 104px;
+}
+.s .star10 {
+	left: 108px;
+	top: 125px;
+}
+.s .star11 {
+	left: 98px;
+	top: 149px;
+}
+.s .star12 {
+	left: 73px;
+	top: 160px;
+}
+.s .star13 {
+	left: 45px;
+	top: 160px;
+}
+.s .star14 {
+	left: 23px;
+	top: 149px;
+}
+.s .star15 {
+	left: 13px;
+	top: 128px;
+}
+
+.t .star1 {
+	left: 7px;
+	top: 28px;
+}
+.t .star2 {
+	left: 31px;
+	top: 28px;
+}
+.t .star3 {
+	left: 59px;
+	top: 28px;
+}
+.t .star4 {
+	left: 88px;
+	top: 26px;
+}
+.t .star5 {
+	left: 111px;
+	top: 27px;
+}
+.t .star6 {
+	left: 58px;
+	top: 53px;
+}
+.t .star7 {
+	left: 59px;
+	top: 78px;
+}
+.t .star8 {
+	left: 58px;
+	top: 105px;
+}
+.t .star9 {
+	left: 59px;
+	top: 133px;
+}
+.t .star10 {
+	left: 59px;
+	top: 157px;
+}
+
+/* . */
+.dot .star1 {
+	left: 15px;
+	top: 158px;
+}
+
+/*new styles
+*/
+#constAlign{
+	background:red;
+	width:1300px;
+	height:100px;
+	position: absolute;
+	left:0;
+}
+*/
