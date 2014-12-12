@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> Student Campus Ambassador Techspardha 2015 - NIT Kurukshetra</title>
+		<link href="css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<section id="home">
+			<div class="logo">
+				<div class="fest_name">Techspardha</div>
+				<div class="bottom_part"><span class="year">2014-15,&nbsp;</span><span class="clg_name">NIT Kurukshetra</span></div>
+			</div>
+			<div class="sca">
+				<div class="sca-details">
+					Techspardha is annual technical fest of NIT Kurukshetra which will held on 19th-22nd March, 2015 this time. Techspardha attracts
+					a large number of students with its outstanding events and competitions.<br><br>
+					Techspardha is announcing the Student Campus Ambassador registrations. Student Campus Ambassadors are the enthusiastic students who
+					help us reaching out to their colleges and promote technology.
+				</div>
+				<div class="student-ca">
+					<span class="name">Student Campus Ambassador</span><br><br><br><br><br><br>
+					<a href="#resp-section" class="responsibility">Responsibilities</a>
+				</div>
+			</div>
+		</section>
+		<section id="resp-section">
+			<h2 class="responsibilities">Responsibilities</h2>
+			<dl>
+				<dt data-sr>Publicity</dt>
+				<dd data-sr>You will be required to put up posters on Notice Boards and share events' links on social media.</dd>
+				
+				<br><br><br><br>
+				
+				<dt data-sr>A Bridge</dt>
+				<dd data-sr>You will be a bridge between your college and us.</dd>
+			</dl>
+			
+		</section>
+		<section id="benefits">
+			<h2>Benefits</h2>
+			<ol>
+				<li data-sr="wait 2.5s">Certificate of Organisation on behalf of Techspardha 2015, NIT Kurukshetra.</li>
+				<li data-sr="wait 2.5s">Free Coupons for Special Events and Food during Techspardha 2015.</li>
+				<li data-sr="wait 2.5s">Best Student Campus Ambassador by judging your work.</li>
+			</ol>
+		</section>
+		<section id="form">
+			<h2>Register</h2>
+			<iframe src="http://goo.gl/forms/JMVdagfUTA"></iframe>
+		</section>
+		
+		<script src='js/jquery-1.9.1.min.js'></script>
+		<script src='js/scrollReveal.min.js'></script>
+		<script>
+			window.sr= new scrollReveal({
+			  reset: true,
+			  move: '50px',
+			  mobile: true
+			});
+			$(document).ready(function(){
+				$('a[href^="#"]').on('click',function (e) {
+				e.preventDefault();
+
+				var target = this.hash,
+				$target = $(target);
+		
+				$('html, body').stop().animate({
+					'scrollTop': $target.offset().top
+					}, 500, 'swing', function () {
+					window.location.hash = target;
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
