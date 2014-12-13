@@ -14,7 +14,7 @@ $(document).ready(function(){
 		setTimeout(function(){
 			fadeones();
 			setTimeout(function(){
-				rotateZeroes();
+				makeINF();
 			},interval*1.5);
 		}, interval*1.5);
 	},interval);
@@ -22,35 +22,36 @@ $(document).ready(function(){
 
 function copy10()
 {
-	$('.one').css({"transform":"translateX(350px)"});
-	$('.zero').css({"transform":"translateX(150px)"});
-	$('.fade').css({"opacity":"0.3"});
+	$('.oneBelow').css({"transform":"translateX(350px)"});
+	$('.oneBelow').css({"-webkit-transform":"translateX(350px)"});
+	$('.zeroBelow').css({"transform":"translateX(150px)"});
+	$('.zeroBelow').css({"-webkit-transform":"translateX(150px)"});
+	$('.oneAbove').css({"opacity":"0.3"});
+	$('.zeroAbove').css({"opacity":"0.3"});
 }
 
 function fadeones()
 {
-	$('.one').css({"opacity":"0"});
-	$('.container .constellation:nth-child(1)').css({"opacity":"0"});//refers to the original one
-	$('.container .constellation:nth-child(2)').css({"opacity":"1"});//refers to the original zero, we reset the opacity here
-	$('.container .constellation:nth-child(4)').css({"opacity":"1"});//refers to the copied zero, it is already set to 1
-	$('.container .constellation:nth-child(3)').css({"opacity":"0"});//refers to the copied one. Make it go completely hide
+	$('.oneAbove').css({"opacity":"0"});//refers to the original one
+	$('.zeroAbove').css({"opacity":"1"});//refers to the original zero, we reset the opacity here
+	$('.zeroBelow').css({"opacity":"1"});//refers to the copied zero, its opacity is already set to 1
+	$('.oneBelow').css({"opacity":"0"});//refers to the copied one. Make it go completely hide
 }
 
-function rotateZeroes()
+function makeINF()
 {
-	/*for(var i=1;i<=14;i++)
-	{
-		var l = parseInt($('.constellation.o .star:nth-child('+i+')').css('left'));
-		var t = parseInt($('.constellation.o .star:nth-child('+i+')').css('top'));
-		$('.constellation.o .star:nth-child('+i+')').css("left",l*1.5);
-		$('.constellation.o .star:nth-child('+i+')').css("top",t*1.5-30);
-	}*/
 	//var left = parseInt($('.constellation.o.fade').css('left'));
 	//var left2 = parseInt($('.zero').css('left'));
 	//var mid = (left2-left)/2;
 	//$('.constellation.o.fade').css({"transform":"translateX("+(mid/2-10)+"px)"});
-	$('.container .constellation:nth-child(2)').css({"transform":"translateX(10px)"});
-	$('.zero').css({"transform":"translateX(140px)"});
-		$('.container .constellation:nth-child(2) .star5').css({"transform":"translate(4px,4px)"});
-		$('.zero  .star12').css({"transform":"translate(-4px,-4px)"});
+	$('.zeroAbove').css({"transform":"translateX(10px)"});
+	$('.zeroBelow').css({"transform":"translateX(140px)"});
+	$('.zeroAbove .star5').css({"transform":"translate(4px,4px)"});
+	$('.zeroBelow  .star12').css({"transform":"translate(-4px,-4px)"});
+	
+	//for Chrome
+	$('.zeroAbove').css({"-webkit-transform":"translateX(10px)"});
+	$('.zeroBelow').css({"-webkit-transform":"translateX(140px)"});
+	$('.zeroAbove .star5').css({"-webkit-transform":"translate(4px,4px)"});
+	$('.zeroBelow  .star12').css({"-webkit-transform":"translate(-4px,-4px)"});
 }
