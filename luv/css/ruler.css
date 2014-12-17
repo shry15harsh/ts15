@@ -29,8 +29,10 @@
 }
 .millimeter
 {
-	height:20px;
+	height:0px;
 	width:2px;
 	background:white;
 	position:absolute;
+	transition:all 1s;
+	-webkit-transition:all 1s;
 }
