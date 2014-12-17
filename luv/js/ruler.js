@@ -40,8 +40,8 @@ function makeZeroSmall()
 			$('.zeroAbove .star:nth-child('+i+')').css('left',s_left/3);
 		}
 		setTimeout(function(){
-			$('.zeroAbove').css({"transform":"translate(-400px,200px)"});
-			$('.zeroAbove').css({"-webkit-transform":"translate(-400px,200px)"});
+			$('.zeroAbove').css({"transform":"translate(-300px,200px)"});
+			$('.zeroAbove').css({"-webkit-transform":"translate(-300px,200px)"});
 		},ZERO_ANIM_INTER);
 	},ZERO_ANIM_INTER);
 }
@@ -49,11 +49,11 @@ function makeZeroSmall()
 function setRuler()
 {
 	$('.ruler').css('top',offset*0.60);
-	$('.ruler').css('left',offset*0.30);
+	$('.ruler').css('left',offset*0.50);
 	$('.ruler').css('display','block');
 	$('.horizLine').animate({"width":ruler_width+"px"});
 	$('.markings').css('bottom','0px');
-	$('.markings').css('left',RULER_LEN/20+"px");
+	//$('.markings').css('left',RULER_LEN/20+"px");
 	setMarkings(1);
 }
 
@@ -66,10 +66,10 @@ function setMarkings(i)
 			$('.markings .centimeter:nth-child('+i+')').css('left',prev_left+'px');
 			$('.markings .centimeter:nth-child('+i+')').css('display','block');
 			$('.markings .centimeter:nth-child('+i+')').animate({"height":"50px"});
-			setTimeout(setMilliMarks(1,i),10*INTERVAL);
+			setTimeout(setMilliMarks(1,i),INTERVAL);
 			prev_left = parseInt($('.markings .centimeter:nth-child('+i+')').css('left'))+120;
-			setTimeout(setMarkings(i+1),10*INTERVAL);
-		},INTERVAL);
+			setTimeout(setMarkings(i+1),INTERVAL);
+		},2*INTERVAL);
 	}
 }
 
@@ -85,7 +85,7 @@ function setMilliMarks(j,i)
 			$('.markings .centimeter:nth-child('+i+') .smaller .millimeter:nth-child('+j+')').animate({"height":"20px"});
 			//$('.markings .centimeter:nth-child('+i+') .smaller .millimeter:nth-child('+j+')').css({"background":color[i-1]});
 			prev_left_mm+=20;
-			setTimeout(setMilliMarks(j+1,i),INTERVAL/6);
-		},INTERVAL/6);
+			setTimeout(setMilliMarks(j+1,i),INTERVAL/8);
+		},INTERVAL/8);
 	}
 }
