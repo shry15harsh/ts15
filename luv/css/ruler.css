@@ -17,22 +17,52 @@
 	width:2px;
 	background:white;
 	position:absolute;
+	bottom:0px;
 	display:none;
 }
 .markings
 {
 	position:absolute;
 }
-.smaller
+.wifi
 {
 	position:absolute;
 }
-.millimeter
+.circle
 {
-	height:0px;
-	width:2px;
-	background:white;
+	height:20px;
+	width:20px;
 	position:absolute;
+	background:white;
+	border-radius:50%;
+	display:none;
+	transition:all 1s;
 	transition:all 1s;
 	-webkit-transition:all 1s;
+}
+.comm
+{
+	position:absolute;
+}
+.wave
+{
+	background:none;
+	position:absolute;
+	display:none;
+	border:1px solid white;
+	border-radius:50%;
+	transition:all 1s;
+	height:0px;
+	width:0px;
+}
+.wave1
+{
+	/*goes from up to down*/
+	border-top-width:0;
+	border-right-width:0;
+}
+.wave2
+{
+	border-bottom-width:0;
+	border-left-width:0;
 }
