@@ -45,6 +45,7 @@ function makeZeroSmall()
 
 function setRuler()
 {
+	
 	$('.ruler').css('top',offset*0.60);
 	$('.ruler').css('left',offset*0.50);
 	$('.ruler').css('display','block');
@@ -131,7 +132,14 @@ function showWaves()
 	{
 		$('.comm .Wifi:nth-child('+i+')').fadeOut(1000*6);
 	}
-	setTimeout(function(){$('.ruler').animate({"opacity":"0"});
-		//circle to draw an Earth
+	setTimeout(function()
+		{
+			$('.ruler').animate({"opacity":"0"});
+			setTimeout(moveRocket(),6200);
 	},6050);
+}
+
+function moveRocket()
+{
+	$('.space').css('display','block');
 }

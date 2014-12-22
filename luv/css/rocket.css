@@ -1,0 +1,26 @@
+.space{
+	position:absolute;
+	display:none;
+	left:420px;
+	top:120px;
+}
+.rocket{
+	position:absolute;
+	left:420px;
+	top:210px;
+	transform:rotate(180deg);
+	animation: sweep 3s ease-in-out infinite;
+}
+.earth
+{
+	position:absolute;
+}
+@keyframes sweep
+{
+	0%{top:210px;left:420px;}
+	20%{top:420px;transform: rotate(270deg);}
+	40%{top:420px;left:210px;transform:rotate(-90deg);}
+	60%{top:420px;left:-15px;transform:rotate(0deg);}
+	80%{top:210px;left:-15px;transform:rotate(0deg);}
+	100%{top:-210px;left:-15px;transform:rotate(0deg);}
+}
