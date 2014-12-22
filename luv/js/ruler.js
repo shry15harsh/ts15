@@ -106,6 +106,8 @@ function rotateLine()
 	setTimeout(function(){
 	$('.horizLine').css('transform','rotate(-45deg)');
 	$('.ruler').css('transform','translateY(-100px)');
+	$('.horizLine').css('-webkit-transform','rotate(-45deg)');
+	$('.ruler').css('-webkit-transform','translateY(-100px)');
 	$('.horizLine').css('opacity','0.4');
 	$('.zeroAbove').css('opacity','0');
 	},INTERVAL/2);

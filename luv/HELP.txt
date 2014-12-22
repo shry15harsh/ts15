@@ -1,3 +1,2 @@
 Regarding the animation, should I do it using JS or using CSS?
 I have done it here using CSS
-Also, I wanted to know if there was a method by which the animation could be completely terminated. As in that after 100%, the animation makes it come back to the original state of the rocket, which is not desired as of here. 
