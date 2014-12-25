@@ -186,12 +186,11 @@ html,body{
 }
 .hide
 {
-	display:none;
+	opacity:0;
 }
 .under
 {
 	position:absolute;
-	//background:green;
 	width:140px;
 	height:100%;
 }

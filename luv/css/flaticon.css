@@ -11,9 +11,9 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
 	font-family: Flaticon;
-        font-size: 20px;
-font-style: normal;
-margin-left: 20px;
+       font-size: 20px;
+	font-style: normal;
+	margin-left: 20px;
 }.flaticon-earth71:before {
 	content: "\e000";
 }
@@ -24,4 +24,5 @@ margin-left: 20px;
 .flaticon-rocket63:before {
 	content: "\e002";
 	font-size:80px;
+	margin-left:-130px;
 }

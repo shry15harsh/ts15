@@ -4,37 +4,59 @@
 	left:420px;
 	top:120px;
 }
-.rocket{
-	position:absolute;
-	left:420px;
-	top:210px;
-	transform:rotate(180deg);
-	-webkit-transform:rotate(180deg);
-	animation: sweep 3s ease-in-out;
-	-webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
+
 .earth
 {
 	position:absolute;
+	animation: big 1s;
+	transform:scale(0.2,0.2);
+	-webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.rocket{
+	position:absolute;
+	opacity:0;
+	color:red;
+	left:120px;
+	top:210px;
+	animation: sweep 2s ease-in-out;
+	transform: scale(0.5,0.5);
+	-webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+	-webkit-animation-delay: 1s; /* Chrome, Safari, Opera */
+   animation-delay: 1s;
+	transform-origin:center center;
+	width:400px;
+	height:60px;
+
+}
+
+
+@keyframes big
+{
+	0%:{transform:scale(0.2,0.2);}
+	50%:{transform:scale(0.5,0.5);}
+	100%{transform:scale(1,1);}
+}
+
+@-webkit-keyframes big
+{
+	0%:{-webkit-transform:scale(0.2,0.2);}
+	50%:{-webkit-transform:scale(0.5,0.5);}
+	100%{-webkit-transform:scale(1,1);}
 }
 
 @keyframes sweep
 {
-	0%{top:210px;left:420px;}
-	20%{top:420px;transform: rotate(270deg);}
-	40%{top:420px;left:210px;transform:rotate(-90deg);}
-	60%{top:420px;left:-15px;transform:rotate(0deg);}
-	80%{top:210px;left:-15px;transform:rotate(0deg);}
-	100%{top:-210px;left:-15px;transform:rotate(0deg);}
+	0%{transform:rotate(0deg) scale(0.2,0.2);opacity:1}
+	50%{transform:rotate(180deg) ;transform-origin: center center;opacity:1}
+	100%{transform:rotate(360deg);opacity:1}
 }
 
 @-webkit-keyframes sweep
 {
-	0%{top:210px;left:420px;}
-	20%{top:420px;-webkit-transform: rotate(270deg);}
-	40%{top:420px;left:210px;-webkit-transform:rotate(-90deg);}
-	60%{top:420px;left:-15px;-webkit-transform:rotate(0deg);}
-	80%{top:210px;left:-15px;-webkit-transform:rotate(0deg);}
-	100%{top:-210px;left:-15px;-webkit-transform:rotate(0deg);}
+	0%{-webkit-transform:rotate(0deg) scale(0.2,0.2);}
+	50%{-webkit-transform:rotate(180deg);-webkit-transform-origin: center center;}
+	100%{-webkit-transform:rotate(360deg);}
 }
