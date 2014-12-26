@@ -3,7 +3,7 @@ var offset;
 var INTERVAL = 600;
 var RULER_LEN = 1000;
 var PREV_LEFT = 0;//used to set positions for the marks
-var ZERO_ANIM_INTER = 20;
+var ZERO_ANIM_INTER = 200;
 var NUM_OF_MARKS = 36;
 var WIDTH = 15*NUM_OF_MARKS;
 $(document).ready(function(){
@@ -21,20 +21,22 @@ $(document).ready(function(){
 	{
 		$('.txt .para:nth-child('+i+')').text("India India India. Here's some test script.");
 	}
-	setTimeout(function(){
-		makeZeroSmall();
-		setTimeout(function(){
-			setRuler();
-		},INTERVAL);
-	},ZERO_ANIM_INTER);
+
+	$('.txt .para:nth-child(1)').css('top',offset*0.30);
+	$('.txt .para:nth-child(1)').css('left',offset*0.50);
+	$('.txt .para:nth-child(1)').fadeIn();
+	var l = parseInt($('.txt .para:nth-child(1)').css('left'));
+	$('.txt .para:nth-child(1)').animate({"left":l+50});
+	
+	setTimeout(function(){makeZeroSmall();},INTERVAL*4);
 });
 
 function makeZeroSmall()
 {
-	setTimeout(function(){
-			$('.zero').css({"transform":"translate(-370px,150px) scale(0.5,0.5)"});
-			$('.zero').css({"-webkit-transform":"translate(-370px,150px) scale(0.5,0.5)"});
-	},ZERO_ANIM_INTER);
+	$('.zero').css({"transform":"translate(-370px,150px) scale(0.5,0.5)"});
+	$('.zero').css({"-webkit-transform":"translate(-370px,150px) scale(0.5,0.5)"});
+	$('.txt .para:nth-child(1)').animate({"opacity":"0"});
+	setRuler();
 }
 
 function setRuler()
@@ -80,12 +82,12 @@ function setMarks(i)
 	}
 	if(i>NUM_OF_MARKS)
 	{
-		$('.txt .para:nth-child(1)').css('top',offset*0.65);
-		$('.txt .para:nth-child(1)').css('left',offset*0.90);
-		$('.txt .para:nth-child(1)').fadeIn().delay(200);
-		var l = parseInt($('.txt .para:nth-child(1)').css('left'));
-		$('.txt .para:nth-child(1)').animate({"left":l+50});
-		setTimeout(function(){$('.txt .para:nth-child(1)').animate({"opacity":"0"});},2500);
+		$('.txt .para:nth-child(2)').css('top',offset*0.65);
+		$('.txt .para:nth-child(2)').css('left',offset*0.90);
+		$('.txt .para:nth-child(2)').fadeIn().delay(200);
+		var l = parseInt($('.txt .para:nth-child(2)').css('left'));
+		$('.txt .para:nth-child(2)').animate({"left":l+50});
+		setTimeout(function(){$('.txt .para:nth-child(2)').animate({"opacity":"0"});},2500);
 		fadeMarks();
 	}
 }
@@ -130,12 +132,12 @@ function showWaves()
 		$('.comm .Wifi:nth-child('+i+')').fadeIn(100);
 	}
 	$('.horizLine').animate({"opacity":"0"});
-	$('.txt .para:nth-child(2)').css('top',offset/2);
-	$('.txt .para:nth-child(2)').css('left',offset);
-	$('.txt .para:nth-child(2)').fadeIn(200).delay(200);
-	var l = parseInt($('.txt .para:nth-child(2)').css('left'));
-	$('.txt .para:nth-child(2)').animate({"left":l+50});
-	setTimeout(function(){$('.txt .para:nth-child(2)').animate({"opacity":"0"});},4521);
+	$('.txt .para:nth-child(3)').css('top',offset/2);
+	$('.txt .para:nth-child(3)').css('left',offset);
+	$('.txt .para:nth-child(3)').fadeIn(200).delay(200);
+	var l = parseInt($('.txt .para:nth-child(3)').css('left'));
+	$('.txt .para:nth-child(3)').animate({"left":l+50});
+	setTimeout(function(){$('.txt .para:nth-child(3)').animate({"opacity":"0"});},4521);
 	setTimeout(function(){
 		for(var i =1;i<=2;i++)
 		{
