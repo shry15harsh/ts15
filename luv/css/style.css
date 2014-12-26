@@ -5,7 +5,7 @@ html,body{
 }
 
 .main{
-	width:4000px;
+	width:auto;
 	height:100%;
 	background-color: #051729;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#051729)); 
@@ -20,7 +20,7 @@ html,body{
 }
 .section{
 	position:relative;
-	width: 1366px;
+	width: auto;
 	height:100%;
 	//background:blue;
 	display:inline-block;

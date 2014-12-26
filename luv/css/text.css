@@ -1,0 +1,26 @@
+.zero
+{
+	position:absolute;
+	transition:all 1s;
+	-webkit-transition:all 1s;
+	font-size:120px;
+}
+.txt
+{
+	position:absolute;
+}
+.zero:before
+{
+	content:"0";
+}
+.para
+{
+	position:absolute;
+	display:none;
+	color:white;
+	height:auto;
+	width:300px;
+	transition:all 1s;
+	-webkit-transition:all 1s;
+	font-size:22px;
+}

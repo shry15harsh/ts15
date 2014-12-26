@@ -11,16 +11,7 @@ $(document).ready(function(){
 	offset = screen_size/2;
 	$('.container').css('left',offset/2);
 	$('.container').css('top',offset/4);
-	$('.zero').css('top',offset/3);
-	$('.zero').css('left',offset);
-	for(var i = 1;i<=5;i++)
-	{
-		$('.section .txt').append('<div class = "para"></div>');
-	}
-	for(var i = 1;i<=5;i++)
-	{
-		$('.txt .para:nth-child('+i+')').text("India India India. Here's some test script.");
-	}
+	alignZero();
 	setTimeout(function(){
 		makeZeroSmall();
 		setTimeout(function(){
@@ -29,11 +20,26 @@ $(document).ready(function(){
 	},ZERO_ANIM_INTER);
 });
 
+function alignZero()
+{
+	$('.zeroAbove').css({"transition":"all 1s"});
+	$('.zeroAbove').css({"-webkit-transition":"all 1s"});
+}
+
 function makeZeroSmall()
 {
 	setTimeout(function(){
-			$('.zero').css({"transform":"translate(-370px,150px) scale(0.5,0.5)"});
-			$('.zero').css({"-webkit-transform":"translate(-370px,150px) scale(0.5,0.5)"});
+		for(var i = 1;i<=14;i++)
+		{
+			var s_top = parseInt($('.zeroAbove .star:nth-child('+i+')').css('top'));
+			var s_left = parseInt($('.zeroAbove .star:nth-child('+i+')').css('left'));
+			$('.zeroAbove .star:nth-child('+i+')').css('top',s_top/3);
+			$('.zeroAbove .star:nth-child('+i+')').css('left',s_left/3);
+		}
+		setTimeout(function(){
+			$('.zeroAbove').css({"transform":"translate(-300px,200px)"});
+			$('.zeroAbove').css({"-webkit-transform":"translate(-300px,200px)"});
+		},ZERO_ANIM_INTER);
 	},ZERO_ANIM_INTER);
 }
 
@@ -45,8 +51,8 @@ function setRuler()
 	$('.ruler').css('display','block');
 	$('.horizLine').animate({"width":15*(NUM_OF_MARKS)+"px"});
 	$('.markings').css('bottom','0px');
-	makeMarks();
-	//rotateLine();//comment this out later on
+	//makeMarks();
+	rotateLine();//comment this out later on
 }
 
 function makeMarks()
@@ -80,12 +86,6 @@ function setMarks(i)
 	}
 	if(i>NUM_OF_MARKS)
 	{
-		$('.txt .para:nth-child(1)').css('top',offset*0.65);
-		$('.txt .para:nth-child(1)').css('left',offset*0.90);
-		$('.txt .para:nth-child(1)').fadeIn().delay(200);
-		var l = parseInt($('.txt .para:nth-child(1)').css('left'));
-		$('.txt .para:nth-child(1)').animate({"left":l+50});
-		setTimeout(function(){$('.txt .para:nth-child(1)').animate({"opacity":"0"});},2500);
 		fadeMarks();
 	}
 }
@@ -93,13 +93,12 @@ function setMarks(i)
 function fadeMarks()
 {
 	setTimeout(function(){
-		$('.zero').fadeOut();
 		for(var i = 1;i<=NUM_OF_MARKS;i++)
 		{
 			$('.markings .centimeter:nth-child('+i+')').animate({"height":"0px"},{queue:false});
 		}
 		if(i>NUM_OF_MARKS){rotateLine()};
-	},3000);
+	},INTERVAL/4);
 }
 
 function rotateLine()
@@ -109,8 +108,10 @@ function rotateLine()
 	$('.ruler').css('transform','translateY(-100px)');
 	$('.horizLine').css('-webkit-transform','rotate(-45deg)');
 	$('.ruler').css('-webkit-transform','translateY(-100px)');
-	},700);
-	setTimeout(showWaves(),700+INTERVAL);
+	$('.zeroAbove').css('opacity','0');
+	},INTERVAL/2);
+	$('.horizLine').css('opacity','0');
+	setTimeout(showWaves(),INTERVAL);
 }
 
 function showWaves()
@@ -127,31 +128,23 @@ function showWaves()
 	}
 	for(var i =1;i<=2;i++)
 	{
-		$('.comm .Wifi:nth-child('+i+')').fadeIn(100);
+		$('.comm .Wifi:nth-child('+i+')').fadeIn(1000);
 	}
-	$('.horizLine').animate({"opacity":"0"});
-	$('.txt .para:nth-child(2)').css('top',offset/2);
-	$('.txt .para:nth-child(2)').css('left',offset);
-	$('.txt .para:nth-child(2)').fadeIn(200).delay(200);
-	var l = parseInt($('.txt .para:nth-child(2)').css('left'));
-	$('.txt .para:nth-child(2)').animate({"left":l+50});
-	setTimeout(function(){$('.txt .para:nth-child(2)').animate({"opacity":"0"});},4521);
-	setTimeout(function(){
-		for(var i =1;i<=2;i++)
-		{
-			$('.comm .Wifi:nth-child('+i+')').fadeOut(600);
-		}
-	},4525);
-	setTimeout(function()
+	for(var i =1;i<=2;i++)
 	{
-			moveRocket();
-	},5100);
+		$('.comm .Wifi:nth-child('+i+')').fadeOut(1000*3);
+	}
+	setTimeout(function()
+		{
+			$('.ruler').animate({"opacity":"0"});
+			setTimeout(moveRocket(),3000);
+	},3050);
 }
 
 function moveRocket()
 {
 	$('.space').css('display','block');
-	setTimeout(function(){displayOne()},5100);
+	setTimeout(function(){displayOne()},3600);
 }
 
 function displayOne()
