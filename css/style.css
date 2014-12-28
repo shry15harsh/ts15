@@ -1,0 +1,12 @@
+@font-face{
+  src:url('../fonts/deconue.ttf');
+  font-family:'deconue';
+}
+html, body{
+  width:100%;
+  height:100%;
+  text-align: center;
+}
+h1{
+  font-family: deconue;
+}
