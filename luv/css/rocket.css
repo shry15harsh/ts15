@@ -1,43 +1,27 @@
-.space{
-	position:absolute;
-	display:none;
-	left:420px;
-	top:120px;
-}
-
 .earth
 {
-	position:absolute;
-	animation: big 1s;
-	transform:scale(0.2,0.2);
-	-webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+	display: none;
+	position: absolute;
+	left:46%;
+	top:42%;
+	font-size:2em;
+	transition: all 2s linear;
 }
 
 .rocket{
+	display:none;
 	position:absolute;
-	opacity:0;
-	color:red;
-	left:120px;
-	top:210px;
-	animation: sweep 2s ease-in-out;
-	transform: scale(0.5,0.5);
-	-webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-	-webkit-animation-delay: 1s; /* Chrome, Safari, Opera */
-   animation-delay: 1s;
-	transform-origin:center center;
-	width:400px;
-	height:60px;
-
+	left:500px;
+	top:600px;
+	transition: all 1s ease-out;
 }
 
 
 @keyframes big
 {
-	0%:{transform:scale(0.2,0.2);}
-	50%:{transform:scale(0.5,0.5);}
-	100%{transform:scale(1,1);}
+	//0%:{transform:scale(0.2,0.2);}
+	//50%:{transform:scale(0.5,0.5);}
+	//100%{transform:scale(1,1);}
 }
 
 @-webkit-keyframes big

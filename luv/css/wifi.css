@@ -4,58 +4,59 @@
 	display:none;
 }
 .Arc{
-	border:20px solid transparent;
+	border:2px solid transparent;
 	border-radius:100%;
 	margin:0 auto;
 }
 .Out{
-	width:500px;
-	height:500px;
-	margin:100px auto;
-	border-top-color:#A1A1A1;
+	width:80px;
+	height:80px;
+	margin:20px auto;
+	border-top-color:white;
 	-webkit-animation:appearOut 3s infinite linear;
 	-moz-animation:appearOut 3s infinite linear;
 	-o-animation:appearOut 3s infinite linear;
 	animation:appearOut 3s infinite linear;
 }
 .Middle{
-	width:400px;
-	height:400px;
-	margin:40px auto;
-	border-top-color:#A1A1A1;
+	width:50px;
+	height:50px;
+	margin:20px auto;
+	border-top-color:white;
 	-webkit-animation:appearMiddle 3s infinite linear;
 	-moz-animation:appearMiddle 3s infinite linear;
 	-o-animation:appearMiddle 3s infinite linear;
 	animation:appearMiddle 3s infinite linear;
 }
 .In{
-	width:300px;
-	height:300px;
-	margin:40px auto;
-	border-top-color:#A1A1A1;
+	width:20px;
+	height:20px;
+	margin:20px auto;
+	border-top-color:white;
 	-webkit-animation:appearIn 3s infinite linear;
 	-moz-animation:appearIn 3s infinite linear;
 	-o-animation:appearIn 3s infinite linear;
 	animation:appearIn 3s infinite linear;
 }
 .Dot{
-	width:50px;
-	height:50px;
-	margin:60px auto;
-	background:#A1A1A1;
+	width:2px;
+	height:2px;
+	margin:10px auto;
+	background:white;//white;
+	display: none;
 }
 @keyframes "appearIn" {
     0% {
         border-top-color:transparent;
     }
 	25%{
-		border-top-color:#A1A1A1;
+		border-top-color:white;
 	}
     75% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 @keyframes "appearMiddle" {
@@ -66,10 +67,10 @@
 		border-top-color:transparent;
 	}
     75% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 
@@ -84,7 +85,7 @@
 		border-top-color:transparent;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 @-moz-keyframes appearIn {
@@ -92,13 +93,13 @@
         border-top-color:transparent;
     }
 	25%{
-		border-top-color:#A1A1A1;
+		border-top-color:white;
 	}
     75% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 @-moz-keyframes appearMiddle {
@@ -109,10 +110,10 @@
 		border-top-color:transparent;
 	}
     75% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 
@@ -127,7 +128,7 @@
 		border-top-color:transparent;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 @-webkit-keyframes "appearIn" {
@@ -135,13 +136,13 @@
         border-top-color:transparent;
     }
 	25%{
-		border-top-color:#A1A1A1;
+		border-top-color:white;
 	}
     75% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 @-webkit-keyframes "appearMiddle" {
@@ -152,10 +153,10 @@
 		border-top-color:transparent;
 	}
     75% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 
@@ -170,7 +171,7 @@
 		border-top-color:transparent;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 @-ms-keyframes "appearIn" {
@@ -178,13 +179,13 @@
         border-top-color:transparent;
     }
 	25%{
-		border-top-color:#A1A1A1;
+		border-top-color:white;
 	}
     75% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 @-ms-keyframes "appearMiddle" {
@@ -195,10 +196,10 @@
 		border-top-color:transparent;
 	}
     75% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 
@@ -213,7 +214,7 @@
 		border-top-color:transparent;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 @-o-keyframes "appearIn" {
@@ -221,13 +222,13 @@
         border-top-color:transparent;
     }
 	25%{
-		border-top-color:#A1A1A1;
+		border-top-color:white;
 	}
     75% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 @-o-keyframes "appearMiddle" {
@@ -238,10 +239,10 @@
 		border-top-color:transparent;
 	}
     75% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
 
@@ -256,6 +257,6 @@
 		border-top-color:transparent;
     }
     100% {
-		border-top-color:#A1A1A1;
+		border-top-color:white;
     }
 }
