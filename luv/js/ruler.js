@@ -23,11 +23,11 @@ $(document).ready(function(){
 	}
 
 	$('.txt .para:nth-child(1)').css('top',offset*0.30);
-	$('.txt .para:nth-child(1)').css('left',offset*0.50);
+	$('.txt .para:nth-child(1)').css('left',offset*0.70);
 	$('.txt .para:nth-child(1)').fadeIn();
 	var l = parseInt($('.txt .para:nth-child(1)').css('left'));
 	$('.txt .para:nth-child(1)').animate({"left":l+50});
-	
+	setTimeout(function(){$('.zero').fadeIn()},INTERVAL*1.3);
 	setTimeout(function(){makeZeroSmall();},INTERVAL*4);
 });
 
@@ -134,7 +134,7 @@ function showWaves()
 	$('.horizLine').animate({"opacity":"0"});
 	$('.txt .para:nth-child(3)').css('top',offset/2);
 	$('.txt .para:nth-child(3)').css('left',offset);
-	$('.txt .para:nth-child(3)').fadeIn(200).delay(200);
+	$('.txt .para:nth-child(3)').fadeIn(200);
 	var l = parseInt($('.txt .para:nth-child(3)').css('left'));
 	$('.txt .para:nth-child(3)').animate({"left":l+50});
 	setTimeout(function(){$('.txt .para:nth-child(3)').animate({"opacity":"0"});},4521);
