@@ -23,9 +23,10 @@ html,body{
 {
 	position: absolute;
 	display: inline-block;
-	//height: 50%;
-	//width:500px;
-	//left:500px;
+	width:800px;
+	height:50%;
+	transform-origin:100% 100%;
+	transition:all 2s;
 }
 .constellation{
 	position: relative;
@@ -220,6 +221,13 @@ html,body{
 	top:200px;
 	left:415px;
 }
+.zeroAbove{
+	position: absolute;
+}
+.zeroBelow{
+	top:200px;
+	left:650px;
+}
 .Wifi:nth-child(1){
 	left:375px;
 	top:420px;
@@ -228,4 +236,7 @@ html,body{
 	left:747px;
 	top:50px;
 	animation-delay: 1.2s;
+}
+.ts{
+	font-family: 
 }

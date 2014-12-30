@@ -232,7 +232,7 @@ function earthGoRound(){
 		$('.txt').css('top',offset*0.2);
 		$('.rocket').fadeIn();
 		$('.rocket').animate({'top':'400px'});
-		$('.earth').css('transform','scale(10,10)');
+		$('.earth').css('transform','scale(9,9)');
 		setTimeout(function(){
 			$('.txt').animate({'opacity':'1'});
 			setTimeout(function(){
@@ -249,25 +249,29 @@ function displayOne()
 	$('.oneAbove').fadeIn();
 	setTimeout(function(){
 		$('.rocket').css("opacity","0");
-		setTimeout(displayRest(),1200);
+		setTimeout(function(){
+			$('.txt').css('left',offset*0.7);
+			$('.txt').css('top',offset*0.15);
+			displayRest();
+		},1200);
 	},1000);
 }
 
 function displayRest()
 {
-	$('.earth').fadeOut();
-	$('.zeroAbove').fadeIn();
+	$('.earth').animate({'opacity':0});
 	$('.zeroBelow').fadeIn();
-	$('.oneBelow').fadeIn();
-	setTimeout(function() {
-		copy10();
+	setTimeout(function(){
+		$('.zeroBelow').css('left','550px');
+		$('.txt').animate({'opacity':1});
+		$('.txt').html('Decimal system was invented in India');
 		setTimeout(function(){
-			fadeOnes();
-			setTimeout(function(){
-				makeINF();
-			},1300);
-		}, 1400);
-	},1500);
+			$('.oneBelow').fadeIn();
+			$('.zeroAbove').fadeIn();
+			$('.txt').animate({'opacity':0});
+			copy10();
+		},2000);
+	},2000);
 }
 
 function copy10()
@@ -276,15 +280,25 @@ function copy10()
 	$('.oneBelow').css({"-webkit-transform":"translateX(350px)"});
 	$('.zeroBelow').css({"transform":"translateX(150px)"});
 	$('.zeroBelow').css({"-webkit-transform":"translateX(150px)"});
-	$('.oneAbove').css({"opacity":"0.3"});
-	$('.zeroAbove').css({"opacity":"0.3"});
+	$('.container').animate({'left':'-50px'});	
+	setTimeout(function(){
+		$('.txt').animate({'opacity':1});
+		$('.txt').html('Binary system was invented in India');
+		setTimeout(function(){
+			$('.txt').animate({'opacity':0});	
+			fadeOnes();
+		},2000);
+	},1000);
 }
 
 function fadeOnes()
 {
-	$('.oneAbove').fadeOut();//refers to the original one
-	$('.oneBelow').fadeOut();//refers to the copied one. Make it go completely hide
-	$('.zeroAbove').css({"opacity":"1"});
+	$('.oneAbove').animate({'opacity':0});
+	$('.oneBelow').animate({'opacity':0});
+	//$('.zeroAbove').css({"opacity":"1"});
+	setTimeout(function(){
+		makeINF();
+	},1000);
 }
 
 function makeINF()
@@ -299,4 +313,63 @@ function makeINF()
 	$('.zeroBelow').css({"-webkit-transform":"translateX(140px)"});
 	$('.zeroAbove .star5').css({"-webkit-transform":"translate(4px,4px)"});
 	$('.zeroBelow  .star12').css({"-webkit-transform":"translate(-4px,-4px)"});
+	
+	$('.txt').animate({'opacity':1});
+	$('.txt').css('left',offset*0.6);
+	$('.txt').html('There are infinite innovations made in India.');
+	
+	setTimeout(function(){
+		$('.txt').animate({'opacity':1});
+		$('.oneAbove').animate({'opacity':1});
+		$('.oneBelow').animate({'opacity':1});
+		
+		for(var i=1;i<=14;++i){
+		  var l = $('.zeroAbove .star:nth-child('+i+')').position().left;
+		  var t = $('.zeroAbove .star:nth-child('+i+')').position().top;
+		  $('.zeroAbove .star:nth-child('+i+')').animate({'left':l/1.2},20);
+		  $('.zeroAbove .star:nth-child('+i+')').animate({'top':t/1.2},20);
+		  
+		  l = $('.zeroBelow .star:nth-child('+i+')').position().left;
+		  t = $('.zeroBelow .star:nth-child('+i+')').position().top;
+		  $('.zeroBelow .star:nth-child('+i+')').animate({'left':l/1.2},20);
+		  $('.zeroBelow .star:nth-child('+i+')').animate({'top':t/1.2},20);
+		}
+		
+		for(i=1;i<=5;i++){
+		  var l= $('.oneBelow .star:nth-child('+i+')').position().top;
+		  $('.oneBelow .star:nth-child('+i+')').animate({'top':l*1.5},20);
+		  
+		  l= $('.oneAbove .star:nth-child('+i+')').position().top;
+		  $('.oneAbove .star:nth-child('+i+')').animate({'top':l*1.5},20);
+		}
+		
+		setTimeout(function(){
+			$('.container').css('transform','translateY(20%) rotate(90deg)');
+			$('.oneAbove').css('transform','translate(35%,53%)');
+			
+			$('.oneBelow').css('transform-origin','200% 80%');
+			$('.oneBelow').css('transform','translate(-69%,65%) rotate(90deg)');
+			
+			setTimeout(function(){
+				for(var i=2;i<=4;++i){
+					$('.zeroAbove .star:nth-child('+i+')').css('opacity','0');
+					$('.zeroBelow .star:nth-child('+(i+7)+')').css('opacity','0');
+				}
+				$('.txt').animate({'opacity':'1'});
+				$('.txt').html('One is');
+				showTS();
+			},1000);
+		},1000);
+		
+	},2000);
+}
+
+function showTS(){
+	setTimeout(function(){
+		$('.txt').animate({'opacity':0});
+		$('.container').animate({'opacity':0});
+		setTimeout(function(){
+			$('.ts').fadeIn();
+		},2500);
+	},3000);
 }

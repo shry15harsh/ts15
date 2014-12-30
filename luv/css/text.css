@@ -31,3 +31,12 @@
 .zero:before{
 	content:"0";
 }
+.ts{
+	position: absolute;
+	font-family:"ElegantSans";
+	font-size:60px;
+	top:30%;
+	left: 35%;
+	display: none;
+	transition: all 1s;
+}
