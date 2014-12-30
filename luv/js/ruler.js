@@ -154,8 +154,8 @@ function rotateLine()
 	setTimeout(function(){
 		$('.horizLine').css('transform','translateY(-100px) rotate(-45deg)');
 		$('.horizLine').css('-webkit-transform','translateY(-100px) rotate(-45deg)');
-		$('.txt').css('top',offset*0.4);
-		$('.txt').css('left',offset*0.40);
+		$('.txt').css('top',offset*0.41);
+		$('.txt').css('left',offset*0.39);
 		setTimeout(function(){showWaves();},INTERVAL);
 	},700);
 }
@@ -262,7 +262,7 @@ function displayRest()
 	$('.earth').animate({'opacity':0});
 	$('.zeroBelow').fadeIn();
 	setTimeout(function(){
-		$('.zeroBelow').css('left','550px');
+		$('.zeroBelow').css('left','-100px');
 		$('.txt').animate({'opacity':1});
 		$('.txt').html('Decimal system was invented in India');
 		setTimeout(function(){
@@ -276,11 +276,11 @@ function displayRest()
 
 function copy10()
 {
-	$('.oneBelow').css({"transform":"translateX(350px)"});
-	$('.oneBelow').css({"-webkit-transform":"translateX(350px)"});
+	$('.container').animate({'left':'600px'});	
+	$('.oneBelow').css({"transform":"translateX(410px)"});
+	$('.oneBelow').css({"-webkit-transform":"translateX(410px)"});
 	$('.zeroBelow').css({"transform":"translateX(150px)"});
 	$('.zeroBelow').css({"-webkit-transform":"translateX(150px)"});
-	$('.container').animate({'left':'-50px'});	
 	setTimeout(function(){
 		$('.txt').animate({'opacity':1});
 		$('.txt').html('Binary system was invented in India');
@@ -319,11 +319,11 @@ function makeINF()
 	$('.txt').html('There are infinite innovations made in India.');
 	
 	setTimeout(function(){
-		$('.txt').animate({'opacity':1});
-		$('.oneAbove').animate({'opacity':1});
-		$('.oneBelow').animate({'opacity':1});
+		$('.txt').animate({'opacity':0});
+		//$('.oneAbove').animate({'opacity':1});
+		//$('.oneBelow').animate({'opacity':1});
 		
-		for(var i=1;i<=14;++i){
+		/*for(var i=1;i<=14;++i){
 		  var l = $('.zeroAbove .star:nth-child('+i+')').position().left;
 		  var t = $('.zeroAbove .star:nth-child('+i+')').position().top;
 		  $('.zeroAbove .star:nth-child('+i+')').animate({'left':l/1.2},20);
@@ -341,9 +341,17 @@ function makeINF()
 		  
 		  l= $('.oneAbove .star:nth-child('+i+')').position().top;
 		  $('.oneAbove .star:nth-child('+i+')').animate({'top':l*1.5},20);
-		}
+		}*/
 		
 		setTimeout(function(){
+			$('.container').animate({'opacity':0});
+			$('.txt').html('One is');
+			setTimeout(function(){
+				$('.txt').animate({'opacity':'1'});
+				showTS();
+			},2000);
+		},1000);
+		/*setTimeout(function(){
 			$('.container').css('transform','translateY(20%) rotate(90deg)');
 			$('.oneAbove').css('transform','translate(35%,53%)');
 			
@@ -356,10 +364,9 @@ function makeINF()
 					$('.zeroBelow .star:nth-child('+(i+7)+')').css('opacity','0');
 				}
 				$('.txt').animate({'opacity':'1'});
-				$('.txt').html('One is');
 				showTS();
 			},1000);
-		},1000);
+		},1000);*/
 		
 	},2000);
 }
@@ -367,9 +374,6 @@ function makeINF()
 function showTS(){
 	setTimeout(function(){
 		$('.txt').animate({'opacity':0});
-		$('.container').animate({'opacity':0});
-		setTimeout(function(){
-			$('.ts').fadeIn();
-		},2500);
+		$('.ts').fadeIn();
 	},3000);
 }
