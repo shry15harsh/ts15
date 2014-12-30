@@ -246,8 +246,57 @@ function displayOne()
 {
 	$('.txt').animate({'opacity':'0'});
 	$('.rocket').css('top','0px');
-	$('.oneAbove').css('opacity','1');
+	$('.oneAbove').fadeIn();
 	setTimeout(function(){
 		$('.rocket').css("opacity","0");
+		setTimeout(displayRest(),1200);
 	},1000);
+}
+
+function displayRest()
+{
+	$('.earth').fadeOut();
+	$('.zeroAbove').fadeIn();
+	$('.zeroBelow').fadeIn();
+	$('.oneBelow').fadeIn();
+	setTimeout(function() {
+		copy10();
+		setTimeout(function(){
+			fadeOnes();
+			setTimeout(function(){
+				makeINF();
+			},1300);
+		}, 1400);
+	},1500);
+}
+
+function copy10()
+{
+	$('.oneBelow').css({"transform":"translateX(350px)"});
+	$('.oneBelow').css({"-webkit-transform":"translateX(350px)"});
+	$('.zeroBelow').css({"transform":"translateX(150px)"});
+	$('.zeroBelow').css({"-webkit-transform":"translateX(150px)"});
+	$('.oneAbove').css({"opacity":"0.3"});
+	$('.zeroAbove').css({"opacity":"0.3"});
+}
+
+function fadeOnes()
+{
+	$('.oneAbove').fadeOut();//refers to the original one
+	$('.oneBelow').fadeOut();//refers to the copied one. Make it go completely hide
+	$('.zeroAbove').css({"opacity":"1"});
+}
+
+function makeINF()
+{
+	$('.zeroAbove').css({"transform":"translateX(10px)"});
+	$('.zeroBelow').css({"transform":"translateX(140px)"});
+	$('.zeroAbove .star5').css({"transform":"translate(4px,4px)"});
+	$('.zeroBelow  .star12').css({"transform":"translate(-4px,-4px)"});
+	
+	//for Chrome
+	$('.zeroAbove').css({"-webkit-transform":"translateX(10px)"});
+	$('.zeroBelow').css({"-webkit-transform":"translateX(140px)"});
+	$('.zeroAbove .star5').css({"-webkit-transform":"translate(4px,4px)"});
+	$('.zeroBelow  .star12').css({"-webkit-transform":"translate(-4px,-4px)"});
 }

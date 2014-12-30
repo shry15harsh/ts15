@@ -33,6 +33,7 @@ html,body{
 	height: 100%;
 	display:inline-block;
 	//background: green;
+	display:none;
 }
 .star{
 	background-color: white;
@@ -189,15 +190,23 @@ html,body{
 	width:140px;
 	height:100%;
 }
+.zeroAbove
+{
+	position:absolute;
+	left:550px;
+	top:200px;
+}
 .zeroBelow
 {
-	left:145px;
+	left:550px;
+	top:200px;
 	transition:all 1s;
 	-webkit-transition:all 1s;
 }
 .oneBelow
 {
-	left:0px;
+	top:200px;
+	left:415px;
 	transition: all 1s;
 	-webkit-transition: all 1s;
 }
