@@ -12,6 +12,7 @@ var alphas = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g
 
 
 $(window).load(function(){
+	console.log('Document is Ready');
 	loadMusic();
 });
 
@@ -28,6 +29,7 @@ function loadMusic(){
 }
 
 function musicIsReady(){
+	console.log('Music is Ready');
 	createjs.Sound.play("mySound");
 	init();
 }
