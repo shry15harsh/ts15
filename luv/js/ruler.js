@@ -35,7 +35,7 @@ function loadMusic(){
 function progress(){
 	qNow = new Date().getTime() / 1000;
 	console.log(queue.progress);
-	$('#progress').html('<b>'+((queue.progress)*100).toFixed(2)+'%</b> of music has beed downloaded.');
+	$('#progress').html('<b>'+((queue.progress)*100).toFixed(2)+'%</b> of music has been downloaded.');
 	if(qNow-qStart>5){
 		$('#progress').append("<br>Website is light. Your connection speed is <b>"+((queue.progress*750)/(qNow-qStart)).toFixed(2)+" 	KBPS</b>.<br> Please wait a little bit.");
 	}
