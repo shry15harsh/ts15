@@ -10,22 +10,27 @@ var WIDTH = 15*NUM_OF_MARKS;
 
 var alphas = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','Z'];
 
-var audioElement;
 
 $(document).ready(function(){
-	audioElement = new Audio();//document.createElement('audio');
-    audioElement.src = 'lighters.mp3';//setAttribute('src', 'lighters.mp3');
-	
-	console.log('Document is ready, preparing audio');
-	
-	audioElement.addEventListener("canplaythrough", function() {
-		audioElement.play();
-		console.log('Audio can be played');
-		init();
-	//Calculating screen size and offset
-	
-	});
+	loadMusic();
 });
+
+function loadMusic(){
+	var queue = new createjs.LoadQueue();
+	queue.installPlugin(createjs.Sound);
+	createjs.Sound.alternateExtensions = ["mp3"];
+	queue.addEventListener("complete", musicIsReady);
+	queue.addEventListener("error", function(){
+		console.log('Error loading file');
+		loadMusic();
+	});
+	queue.loadFile({id:"mySound", src:"lighters.mp3"});	
+}
+
+function musicIsReady(){
+	createjs.Sound.play("mySound");
+	init();
+}
 
 function init(){
 	screen_size = $(window).width();
