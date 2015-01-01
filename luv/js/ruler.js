@@ -10,14 +10,16 @@ var WIDTH = 15*NUM_OF_MARKS;
 
 var alphas = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','Z'];
 
-var queue;
+var queue, qStart, qNow;
 
 $(window).load(function(){
 	console.log('Document is Ready');
+	$('#progress').html('Getting the background music.');
 	loadMusic();
 });
 
 function loadMusic(){
+	qStart = new Date().getTime() / 1000;
 	queue = new createjs.LoadQueue();
 	queue.installPlugin(createjs.Sound);
 	createjs.Sound.alternateExtensions = ["mp3"];
@@ -31,10 +33,16 @@ function loadMusic(){
 }
 
 function progress(){
+	qNow = new Date().getTime() / 1000;
 	console.log(queue.progress);
+	$('#progress').html('<b>'+queue.progress.toFixed(2)*100+'</b> of music has beed downloaded.');
+	if(qNow-qStart>5){
+		$('#progress').append("<br>Website is very light. Your connection speed is <b>"+(queue.progress*750)/(qNow-qStart)+"KBPS</b>.");
+	}
 }
 function musicIsReady(){
 	console.log('Music is Ready');
+	$('#progress').css('display','none');
 	createjs.Sound.play("mySound");
 	init();
 }

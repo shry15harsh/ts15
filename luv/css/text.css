@@ -55,3 +55,8 @@
 .mainText a{
 	color:white;
 }
+#progress{
+	margin-top:20%;
+	font-size:1.2em;
+	font-family:"ElegantSans";
+}
