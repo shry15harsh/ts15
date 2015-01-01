@@ -13,84 +13,81 @@ var alphas = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g
 var audioElement;
 
 $(document).ready(function(){
-	audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'lighters.mp3');
-	audioElement.addEventListener("canplaythrough", function() {  
-	audioElement.play();
+	audioElement = new Audio();//document.createElement('audio');
+    audioElement.src = 'lighters.mp3';//setAttribute('src', 'lighters.mp3');
+	
+	
+	audioElement.addEventListener("canplaythrough", function() {
+		audioElement.play();
 		//alert('hey');
-		//Calculating screen size and offset
-		screen_size = $(window).width();
-		offset = screen_size/2;
+		init();
+	//Calculating screen size and offset
+	
+	});
+});
+
+function init(){
+	screen_size = $(window).width();
+	offset = screen_size/2;
+	
+	//Setting current scene text and its position
+	$('.txt').html('Everything starts with <b><span>Zero</span></b>');
+	
+	$('.txt').css('top',offset*0.30);
+	$('.txt').css('left',offset*0.60);
+	$('.txt').fadeIn();
+	
+	$('.zero').css('top', offset*0.30);
+	$('.zero').css('left',offset*0.94);
+	
+	setTimeout(function(){
+		$('.txt').css('color','transparent');
+		$('.txt span').css('color', 'white');
+		$('.txt').css('left',offset*0.50);
 		
-		//Setting current scene text and its position
-		$('.txt').html('Everything starts with <b><span>Zero</span></b>');
-		
-		$('.txt').css('top',offset*0.30);
-		$('.txt').css('left',offset*0.60);
-		$('.txt').fadeIn();
-		
-		$('.zero').css('top', offset*0.30);
-		$('.zero').css('left',offset*0.94);
+		var fourPos = ['35','14','27','24'];
+		var startFrom = 3;
 		
 		setTimeout(function(){
-			$('.txt').css('color','transparent');
-			$('.txt span').css('color', 'white');
-			$('.txt').css('left',offset*0.50);
-			
-			var fourPos = ['35','14','27','24'];
-			var startFrom = 3;
-			
-			setTimeout(function(){
-				//To 0 animation
-				var intId = setInterval(function(){
-					$('.txt span').html(alphas[fourPos[0]]+alphas[fourPos[1]]+alphas[fourPos[2]]+alphas[fourPos[3]]);
-					if(fourPos[startFrom]==0){
-						--startFrom;
-						if(startFrom==-1){
+			//To 0 animation
+			var intId = setInterval(function(){
+				$('.txt span').html(alphas[fourPos[0]]+alphas[fourPos[1]]+alphas[fourPos[2]]+alphas[fourPos[3]]);
+				if(fourPos[startFrom]==0){
+					--startFrom;
+					if(startFrom==-1){
+						setTimeout(function(){
+							$('.txt span').fadeOut();
 							setTimeout(function(){
-								$('.txt span').fadeOut();
+								//$('.txt span').html('<b>0</b>');
+								//$('.txt span').fadeIn();
+								$('.txt').css('display','none');
+								$('.txt').css('top',offset*0.20);
+								$('.txt').html('Zero was invented in India');
+								$('.txt').fadeIn();
+								$('.txt').css('color','white');
+								$('.zero').fadeIn();
 								setTimeout(function(){
-									//$('.txt span').html('<b>0</b>');
-									//$('.txt span').fadeIn();
-									$('.txt').css('display','none');
-									$('.txt').css('top',offset*0.20);
-									$('.txt').html('Zero was invented in India');
-									$('.txt').fadeIn();
-									$('.txt').css('color','white');
-									$('.zero').fadeIn();
+									$('.txt').css('opacity','0');
 									setTimeout(function(){
-										$('.txt').css('opacity','0');
-										setTimeout(function(){
-											$('.txt').css('font-size','1.5em');
-											$('.txt').css('letter-spacing','0px');
-											$('.txt').html('Ruler is a basic instrument to measure and draw straight lines.<br> It was invented in Indus Valley Civilisation.');
-											$('.txt').css('top',offset*0.65);
-											$('.txt').css('left',offset*0.90);
-											moveZero();
-										},1000);
-									},2000);
-								},1000);
+										$('.txt').css('font-size','1.5em');
+										$('.txt').css('letter-spacing','0px');
+										$('.txt').html('Ruler is a basic instrument to measure and draw straight lines.<br> It was invented in Indus Valley Civilisation.');
+										$('.txt').css('top',offset*0.65);
+										$('.txt').css('left',offset*0.90);
+										moveZero();
+									},1000);
+								},2000);
 							},1000);
-							clearInterval(intId);
-						}
-					}else{
-						--fourPos[startFrom];
+						},1000);
+						clearInterval(intId);
 					}
-				},40);
-			},1000);
-		},5000);	
-
-	},false);	
-	//setTimeout(function(){makeZeroSmall();},INTERVAL*4);
-	/*
-	//Setting container position
-	$('.container').css('left',offset/2);
-	$('.container').css('top',offset/4);
-	*/
-	
-	//$('.zero').fadeIn();
-	//moveZero();
-});
+				}else{
+					--fourPos[startFrom];
+				}
+			},40);
+		},1000);
+	},5000);	
+}
 
 function moveZero()
 {
@@ -302,7 +299,7 @@ function copy10()
 		$('.txt').html('Binary system was invented in India');
 		setTimeout(function(){
 			$('.txt').animate({'opacity':0});	
-			//fadeOnes();
+			fadeOnes();
 		},2000);
 	},1000);
 }

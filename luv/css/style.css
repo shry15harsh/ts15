@@ -242,3 +242,6 @@ html,body{
 	top:50px;
 	animation-delay: 1.2s;
 }
+audio{
+	display: none;
+}
