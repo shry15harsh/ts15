@@ -16,10 +16,11 @@ $(document).ready(function(){
 	audioElement = new Audio();//document.createElement('audio');
     audioElement.src = 'lighters.mp3';//setAttribute('src', 'lighters.mp3');
 	
+	console.log('Document is ready, preparing audio');
 	
 	audioElement.addEventListener("canplaythrough", function() {
 		audioElement.play();
-		//alert('hey');
+		console.log('Audio can be played');
 		init();
 	//Calculating screen size and offset
 	
