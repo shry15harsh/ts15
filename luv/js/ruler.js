@@ -20,7 +20,7 @@ $(window).load(function(){
 
 function loadMusic(){
 	qStart = new Date().getTime() / 1000;
-	queue = new createjs.LoadQueue();
+	queue = new createjs.LoadQueue(true);
 	queue.installPlugin(createjs.Sound);
 	createjs.Sound.alternateExtensions = ["mp3"];
 	queue.addEventListener("complete", musicIsReady);
