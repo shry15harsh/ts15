@@ -10,58 +10,77 @@ var WIDTH = 15*NUM_OF_MARKS;
 
 var alphas = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','Z'];
 
+var audioElement;
+
 $(document).ready(function(){
-	//Calculating screen size and offset
-	screen_size = $(window).width();
-	offset = screen_size/2;
-	
-	//Setting current scene text and its position
-	$('.txt').html('Everything starts with <b><span>Zero</span></b>');
-	
-	$('.txt').css('top',offset*0.30);
-	$('.txt').css('left',offset*0.60);
-	$('.txt').fadeIn();
-	
-	$('.zero').css('top', offset*0.30);
-	$('.zero').css('left',offset*0.94);
-	
-	setTimeout(function(){
-		$('.txt').css('color','transparent');
-		$('.txt span').css('color', 'white');
-		$('.txt').css('left',offset*0.50);
+	audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'lighters.mp3');
+	audioElement.addEventListener("canplaythrough", function() {  
+	audioElement.play();
+		//alert('hey');
+		//Calculating screen size and offset
+		screen_size = $(window).width();
+		offset = screen_size/2;
 		
-		var fourPos = ['35','14','27','24'];
-		var startFrom = 3;
+		//Setting current scene text and its position
+		$('.txt').html('Everything starts with <b><span>Zero</span></b>');
+		
+		$('.txt').css('top',offset*0.30);
+		$('.txt').css('left',offset*0.60);
+		$('.txt').fadeIn();
+		
+		$('.zero').css('top', offset*0.30);
+		$('.zero').css('left',offset*0.94);
 		
 		setTimeout(function(){
-			//To 0 animation
-			var intId = setInterval(function(){
-				$('.txt span').html(alphas[fourPos[0]]+alphas[fourPos[1]]+alphas[fourPos[2]]+alphas[fourPos[3]]);
-				if(fourPos[startFrom]==0){
-					--startFrom;
-					if(startFrom==-1){
-						setTimeout(function(){
-							$('.txt span').fadeOut();
+			$('.txt').css('color','transparent');
+			$('.txt span').css('color', 'white');
+			$('.txt').css('left',offset*0.50);
+			
+			var fourPos = ['35','14','27','24'];
+			var startFrom = 3;
+			
+			setTimeout(function(){
+				//To 0 animation
+				var intId = setInterval(function(){
+					$('.txt span').html(alphas[fourPos[0]]+alphas[fourPos[1]]+alphas[fourPos[2]]+alphas[fourPos[3]]);
+					if(fourPos[startFrom]==0){
+						--startFrom;
+						if(startFrom==-1){
 							setTimeout(function(){
-								//$('.txt span').html('<b>0</b>');
-								//$('.txt span').fadeIn();
-								$('.txt').css('display','none');
-								$('.txt').css('color','white');
-								$('.zero').fadeIn();
+								$('.txt span').fadeOut();
 								setTimeout(function(){
-									moveZero();
+									//$('.txt span').html('<b>0</b>');
+									//$('.txt span').fadeIn();
+									$('.txt').css('display','none');
+									$('.txt').css('top',offset*0.20);
+									$('.txt').html('Zero was invented in India');
+									$('.txt').fadeIn();
+									$('.txt').css('color','white');
+									$('.zero').fadeIn();
+									setTimeout(function(){
+										$('.txt').css('opacity','0');
+										setTimeout(function(){
+											$('.txt').css('font-size','1.5em');
+											$('.txt').css('letter-spacing','0px');
+											$('.txt').html('Ruler is a basic instrument to measure and draw straight lines.<br> It was invented in Indus Valley Civilisation.');
+											$('.txt').css('top',offset*0.65);
+											$('.txt').css('left',offset*0.90);
+											moveZero();
+										},1000);
+									},2000);
 								},1000);
 							},1000);
-						},1000);
-						clearInterval(intId);
+							clearInterval(intId);
+						}
+					}else{
+						--fourPos[startFrom];
 					}
-				}else{
-					--fourPos[startFrom];
-				}
-			},20);
-		},1000);
-	},2000);	
-	
+				},40);
+			},1000);
+		},5000);	
+
+	},false);	
 	//setTimeout(function(){makeZeroSmall();},INTERVAL*4);
 	/*
 	//Setting container position
@@ -122,12 +141,7 @@ function setMarks(i)
 	}
 	else if(i>NUM_OF_MARKS)
 	{
-		$('.txt').css('font-size','1.5em');
-		$('.txt').css('letter-spacing','0px');
-		$('.txt').html('Ruler is a basic instrument to measure and draw straight lines.<br> It was invented in Indus Valley Civilisation.');
-		$('.txt').css('top',offset*0.65);
-		$('.txt').css('left',offset*0.90);
-		$('.txt').fadeIn().delay(200);
+		$('.txt').css('opacity','1');
 		var l = parseInt($('.txt').css('left'));
 		$('.txt').animate({"left":l+50});
 		fadeMarks();
@@ -157,7 +171,7 @@ function rotateLine()
 		$('.txt').css('top',offset*0.41);
 		$('.txt').css('left',offset*0.39);
 		setTimeout(function(){showWaves();},INTERVAL);
-	},700);
+	},1700);
 }
 
 function showWaves()
@@ -178,17 +192,18 @@ function showWaves()
 	
 	
 	$('.txt').html('Invention of Wireless Radio Transmission is accredited to Sir Jagadish Chandra Bose');
-	$('.horizLine').animate({"opacity":"0"});
 	
 	setTimeout(function(){
-		$('.txt').css('opacity','1');
+		$('.horizLine').animate({"opacity":"0"});
+		for(var i=1;i<=2;i++)
+		{
+			$('.Wifi:nth-child('+i+')').fadeIn();
+		}
 		setTimeout(function(){
-			for(var i=1;i<=2;i++)
-			{
-				$('.Wifi:nth-child('+i+')').fadeIn(100);
-			}
+			$('.horizLine').animate({"opacity":"0"});
+			$('.txt').css('opacity','1');
 		},1000);
-	},1000);
+	},2000);
 	var msg = $('.txt').html();
 	var msg_letters = msg.split("");
 	$('.txt').html('');
@@ -276,7 +291,8 @@ function displayRest()
 
 function copy10()
 {
-	$('.container').animate({'left':'600px'});	
+	$('.container').css('transform','translateX(-5%)');
+	$('.container').css('-webkit-transform','translateX(-5%)');
 	$('.oneBelow').css({"transform":"translateX(410px)"});
 	$('.oneBelow').css({"-webkit-transform":"translateX(410px)"});
 	$('.zeroBelow').css({"transform":"translateX(150px)"});
@@ -286,7 +302,7 @@ function copy10()
 		$('.txt').html('Binary system was invented in India');
 		setTimeout(function(){
 			$('.txt').animate({'opacity':0});	
-			fadeOnes();
+			//fadeOnes();
 		},2000);
 	},1000);
 }
@@ -375,5 +391,11 @@ function showTS(){
 	setTimeout(function(){
 		$('.txt').animate({'opacity':0});
 		$('.ts').fadeIn();
+		setTimeout(function(){
+			$('.ts').css('top','100px');
+			$('.constellation').css('display','none');
+			$('.earth').css('display','none');
+			$('.mainText').fadeIn();
+		},2000);
 	},3000);
 }
