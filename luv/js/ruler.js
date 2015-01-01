@@ -10,6 +10,7 @@ var WIDTH = 15*NUM_OF_MARKS;
 
 var alphas = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','Z'];
 
+var queue;
 
 $(window).load(function(){
 	console.log('Document is Ready');
@@ -17,10 +18,11 @@ $(window).load(function(){
 });
 
 function loadMusic(){
-	var queue = new createjs.LoadQueue();
+	queue = new createjs.LoadQueue();
 	queue.installPlugin(createjs.Sound);
 	createjs.Sound.alternateExtensions = ["mp3"];
 	queue.addEventListener("complete", musicIsReady);
+	queue.addEventListener("progress", progress);
 	queue.addEventListener("error", function(){
 		console.log('Error loading file');
 		loadMusic();
@@ -28,6 +30,9 @@ function loadMusic(){
 	queue.loadFile({id:"mySound", src:"lighters.mp3"});	
 }
 
+function progress(){
+	console.log(queue.progress);
+}
 function musicIsReady(){
 	console.log('Music is Ready');
 	createjs.Sound.play("mySound");
