@@ -1,2 +1,0 @@
-Regarding the animation, should I do it using JS or using CSS?
-I have done it here using CSS
