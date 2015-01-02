@@ -37,6 +37,7 @@
 	font-size:60px;
 	left: 35%;
 	top:200px;
+	opacity:0;
 	display: none;
 	transition: all 1s;
 }

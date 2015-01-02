@@ -442,9 +442,10 @@ function makeINF()
 }
 
 function showTS(){
+	$('.ts').css('display','block');
 	setTimeout(function(){
 		$('.txt').animate({'opacity':0});
-		$('.ts').fadeIn();
+		$('.ts').css('opacity','1');
 		setTimeout(function(){
 			$('.ts').css('top','100px');
 			setTimeout(function(){
@@ -452,7 +453,7 @@ function showTS(){
 				$('.constellation').css('display','none');
 				$('.earth').css('display','none');
 				$('.mainText').fadeIn();
-				$('#fb-button').fadeIn();
+				$('#fb-button').css("opacity","1");
 			},1500);
 		},2000);
 	},3000);
