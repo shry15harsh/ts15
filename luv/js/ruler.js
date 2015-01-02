@@ -32,9 +32,6 @@ function loadMusic(){
 	queue.loadFile({id:"mySound", src:"lighters.mp3"});	*/
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", 'lighters.mp3', true);
-	xhr.responseType = "blob";
-  
 	xhr.addEventListener("load", function(){
 		if(xhr.status === 200){
 			var URL = window.URL || window.webkitURL;
@@ -60,6 +57,8 @@ function loadMusic(){
 			}
 		}
 	});
+	xhr.open("GET", 'lighters.mp3', true);
+	xhr.responseType = "blob";
 	xhr.send();
 }
 
@@ -67,7 +66,7 @@ function progress(pc){
 	qNow = new Date().getTime() / 1000;
 	$('#progress').html('<b>'+pc+'%</b> of music has been downloaded.');
 	if(qNow-qStart>5){
-		$('#progress').append("<br>Website is light. Your connection speed is <b>"+((queue.progress*7.5)/(qNow-qStart)).toFixed(2)+" 	KBPS</b>.<br> Please wait a little bit.");
+		$('#progress').append("<br>Website is light. Your connection speed is <b>"+((pc*7.5)/(qNow-qStart)).toFixed(2)+" 	KBPS</b>.<br> Please wait a little bit.");
 	}
 }
 function musicIsReady(music){
