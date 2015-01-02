@@ -42,7 +42,7 @@ function loadMusic(){
 			musicIsReady(blob_url);
 		}
 		else{
-			console.log('Error, Retrying');
+			console.log('Error, Trying loading from normal method.');
 			player.src = 'lighters.mp3';
 			player.addEventListener("canplaythrough", function(){
 				$('#progress').css('display','none');
