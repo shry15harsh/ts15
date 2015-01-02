@@ -1,0 +1,262 @@
+.Wifi
+{
+	position:absolute;
+	display:none;
+}
+.Arc{
+	border:2px solid transparent;
+	border-radius:100%;
+	margin:0 auto;
+}
+.Out{
+	width:80px;
+	height:80px;
+	margin:20px auto;
+	border-top-color:white;
+	-webkit-animation:appearOut 3s infinite linear;
+	-moz-animation:appearOut 3s infinite linear;
+	-o-animation:appearOut 3s infinite linear;
+	animation:appearOut 3s infinite linear;
+}
+.Middle{
+	width:50px;
+	height:50px;
+	margin:20px auto;
+	border-top-color:white;
+	-webkit-animation:appearMiddle 3s infinite linear;
+	-moz-animation:appearMiddle 3s infinite linear;
+	-o-animation:appearMiddle 3s infinite linear;
+	animation:appearMiddle 3s infinite linear;
+}
+.In{
+	width:20px;
+	height:20px;
+	margin:20px auto;
+	border-top-color:white;
+	-webkit-animation:appearIn 3s infinite linear;
+	-moz-animation:appearIn 3s infinite linear;
+	-o-animation:appearIn 3s infinite linear;
+	animation:appearIn 3s infinite linear;
+}
+.Dot{
+	width:2px;
+	height:2px;
+	margin:10px auto;
+	background:white;//white;
+	display: none;
+}
+@keyframes "appearIn" {
+    0% {
+        border-top-color:transparent;
+    }
+	25%{
+		border-top-color:white;
+	}
+    75% {
+		border-top-color:white;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+@keyframes "appearMiddle" {
+    0% {
+		border-top-color:transparent;
+    }
+	25%{
+		border-top-color:transparent;
+	}
+    75% {
+		border-top-color:white;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+
+@keyframes "appearOut" {
+    0% {
+		border-top-color:transparent;
+    }
+	25%{
+		border-top-color:transparent;
+	}
+    75% {
+		border-top-color:transparent;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+@-moz-keyframes appearIn {
+    0% {
+        border-top-color:transparent;
+    }
+	25%{
+		border-top-color:white;
+	}
+    75% {
+		border-top-color:white;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+@-moz-keyframes appearMiddle {
+    0% {
+		border-top-color:transparent;
+    }
+	25%{
+		border-top-color:transparent;
+	}
+    75% {
+		border-top-color:white;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+
+@-moz-keyframes appearOut {
+    0% {
+		border-top-color:transparent;
+    }
+	25%{
+		border-top-color:transparent;
+	}
+    75% {
+		border-top-color:transparent;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+@-webkit-keyframes "appearIn" {
+    0% {
+        border-top-color:transparent;
+    }
+	25%{
+		border-top-color:white;
+	}
+    75% {
+		border-top-color:white;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+@-webkit-keyframes "appearMiddle" {
+    0% {
+		border-top-color:transparent;
+    }
+	25%{
+		border-top-color:transparent;
+	}
+    75% {
+		border-top-color:white;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+
+@-webkit-keyframes "appearOut" {
+    0% {
+		border-top-color:transparent;
+    }
+	25%{
+		border-top-color:transparent;
+	}
+    75% {
+		border-top-color:transparent;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+@-ms-keyframes "appearIn" {
+    0% {
+        border-top-color:transparent;
+    }
+	25%{
+		border-top-color:white;
+	}
+    75% {
+		border-top-color:white;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+@-ms-keyframes "appearMiddle" {
+    0% {
+		border-top-color:transparent;
+    }
+	25%{
+		border-top-color:transparent;
+	}
+    75% {
+		border-top-color:white;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+
+@-ms-keyframes "appearOut" {
+    0% {
+		border-top-color:transparent;
+    }
+	25%{
+		border-top-color:transparent;
+	}
+    75% {
+		border-top-color:transparent;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+@-o-keyframes "appearIn" {
+    0% {
+        border-top-color:transparent;
+    }
+	25%{
+		border-top-color:white;
+	}
+    75% {
+		border-top-color:white;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+@-o-keyframes "appearMiddle" {
+    0% {
+		border-top-color:transparent;
+    }
+	25%{
+		border-top-color:transparent;
+	}
+    75% {
+		border-top-color:white;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
+
+@-o-keyframes "appearOut" {
+    0% {
+		border-top-color:transparent;
+    }
+	25%{
+		border-top-color:transparent;
+	}
+    75% {
+		border-top-color:transparent;
+    }
+    100% {
+		border-top-color:white;
+    }
+}
