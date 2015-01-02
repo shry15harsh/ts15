@@ -10,7 +10,7 @@ var WIDTH = 15*NUM_OF_MARKS;
 
 var alphas = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','Z'];
 
-var queue, qStart, qNow;
+var player, qStart, qNow;
 
 $(window).load(function(){
 	console.log('Document is Ready');
@@ -20,7 +20,7 @@ $(window).load(function(){
 
 function loadMusic(){
 	qStart = new Date().getTime() / 1000;
-	queue = new createjs.LoadQueue(true);
+	/*queue = new createjs.LoadQueue(true);
 	queue.installPlugin(createjs.Sound);
 	createjs.Sound.alternateExtensions = ["mp3"];
 	queue.addEventListener("complete", musicIsReady);
@@ -29,21 +29,53 @@ function loadMusic(){
 		console.log('Error loading file');
 		loadMusic();
 	});
-	queue.loadFile({id:"mySound", src:"lighters.mp3"});	
+	queue.loadFile({id:"mySound", src:"lighters.mp3"});	*/
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", 'lighters.mp3', true);
+	xhr.responseType = "blob";
+  
+	xhr.addEventListener("load", function(){
+		if(xhr.status === 200){
+			var URL = window.URL || window.webkitURL;
+			var blob_url = URL.createObjectURL(xhr.response);
+		
+			console.log('Fetched Audio');
+			musicIsReady(blob_url);
+		}
+		else{
+			console.log('Error, Retrying');
+			loadMusic();
+		}
+	}, false);
+  
+	var prev_pc = 0;
+	xhr.addEventListener("progress", function(event){
+		if(event.lengthComputable){
+			var pc = Math.round((event.loaded/event.total)*100);
+			if(pc != prev_pc){
+				prev_pc = pc;
+				console.log('Progess is '+pc);
+				progress(pc);
+			}
+		}
+	});
+	xhr.send();
 }
 
-function progress(){
+function progress(pc){
 	qNow = new Date().getTime() / 1000;
-	console.log(queue.progress);
-	$('#progress').html('<b>'+((queue.progress)*100).toFixed(2)+'%</b> of music has been downloaded.');
+	$('#progress').html('<b>'+pc+'%</b> of music has been downloaded.');
 	if(qNow-qStart>5){
-		$('#progress').append("<br>Website is light. Your connection speed is <b>"+((queue.progress*750)/(qNow-qStart)).toFixed(2)+" 	KBPS</b>.<br> Please wait a little bit.");
+		$('#progress').append("<br>Website is light. Your connection speed is <b>"+((queue.progress*7.5)/(qNow-qStart)).toFixed(2)+" 	KBPS</b>.<br> Please wait a little bit.");
 	}
 }
-function musicIsReady(){
+function musicIsReady(music){
 	console.log('Music is Ready');
+	player = new window.Audio();
+	player.src = music;
+
 	$('#progress').css('display','none');
-	createjs.Sound.play("mySound");
 	init();
 }
 
@@ -51,6 +83,7 @@ function init(){
 	screen_size = $(window).width();
 	offset = screen_size/2;
 	
+	player.play();
 	//Setting current scene text and its position
 	$('.txt').html('Everything starts with <b><span>Zero</span></b>');
 	
