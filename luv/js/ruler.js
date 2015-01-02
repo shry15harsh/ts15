@@ -56,7 +56,7 @@ function loadMusic(){
 				progress(pc);
 			}
 		}
-	});
+	}, false);
 	xhr.open("GET", 'lighters.mp3', true);
 	xhr.responseType = "blob";
 	xhr.send();
