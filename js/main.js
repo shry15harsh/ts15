@@ -447,9 +447,13 @@ function showTS(){
 		$('.ts').fadeIn();
 		setTimeout(function(){
 			$('.ts').css('top','100px');
-			$('.constellation').css('display','none');
-			$('.earth').css('display','none');
-			$('.mainText').fadeIn();
+			setTimeout(function(){
+				$('.ts .nit').css('opacity','1');
+				$('.constellation').css('display','none');
+				$('.earth').css('display','none');
+				$('.mainText').fadeIn();
+				$('#fb-button').fadeIn();
+			},1500);
 		},2000);
 	},3000);
 }
