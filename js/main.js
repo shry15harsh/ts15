@@ -10,7 +10,8 @@ var WIDTH = 15*NUM_OF_MARKS;
 
 var alphas = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','Z'];
 
-var player, qStart, qNow;
+var player = new window.Audio();
+var qStart, qNow;
 
 $(window).load(function(){
 	console.log('Document is Ready');
@@ -42,7 +43,11 @@ function loadMusic(){
 		}
 		else{
 			console.log('Error, Retrying');
-			loadMusic();
+			player.src = 'lighters.mp3';
+			player.addEventListener("canplaythrough", function(){
+				$('#progress').css('display','none');
+				init();
+			}, false);
 		}
 	}, false);
   
@@ -71,7 +76,6 @@ function progress(pc){
 }
 function musicIsReady(music){
 	console.log('Music is Ready');
-	player = new window.Audio();
 	player.src = music;
 
 	$('#progress').css('display','none');
