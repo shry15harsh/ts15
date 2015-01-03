@@ -13,6 +13,11 @@ var alphas = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g
 var player = new window.Audio();
 var qStart, qNow;
 
+//Click functions
+$('.replay').on('click', function(){
+		location.reload(); 
+});
+
 $(window).load(function(){
 	console.log('Document is Ready');
 	$('#progress').html('Getting the background music.');

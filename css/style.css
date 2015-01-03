@@ -246,8 +246,32 @@ audio{
 	display: none;
 }
 #fb-button{
-	position: absolute;
+	position:absolute;
 	top:20px;
 	right:20px;
-	opacity: 0;
+	opacity:0;
+	font-family: "ElegantSans";
+}
+.replay{
+	cursor:pointer;
+}
+.triangle{
+	width:0;
+	height:0;
+	margin-left:50%;
+	margin-top:50%;
+	left:-6px;
+	//top:-50px;
+	position:relative;
+	border-top:10px solid transparent;
+	border-bottom:10px solid transparent;
+	border-left:20px solid silver;
+	z-index:2;
+	-webkit-transition:all .3s;
+	-moz-transition:all .3s;
+	transition:all .3s;
+}
+
+.triangle:hover{
+	border-left:20px solid white;
 }
