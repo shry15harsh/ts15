@@ -51,7 +51,7 @@ function setRuler()
 	$('.ruler').css('display','block');
 	$('.horizLine').animate({"width":15*(NUM_OF_MARKS)+"px"});
 	$('.markings').css('bottom','0px');
-	//makeMarks();
+	makeMarks();
 	rotateLine();//comment this out later on
 }
 

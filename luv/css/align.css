@@ -1,0 +1,40 @@
+.insert
+{
+	display:inline-block;
+	margin-left:20px;
+	font-size:18px;
+}
+.errmess
+{
+	display:none;
+}
+.form1
+{
+	display:none;
+}
+.tpspace
+{
+	top:45px;
+	left:-60px;
+	position:absolute;
+}
+.fspace{
+	position:relative;
+	top:40px;
+}
+.segment
+{
+	height:auto;
+}
+.form
+{
+	width:1200px;
+}
+.head
+{
+	height:60px;
+}
+.finalForm
+{
+	width:1200px;
+}

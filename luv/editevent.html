@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<title> Form </title>
+		<link href = "dist/googleapi.css" rel = "stylesheet">
+		<link href = "dist/semantic.css" rel = "stylesheet">
+		<link href = "css/align.css" rel = "stylesheet">
+	</head>
+	<body>
+		<div class="ui page grid fspace">
+		  <div class = "row">
+			<div class = "column">
+				<div class="ui error message errmess">
+					<div class="header">Action Forbidden</div>
+					<p>Seems you have missed a few fields or so. Please complete them before you submit.</p>
+				</div>
+				<form class="ui form fluid segment eform">
+				  <div class="ui field vertical segment">
+					<div class="ui pointing below label teal">
+					  Enter the event name here
+					</div>
+					<div class = "ui massive input enamef">
+						<input type="text" class = "head ename" placeholder="Event Name">
+					</div>
+				    </div>
+				  <div class = "ui field vertical segment">
+					<div class="ui pointing below label teal">
+						Write a suitable desciption here.
+					</div>
+					 <div class = "edescf">
+					 <textarea class = "desc" placeholder = "Event Description. Write a brief idea about the event, or its main concept."></textarea>
+					 </div>
+				  </div>
+				  <div class = "ui field vertical segment">
+					<div class="ui pointing below label teal">
+						Write the venue of the event here.
+					</div>
+					 <div class = "eight wide field evenue">
+						<input type="text" class = "ui input venue" placeholder="Venue">
+					</div>
+				  </div>
+				  <div class = "ui field vertical segment">
+					<div class="ui pointing below label teal">
+						Mention the event Coordinators here.
+					</div>
+					<div class = "eight wide field coord">
+						<input type="text" class = "ui input coord1" placeholder="Coordinator 1">
+					</div>
+					<div class = "eight wide field coord">
+						<input type="text" class = "ui input coord2" placeholder="Coordinator 2">
+					</div>
+					<div class = "eight wide field coord">
+						<input type="text" class = "ui input coord3" placeholder="Coordinator 3">
+					</div>
+				  </div>
+				  <div class = "ui field vertical segment">
+					<div class="ui pointing below label teal">
+						Mention the date of the event here.
+					</div>
+					<div class = "eight wide field edate">
+						<input type="date" class = "dateC">
+					</div>
+				  </div>
+				  <div class="ui buttons big">
+					  <div class="ui button preview">Preview</div>
+					  <div class="or"></div>
+					  <div class="ui positive button">Save</div>
+				  </div>
+				</form>
+			</div>
+		  </div>
+		</div>
+		
+				<!--Here is the original form-->
+		<div class = "form1">
+			<div class="ui page grid fspace">
+				<div class = "row">
+					<div class = "column">
+						<div class="ui segment">
+							<div class="ui dividing header">
+								<h1 class = "ui header ename">Event Name</h1>
+							</div>
+							<div class = "ui dividing header">
+								<div class = "ui teal horizontal label huge">
+									Event Description
+								</div>
+								<div class = "edesc insert"></div>
+							</div>
+							<div class = "ui dividing header">
+								<div class = "ui teal horizontal label huge">
+									Event Venue
+								</div>
+								<div class = "evenue insert"></div>
+							</div>
+							<div class = "ui dividing header">
+								<div class ="ui teal horizontal label huge">
+									Event Coordinators
+								</div>
+								<div class = "ecoord insert"></div>
+							</div>
+							<div class = "ui dividing header">
+								<div class = "ui teal horizontal label huge">
+									Date
+								</div>
+								<div class = "edate insert"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/jquery.js"></script>
+		<script src="dist/semantic.js"></script>
+		<script src="js/preview.js"></script>
+	</body>
+</html>
