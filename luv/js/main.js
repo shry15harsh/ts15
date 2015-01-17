@@ -10,11 +10,79 @@ var WIDTH = 15*NUM_OF_MARKS;
 
 var alphas = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','Z'];
 
-$(document).ready(function(){
-	//Calculating screen size and offset
+var player, qStart, qNow;
+
+$(window).load(function(){
+	console.log('Document is Ready');
+	$('#progress').html('Getting the background music.');
+	loadMusic();
+});
+
+function loadMusic(){
+	qStart = new Date().getTime() / 1000;
+	/*queue = new createjs.LoadQueue(true);
+	queue.installPlugin(createjs.Sound);
+	createjs.Sound.alternateExtensions = ["mp3"];
+	queue.addEventListener("complete", musicIsReady);
+	queue.addEventListener("progress", progress);
+	queue.addEventListener("error", function(){
+		console.log('Error loading file');
+		loadMusic();
+	});
+	queue.loadFile({id:"mySound", src:"lighters.mp3"});	*/
+	
+	var xhr = new XMLHttpRequest();
+	xhr.addEventListener("load", function(){
+		if(xhr.status === 200){
+			var URL = window.URL || window.webkitURL;
+			var blob_url = URL.createObjectURL(xhr.response);
+		
+			console.log('Fetched Audio');
+			musicIsReady(blob_url);
+		}
+		else{
+			console.log('Error, Retrying');
+			loadMusic();
+		}
+	}, false);
+  
+	var prev_pc = 0;
+	xhr.addEventListener("progress", function(event){
+		if(event.lengthComputable){
+			var pc = Math.round((event.loaded/event.total)*100);
+			if(pc != prev_pc){
+				prev_pc = pc;
+				console.log('Progess is '+pc);
+				progress(pc);
+			}
+		}
+	}, false);
+	xhr.open("GET", 'lighters.mp3', true);
+	xhr.responseType = "blob";
+	xhr.send();
+}
+
+function progress(pc){
+	qNow = new Date().getTime() / 1000;
+	$('#progress').html('<b>'+pc+'%</b> of music has been downloaded.');
+	if(qNow-qStart>5){
+		$('#progress').append("<br>Website is light. Your connection speed is <b>"+((pc*7.5)/(qNow-qStart)).toFixed(2)+" 	KBPS</b>.<br> Please wait a little bit.");
+	}
+}
+function musicIsReady(music){
+	console.log('Music is Ready');
+	player = new window.Audio();
+	player.src = music;
+
+	$('#progress').css('display','none');
+	init();
+}
+
+function init(){
 	screen_size = $(window).width();
 	offset = screen_size/2;
 	
+	player.play();
 	//Setting current scene text and its position
 	$('.txt').html('Everything starts with <b><span>Zero</span></b>');
 	
@@ -46,11 +114,22 @@ $(document).ready(function(){
 								//$('.txt span').html('<b>0</b>');
 								//$('.txt span').fadeIn();
 								$('.txt').css('display','none');
+								$('.txt').css('top',offset*0.20);
+								$('.txt').html('Zero was invented in India');
+								$('.txt').fadeIn();
 								$('.txt').css('color','white');
 								$('.zero').fadeIn();
 								setTimeout(function(){
-									moveZero();
-								},1000);
+									$('.txt').css('opacity','0');
+									setTimeout(function(){
+										$('.txt').css('font-size','1.5em');
+										$('.txt').css('letter-spacing','0px');
+										$('.txt').html('Ruler is a basic instrument to measure and draw straight lines.<br> It was invented in Indus Valley Civilisation.');
+										$('.txt').css('top',offset*0.65);
+										$('.txt').css('left',offset*0.90);
+										moveZero();
+									},1000);
+								},2000);
 							},1000);
 						},1000);
 						clearInterval(intId);
@@ -58,20 +137,10 @@ $(document).ready(function(){
 				}else{
 					--fourPos[startFrom];
 				}
-			},20);
+			},40);
 		},1000);
-	},2000);	
-	
-	//setTimeout(function(){makeZeroSmall();},INTERVAL*4);
-	/*
-	//Setting container position
-	$('.container').css('left',offset/2);
-	$('.container').css('top',offset/4);
-	*/
-	
-	//$('.zero').fadeIn();
-	//moveZero();
-});
+	},5000);	
+}
 
 function moveZero()
 {
@@ -122,12 +191,7 @@ function setMarks(i)
 	}
 	else if(i>NUM_OF_MARKS)
 	{
-		$('.txt').css('font-size','1.5em');
-		$('.txt').css('letter-spacing','0px');
-		$('.txt').html('Ruler is a basic instrument to measure and draw straight lines.<br> It was invented in Indus Valley Civilisation.');
-		$('.txt').css('top',offset*0.65);
-		$('.txt').css('left',offset*0.90);
-		$('.txt').fadeIn().delay(200);
+		$('.txt').css('opacity','1');
 		var l = parseInt($('.txt').css('left'));
 		$('.txt').animate({"left":l+50});
 		fadeMarks();
@@ -154,10 +218,10 @@ function rotateLine()
 	setTimeout(function(){
 		$('.horizLine').css('transform','translateY(-100px) rotate(-45deg)');
 		$('.horizLine').css('-webkit-transform','translateY(-100px) rotate(-45deg)');
-		$('.txt').css('top',offset*0.4);
-		$('.txt').css('left',offset*0.40);
+		$('.txt').css('top',offset*0.41);
+		$('.txt').css('left',offset*0.39);
 		setTimeout(function(){showWaves();},INTERVAL);
-	},700);
+	},1700);
 }
 
 function showWaves()
@@ -178,17 +242,18 @@ function showWaves()
 	
 	
 	$('.txt').html('Invention of Wireless Radio Transmission is accredited to Sir Jagadish Chandra Bose');
-	$('.horizLine').animate({"opacity":"0"});
 	
 	setTimeout(function(){
-		$('.txt').css('opacity','1');
+		$('.horizLine').animate({"opacity":"0"});
+		for(var i=1;i<=2;i++)
+		{
+			$('.Wifi:nth-child('+i+')').fadeIn();
+		}
 		setTimeout(function(){
-			for(var i=1;i<=2;i++)
-			{
-				$('.Wifi:nth-child('+i+')').fadeIn(100);
-			}
+			$('.horizLine').animate({"opacity":"0"});
+			$('.txt').css('opacity','1');
 		},1000);
-	},1000);
+	},2000);
 	var msg = $('.txt').html();
 	var msg_letters = msg.split("");
 	$('.txt').html('');
@@ -232,7 +297,7 @@ function earthGoRound(){
 		$('.txt').css('top',offset*0.2);
 		$('.rocket').fadeIn();
 		$('.rocket').animate({'top':'400px'});
-		$('.earth').css('transform','scale(10,10)');
+		$('.earth').css('transform','scale(9,9)');
 		setTimeout(function(){
 			$('.txt').animate({'opacity':'1'});
 			setTimeout(function(){
@@ -249,42 +314,57 @@ function displayOne()
 	$('.oneAbove').fadeIn();
 	setTimeout(function(){
 		$('.rocket').css("opacity","0");
-		setTimeout(displayRest(),1200);
+		setTimeout(function(){
+			$('.txt').css('left',offset*0.7);
+			$('.txt').css('top',offset*0.15);
+			displayRest();
+		},1200);
 	},1000);
 }
 
 function displayRest()
 {
-	$('.earth').fadeOut();
-	$('.zeroAbove').fadeIn();
+	$('.earth').animate({'opacity':0});
 	$('.zeroBelow').fadeIn();
-	$('.oneBelow').fadeIn();
-	setTimeout(function() {
-		copy10();
+	setTimeout(function(){
+		$('.zeroBelow').css('left','-100px');
+		$('.txt').animate({'opacity':1});
+		$('.txt').html('Decimal system was invented in India');
 		setTimeout(function(){
-			fadeOnes();
-			setTimeout(function(){
-				makeINF();
-			},1300);
-		}, 1400);
-	},1500);
+			$('.oneBelow').fadeIn();
+			$('.zeroAbove').fadeIn();
+			$('.txt').animate({'opacity':0});
+			copy10();
+		},2000);
+	},2000);
 }
 
 function copy10()
 {
-	$('.oneBelow').css({"transform":"translateX(350px)"});
-	$('.oneBelow').css({"-webkit-transform":"translateX(350px)"});
+	$('.container').css('transform','translateX(-5%)');
+	$('.container').css('-webkit-transform','translateX(-5%)');
+	$('.oneBelow').css({"transform":"translateX(410px)"});
+	$('.oneBelow').css({"-webkit-transform":"translateX(410px)"});
 	$('.zeroBelow').css({"transform":"translateX(150px)"});
 	$('.zeroBelow').css({"-webkit-transform":"translateX(150px)"});
-	$('.oneAbove').css({"opacity":"0.3"});
-	$('.zeroAbove').css({"opacity":"0.3"});
+	setTimeout(function(){
+		$('.txt').animate({'opacity':1});
+		$('.txt').html('Binary system was invented in India');
+		setTimeout(function(){
+			$('.txt').animate({'opacity':0});	
+			fadeOnes();
+		},2000);
+	},1000);
 }
 
 function fadeOnes()
 {
-	$('.oneAbove').fadeOut();//refers to the original one
-	$('.oneBelow').fadeOut();//refers to the copied one. Make it go completely hide
-	$('.zeroAbove').css({"opacity":"1"});
+	$('.oneAbove').animate({'opacity':0});
+	$('.oneBelow').animate({'opacity':0});
+	//$('.zeroAbove').css({"opacity":"1"});
+	setTimeout(function(){
+		makeINF();
+	},1000);
 }
 
 function makeINF()
@@ -299,4 +379,73 @@ function makeINF()
 	$('.zeroBelow').css({"-webkit-transform":"translateX(140px)"});
 	$('.zeroAbove .star5').css({"-webkit-transform":"translate(4px,4px)"});
 	$('.zeroBelow  .star12').css({"-webkit-transform":"translate(-4px,-4px)"});
+	
+	$('.txt').animate({'opacity':1});
+	$('.txt').css('left',offset*0.6);
+	$('.txt').html('There are infinite innovations made in India.');
+	
+	setTimeout(function(){
+		$('.txt').animate({'opacity':0});
+		//$('.oneAbove').animate({'opacity':1});
+		//$('.oneBelow').animate({'opacity':1});
+		
+		/*for(var i=1;i<=14;++i){
+		  var l = $('.zeroAbove .star:nth-child('+i+')').position().left;
+		  var t = $('.zeroAbove .star:nth-child('+i+')').position().top;
+		  $('.zeroAbove .star:nth-child('+i+')').animate({'left':l/1.2},20);
+		  $('.zeroAbove .star:nth-child('+i+')').animate({'top':t/1.2},20);
+		  
+		  l = $('.zeroBelow .star:nth-child('+i+')').position().left;
+		  t = $('.zeroBelow .star:nth-child('+i+')').position().top;
+		  $('.zeroBelow .star:nth-child('+i+')').animate({'left':l/1.2},20);
+		  $('.zeroBelow .star:nth-child('+i+')').animate({'top':t/1.2},20);
+		}
+		
+		for(i=1;i<=5;i++){
+		  var l= $('.oneBelow .star:nth-child('+i+')').position().top;
+		  $('.oneBelow .star:nth-child('+i+')').animate({'top':l*1.5},20);
+		  
+		  l= $('.oneAbove .star:nth-child('+i+')').position().top;
+		  $('.oneAbove .star:nth-child('+i+')').animate({'top':l*1.5},20);
+		}*/
+		
+		setTimeout(function(){
+			$('.container').animate({'opacity':0});
+			$('.txt').html('One is');
+			setTimeout(function(){
+				$('.txt').animate({'opacity':'1'});
+				showTS();
+			},2000);
+		},1000);
+		/*setTimeout(function(){
+			$('.container').css('transform','translateY(20%) rotate(90deg)');
+			$('.oneAbove').css('transform','translate(35%,53%)');
+			
+			$('.oneBelow').css('transform-origin','200% 80%');
+			$('.oneBelow').css('transform','translate(-69%,65%) rotate(90deg)');
+			
+			setTimeout(function(){
+				for(var i=2;i<=4;++i){
+					$('.zeroAbove .star:nth-child('+i+')').css('opacity','0');
+					$('.zeroBelow .star:nth-child('+(i+7)+')').css('opacity','0');
+				}
+				$('.txt').animate({'opacity':'1'});
+				showTS();
+			},1000);
+		},1000);*/
+		
+	},2000);
+}
+
+function showTS(){
+	setTimeout(function(){
+		$('.txt').animate({'opacity':0});
+		$('.ts').fadeIn();
+		setTimeout(function(){
+			$('.ts').css('top','100px');
+			$('.constellation').css('display','none');
+			$('.earth').css('display','none');
+			$('.mainText').fadeIn();
+		},2000);
+	},3000);
 }

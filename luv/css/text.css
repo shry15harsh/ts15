@@ -31,3 +31,32 @@
 .zero:before{
 	content:"0";
 }
+.ts{
+	position: absolute;
+	font-family:"ElegantSans";
+	font-size:60px;
+	left: 35%;
+	top:200px;
+	display: none;
+	transition: all 1s;
+}
+.ts .madeinindia{
+	font-size:20px;
+	font-weight:bold;
+	font-style: italic;
+	float:right;
+}
+.mainText{
+	margin-top:30%;
+	font-size:1.2em;
+	font-family:"ElegantSans";
+	display: none;
+}
+.mainText a{
+	color:white;
+}
+#progress{
+	margin-top:20%;
+	font-size:1.2em;
+	font-family:"ElegantSans";
+}
