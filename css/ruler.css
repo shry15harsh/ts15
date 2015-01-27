@@ -1,0 +1,26 @@
+.ruler
+{
+	position:absolute;
+	display:none;
+}
+.horizLine
+{
+	background:white;
+	width:0px;
+	height:2px;
+	transition:all 1s;
+	-webkit-transition:all 1s;
+}
+.centimeter
+{
+	height:0px;
+	width:2px;
+	background:white;
+	position:absolute;
+	bottom:0px;
+	display:none;
+}
+.markings
+{
+	position:absolute;
+}
