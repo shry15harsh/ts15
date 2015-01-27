@@ -1,0 +1,48 @@
+<html><head>
+<title>TechSpardha 2015, March 12-15</title>
+
+<meta name="description" content="Techspardha is annual technical fest of NIT Kurukshetra." /> 
+
+<meta property="og:title" content="Techspardha 2015" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://techspardha.org/" />
+<meta property="og:image" content="http://techspardha.org/logo.jpg" />
+<meta property="og:description" content="Techspardha is annual technical fest of NIT Kurukshetra." /> 
+
+<link href="../css/event.css" rel="stylesheet" type="text/css">
+
+<body>
+	<div class="event-stage">
+		<div id="ts-logo">
+			<img src="../images/biglogo.png">
+		</div>
+		<div id="save">
+			Save
+		</div>
+		<h1 class="name" contenteditable="true">
+			Name of your event
+		</h1>
+		<div id="problem_link" contenteditable="true">
+			Insert Problem Statement Link here (if any). Try to shorten it using <a target="_blank" href="http://goo.gl">goo.gl</a>
+		</div>
+		<div class="description" contenteditable="true">
+			Add description of your Event here. Write every detail including Time and Venue, Coordinators, Link to Problem Statement, if they are available. Do not write to be uploaded soon or anything.
+		</div>
+	</div>
+	<script src="../js/jquery-2.1.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			/*$('.name').on('click', function(){
+				var isEditable=$(this).is('.editable');
+				$(this).attr('contenteditable',!isEditable)
+				$(this).toggleClass('editable');
+			});*/
+		});
+		$('#save').click(function(){
+			console.log('Save');
+		});
+		$('#problem_link').click(function(){
+		});
+	</script>
+</body>
+</html>
