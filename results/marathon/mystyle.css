@@ -81,3 +81,9 @@ h1 {
 .rwd-table th, .rwd-table td:before {
   color: #dd5;
 }
+body{
+  text-align: center;
+}
+table{
+  display: inline-block;
+}
