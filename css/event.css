@@ -13,14 +13,44 @@ html,body{
 	width:100%;
 	height:100%;
 	overflow:hidden;
+	font-family:futura;
 }
-.event-stage{
+.stage{
 	position: absolute;
 	width:96%;
 	height:96%;
 	padding:2%;
 	padding-bottom:0;
 	background: whitesmoke;//#ecf0f1;//#1abc9c;
+}
+#login-stage{
+	text-align:center;
+}
+#login-stage .login-message img{
+	float:none;
+	width:100px;
+}
+#login-stage input{
+	display: inline-block;
+	margin:10px;
+	padding:10px;
+	border:none;
+	background:rgb(200,200,200);
+	font-size:20px;
+	font-family:futura;
+}
+#login-stage #login{
+	border:none;
+	background:#27ae60;
+	padding:10px;
+	color:white;
+	font-weight:bold;
+	font-size:20px;
+	margin:20px;
+	cursor:pointer;
+}
+#event-stage{
+	display: none;
 	color:white;
 }
 #ts-logo img{
@@ -36,7 +66,6 @@ html,body{
 	border: 1px solid grey;
 	//box-shadow:1px 1px 5px grey;//white;
 	cursor: pointer;
-	font-family: futura;
 	font-size:1.5em;
 	margin-right:50px;
 }
@@ -47,7 +76,6 @@ html,body{
 #message{
 	text-align: center;
 	color:red;
-	font-family:futura;
 }
 .name{
 	font-family: deconue;
@@ -57,7 +85,6 @@ html,body{
 	text-align: center;
 }
 .description{
-	font-family: futura;
 	font-size: 1.2em;
 	display: inline-block;
 	height:72%;
@@ -76,4 +103,28 @@ html,body{
 	padding:5px;
 	box-shadow:1px 1px 5px white;
 	cursor: pointer;
+}
+.category{
+	display: inline-block;
+}
+.dropdown
+{
+	padding:5px;
+	font-size:16px;
+	border-width: 0px;
+	color:white;
+	background:#34495E;
+}
+.dropdown>option
+{
+	padding:2%;
+	font-size:16px;
+	background:white;
+	color:#2196F3;
+	transition: all 0.4s;
+}
+.dropdown>option:hover
+{
+	background:#34495E;
+	color:white;
 }
