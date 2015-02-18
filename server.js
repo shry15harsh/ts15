@@ -31,6 +31,27 @@ app.get('/visit', function(req, res){
 	res.end();
 });*/
 
+var mysql =  require('mysql');
+conn =  mysql.createConnection({
+	host : "127.0.0.1",
+	user : "root",
+	password: "tech@2015"
+});
+conn.connect(function(err){
+	if(!err){
+		conn.query("use techspardha");
+	}
+});
+
+/*
+	Event Dashboard
+*/
+app.post('/login', function(req, res){
+	var json_obj = req.body;
+	console.log(json_obj['username']);
+	
+});
+
 app.get('/techexpo', function(req, res){
 	res.writeHead(301, {
 		Location: 'https://dracowane.typeform.com/to/dQPVqa'
