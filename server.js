@@ -3,7 +3,7 @@ var app = express();
 var compression = require('compression');
 
 var fs = require('fs');
-
+var bodyParser = require('body-parser');
 var page_hit;
 
 
@@ -14,6 +14,8 @@ var cacheTime = 86400000;
 app.use(compression());
 
 app.use(express.static(__dirname + '/', { maxAge : cacheTime }));
+
+app.use(bodyParser.urlencoded());
 
 app.listen(80, function(){
 	console.log('Listening on 80');
@@ -61,6 +63,13 @@ conn.connect(function(err){
 */
 app.post('/login', function(req, res){
 	var json_obj = req.body;
+	var query = 'select * from users where username = "' + json_obj['username'] + '"and password = "' + json_obj['password'] +'"';
+	conn.query(query, function(err, rows){
+		if(!err){
+			if(rows.length == 1){
+				var query2 = 'select s_no, event_name FROM events WHERE user_id = "' +rows['0']['id']+'"';
+		}
+	});
 	console.log(req.body);
 	res.send('hey');	
 });
