@@ -48,8 +48,8 @@ conn.connect(function(err){
 */
 app.post('/login', function(req, res){
 	var json_obj = req.body;
-	console.log(json_obj['username']);
-	
+	console.log(req.body);
+	res.send('hey');	
 });
 
 app.get('/techexpo', function(req, res){

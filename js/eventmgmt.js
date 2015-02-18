@@ -6,8 +6,8 @@ $(document).ready(function(){
 //Login stage functions
 $('#login').click(function(){
 	var login_packet = {
-		username: $('#username').val();
-		password: $('#password').val();
+		username: $('#username').val(),
+		password: $('#password').val()
 	};
 	$.post('/login', login_packet , function(data){
 		console.log(data);
