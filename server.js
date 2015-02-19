@@ -68,6 +68,13 @@ app.post('/login', function(req, res){
 		if(!err){
 			if(rows.length == 1){
 				var query2 = 'select s_no, event_name FROM events WHERE user_id = "' +rows['0']['id']+'"';
+				conn.query(query2, function(err, rows2){
+					res.json(rows2);
+				});
+			}
+			else{
+				res.send('0');
+			}
 		}
 	});
 	console.log(req.body);
