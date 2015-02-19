@@ -49,6 +49,9 @@ html,body{
 	margin:20px;
 	cursor:pointer;
 }
+#eventlist-stage{
+	display: none;
+}
 #event-stage{
 	display: none;
 	color:white;
