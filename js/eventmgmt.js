@@ -10,7 +10,16 @@ $('#login').click(function(){
 		password: $('#password').val()
 	};
 	$.post('/login', login_packet , function(data){
-		console.log(data);
+		if(data == 0){
+			alert('Username or Password is wrong');
+		}
+		else{
+			$('#login-stage').css('{display:none}');
+			$('#eventlist-stage').css('{display:block}');
+			for(var i in data){
+				console.log(data[i]['s_no']+data[i]['event_name']);
+			}
+		}
 	});
 });
 $('#save').click(function(){
