@@ -111,7 +111,7 @@ $('#event-stage #save').click(function(){
 $('#event-stage #problem_link').click(function(){
 	var link = prompt("Enter the link to Problem Statement");
 	if(link != null && link != ''){
-		$('#problem_link').html(link);
+		$('#event-stage #problem_link').html(link);
 		prob_link = link;
 	}
 });
@@ -122,7 +122,7 @@ $('#edit-event-stage #save').click(function(){
 	var info_bundle = {
 		user_id: user,
 		event_name: $('#edit-event-stage #event_name').html(),
-		url: $('#problem_link').html(),
+		url: $('#edit-event-stage #problem_link').html(),
 		description: $('#edit-event-stage #event-description').html(),
 		category_name: $('#edit-event-stage #dropdown option:selected').val(),
 		event_id: current_edit_event
@@ -163,6 +163,6 @@ $('#edit-event-stage #save').click(function(){
 $('#edit-event-stage #problem_link').click(function(){
 	var link = prompt("Enter the link to Problem Statement");
 	if(link != null && link != ''){
-		$('#problem_link').html(link);
+		$('#edit-event-stage #problem_link').html(link);
 	}
 });
