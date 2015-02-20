@@ -18,19 +18,15 @@ $('#login').click(function(){
 			$('#login-stage').css('display','none');
 			$('#eventlist-stage').css('display','block');
 			for(var i in data){
-				$('.events-list').append('<li><span class="event-name" data-id="'+data[i]['s_no']+'">'+data[i]['event_name']+'</span><span class="edit">Edit</span><span class="delete">Delete</span></li>');
+				$('.events-list').append('<li><span class="event-name" data-id="'+data[i]['event_id']+'">'+data[i]['event_name']+'</span><span class="edit">Edit</span><span class="delete">Delete</span></li>');
 				//console.log(data[i]['s_no']+data[i]['event_name']);
 			}
 		}
 	});
 });
 
-$('.events-list li .delete').on('click', function(){
-	
-	console.log($(this).parent().find('.event-name').attr('data-id'));
-});
-
-$('.events-list li .delete').on('click', function(){
+$('body').on('click','.events-list li .delete', function(){
+console.log('hey');	
 	console.log($(this).parent().find('.event-name').attr('data-id'));
 });
 

@@ -1,0 +1,15 @@
+{
+    "mysql": {
+        "database": "techspardha",
+        "user": "root",
+        "password": "tech@2015"
+    },
+    "server": {
+        "port": 3000
+    },
+    "app": {
+        "layouts": true,
+        "themes": true,
+        "languages": true
+    }
+}
