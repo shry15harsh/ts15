@@ -66,13 +66,13 @@ $('#add').click(function(){
 
 
 //Add Event Page
-$('#save').click(function(){
+$('#event-stage #save').click(function(){
 	var info_bundle = {
 		user_id: user,
-		event_name: $('#event_name').html(),
+		event_name: $('#event-stage #event_name').html(),
 		url: prob_link,
-		description: $('#event-description').html(),
-		category_name: $('#dropdown option:selected').val()
+		description: $('#event-stage #event-description').html(),
+		category_name: $('#event-stage #dropdown option:selected').val()
 	};
 	console.log(info_bundle.event_name);
 	console.log(info_bundle.url);
@@ -107,7 +107,7 @@ $('#save').click(function(){
 	}
 });
 
-$('#problem_link').click(function(){
+$('#event-stage #problem_link').click(function(){
 	var link = prompt("Enter the link to Problem Statement");
 	if(link != null && link != ''){
 		$('#problem_link').html(link);
@@ -117,3 +117,43 @@ $('#problem_link').click(function(){
 
 
 //Edit event Page
+$('#edit-event-stage #save').click(function(){
+	var info_bundle = {
+		user_id: user,
+		event_name: $('#edit-event-stage #event_name').html(),
+		url: prob_link,
+		description: $('#edit-event-stage #event-description').html(),
+		category_name: $('#edit-event-stage #dropdown option:selected').val()
+	};
+	console.log(info_bundle.event_name);
+	console.log(info_bundle.url);
+	console.log(info_bundle.description);
+	console.log(info_bundle.category_name);
+	
+	//Check if no category is selected
+	if(info_bundle.category_name == "none"){
+		alert("Please select a category.");
+	}
+	else{
+		$.post("/posteditevent", info_bundle, function(data){
+			if(data=="done"){
+				console.log('Done editing event');
+				$('.stage').css('display','none');
+				$('#eventlist-stage').css('display','block');
+				var packet = {
+					id: user
+				};
+				$.post('/events', packet , function(data){
+					$('.events-list').html('');
+					for(var i in data){
+						$('.events-list').append('<li><span class="event-name" data-id="'+data[i]['event_id']+'">'+data[i]['event_name']+'</span><span class="edit">Edit</span><span class="delete">Delete</span></li>');
+					}
+				});
+			}
+			else{
+				console.log('Event could not be added.');
+				alert('Please refresh and try again.');
+			}
+		});
+	}
+});
