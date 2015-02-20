@@ -54,7 +54,7 @@ $('body').on('click','.events-list li .edit', function(){
 		$('#edit-event-stage #event_name').html(data['0']['event_name']);
 		$('#edit-event-stage #event-description').html(data['0']['description']);
 		$('#edit-event-stage #problem_link').html(data['0']['url']);
-		$('edit-event-stage #dropdown').val(category_name);
+		$('edit-event-stage #dropdown').val(data['0']['category_name']);
 	});
 });
 
