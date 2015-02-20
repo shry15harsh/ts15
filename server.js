@@ -109,7 +109,7 @@ app.post('/addevent',function(req,res){
 	conn.query(query,function(err,rows){
 		if(!err)
 		{
-			var query2 = 'INSERT INTO events (event_name,description,url,category_key,user_id) VALUES("'+json_obj['event_name']+'","'+json_obj['description']+'","'+json_obj['url']+'","'+rows['0']['category_key']+'","'+json_obj['user_id']+'")';	
+			var query2 = 'INSERT INTO events (event_name,description,url,category_key,user_id) VALUES("'+json_obj['event_name']+'","'+json_obj['description']+'","'+json_obj['url']+'","'+rows['0'].category_key+'","'+json_obj['user_id']+'")';	
 			conn.query(query2,function(err2,rows2){
 				if(!err2)
 				{
