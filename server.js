@@ -128,6 +128,14 @@ app.get('/delete',function(req,res){
 	var	json_obj = req.body;
 	var query = 'DELETE FROM events WHERE event_id = "10"';//to be edited
 	conn.query(query,function(err,row){
+		if(!err)
+		{
+			res.send("1");
+		}
+		else
+		{
+			res.send("0");
+		}
 	})
 });
 
