@@ -121,17 +121,15 @@ app.post('/events',function(req,res){
 	});
 
 });
-app.get('/delete',function(req,res){
+app.post('/delete',function(req, res){
 	var	json_obj = req.body;
-	var query = 'DELETE FROM events WHERE event_id = "10"';//to be edited
+	var query = 'DELETE FROM events WHERE event_id = '+json_obj;
 	conn.query(query,function(err,row){
-		if(!err)
-		{
-			res.send("1");
+		if(!err){
+			res.json("1");
 		}
-		else
-		{
-			res.send("0");
+		else{
+			res.json("0");
 		}
 	})
 });

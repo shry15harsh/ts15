@@ -19,15 +19,18 @@ $('#login').click(function(){
 			$('#eventlist-stage').css('display','block');
 			for(var i in data){
 				$('.events-list').append('<li><span class="event-name" data-id="'+data[i]['event_id']+'">'+data[i]['event_name']+'</span><span class="edit">Edit</span><span class="delete">Delete</span></li>');
-				//console.log(data[i]['s_no']+data[i]['event_name']);
 			}
 		}
 	});
 });
 
 $('body').on('click','.events-list li .delete', function(){
-console.log('hey');	
-	console.log($(this).parent().find('.event-name').attr('data-id'));
+	var eventid = $(this).parent().find('.event-name').attr('data-id');
+	$.post('/delete', eventid, function(result){
+		if(result==1){
+			$(this).parent().remove();
+		}
+	});
 });
 
 $('#save').click(function(){
