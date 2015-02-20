@@ -90,15 +90,19 @@ app.post('/editevent',function(req,res){
 });	
 app.post('/posteditevent',function(req,res){
 	var json_obj = req.body;
-	var query = 'update table events set event_name="'+json_obj['event_name']+'",description="'+json_obj['description']+'",url="'+json_obj['url']+'",category_key="'+json_obj['category_key']+'" where event_id="'+json_obj['event_id']+'"';
+	var query = 'select * from category_master where category_name = "'+json_obj['category_name']+'"';
 	conn.query(query,function(err,rows){
 		if(!err)
 		{
-			res.send("done");
-		}
-		else
-		{
-			res.send("notdone");
+			var query2 = 'update table events set event_name="'+json_obj['event_name']+'",description="'+json_obj['description']+'",url="'+json_obj['url']+'",category_key="'+rows['0'].category_key+'" where event_id="'+json_obj['event_id']+'"';
+			conn.query(query2,function(err2,rows2){
+				if(!err2){
+					res.send("done");
+				}
+				else{
+					res.send("notdone");
+				}
+			});
 		}
 	});
 });
@@ -110,19 +114,13 @@ app.post('/addevent',function(req,res){
 		{
 			var query2 = 'INSERT INTO events (event_name,description,url,category_key,user_id) VALUES("'+json_obj['event_name']+'","'+json_obj['description']+'","'+json_obj['url']+'","'+rows['0'].category_key+'","'+json_obj['user_id']+'")';	
 			conn.query(query2,function(err2,rows2){
-				if(!err2)
-				{
+				if(!err2){
 					res.send("done");
 				}
-				else
-				{
+				else{
 					res.send("notdone");
 				}
 			});
-		}
-		else
-		{
-		res.send(rows);
 		}
 	});
 });

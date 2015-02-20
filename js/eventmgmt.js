@@ -151,7 +151,7 @@ $('#edit-event-stage #save').click(function(){
 				});
 			}
 			else{
-				console.log('Event could not be added.');
+				console.log('Event could not be updated.');
 				alert('Please refresh and try again.');
 			}
 		});
