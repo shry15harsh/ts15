@@ -50,7 +50,7 @@ var mysql =  require('mysql');
 conn =  mysql.createConnection({
 	host : "localhost",
 	user : "root",
-	password: "evm",
+	password: "tech@2015",
 	//database: "techspardha",
 });
 conn.connect(function(err){
@@ -92,11 +92,11 @@ app.post('/edit',function(req,res){
 app.post('/addevent',function(req,res){
 	var json_obj =req.body;
 	//var query = 'select * from events';
-	var query = 'INSERT INTO events (event_name,description,url,category_key,user_id) VALUES("utkarsh","hello","www.google.com","5","9")'; // to be edited
+	var query = 'INSERT INTO events (event_name,description,url,category_key,user_id) VALUES("utkarsh","hello","www.google.com","5","1")'; // to be edited
 	conn.query(query,function(err,rows){
 		if(!err)
 		{
-			var query2 = 'select event_id, event_name FROM events WHERE user_id = "9"';//to be edited
+			var query2 = 'select event_id, event_name FROM events WHERE user_id = "1"';//to be edited
 			conn.query(query2,function(err2,rows2){
 				if(!err2)
 				{

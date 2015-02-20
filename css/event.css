@@ -56,6 +56,24 @@ html,body{
 	display: none;
 	color:white;
 }
+.events-list li{
+	list-style-type: none;
+	font-family:calibri;
+	padding:10px;
+	border-radius:2px;
+	font-size:1.5em;
+}
+.events-list li:nth-child(odd){
+	background:rgb(220,220,200);
+}
+.events-list li .delete, .events-list li .edit{
+	float:right;
+	cursor: pointer;
+	margin-left:10px;
+}
+.events-list li .delete:hover, .events-list li .edit:hover{
+	color:blue;
+}
 #ts-logo img{
 	float:right;
 	width:100px;
