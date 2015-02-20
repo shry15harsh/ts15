@@ -11,7 +11,7 @@ $('#login').click(function(){
 		password: $('#password').val()
 	};
 	$.post('/login', login_packet , function(data){
-		if(data == 0){
+		if(data == "wrong"){
 			alert('Username or Password is wrong');
 		}
 		else{

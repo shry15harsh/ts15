@@ -74,7 +74,7 @@ app.post('/login', function(req, res){
 				});
 			}
 			else{
-				res.send('0');
+				res.send('wrong');
 			}
 		}
 	});
