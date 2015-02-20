@@ -85,7 +85,7 @@ $('#save').click(function(){
 	}
 	else{
 		$.post("/addevent", info_bundle, function(data){
-			if(data=="done")
+			if(data=="done"){
 				console.log('Done adding event');
 				$('.stage').css('display','none');
 				$('#eventlist-stage').css('display','block');
@@ -97,6 +97,7 @@ $('#save').click(function(){
 						$('.events-list').append('<li><span class="event-name" data-id="'+data[i]['event_id']+'">'+data[i]['event_name']+'</span><span class="edit">Edit</span><span class="delete">Delete</span></li>');
 					}
 				});
+			}
 			else{
 				console.log('Event could not be added.');
 				alert('Please refresh and try again.');
