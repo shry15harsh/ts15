@@ -92,23 +92,34 @@ app.post('/edit',function(req,res){
 app.post('/addevent',function(req,res){
 	var json_obj =req.body;
 	//var query = 'select * from events';
-	var query = 'INSERT INTO events (event_name,description,url,category_key,user_id) VALUES("utkarsh","hello","www.google.com","5","1")'; // to be edited
+	var query = 'select * from category_master where category_name = "'+json_obj['category_name']+'"'; // to be edited
 	conn.query(query,function(err,rows){
 		if(!err)
 		{
-			var query2 = 'select event_id, event_name FROM events WHERE user_id = "1"';//to be edited
+			var query2 = 'INSERT INTO events (event_name,description,url,category_key,user_id) VALUES("utkarsh","hello","www.google.com","5","9")'; 	// to be edited
 			conn.query(query2,function(err2,rows2){
 				if(!err2)
 				{
-					res.json(rows2);
 				}
 			});
 		}
 		else
 		{
-			res.send(rows);
+		res.send(rows);
 		}
 	});
+});
+
+app.post('/events',function(req,res){
+	var json_obj = req.body;
+	var query = 'select event_id, event_name FROM events WHERE user_id = "' +json_obj['id']+'"';
+	conn.query(query,function(err,rows){
+		if(!err)
+		{
+			res.json(rows);
+		}
+	});
+
 });
 app.get('/delete',function(req,res){
 	var	json_obj = req.body;
@@ -116,13 +127,11 @@ app.get('/delete',function(req,res){
 	conn.query(query,function(err,row){
 		if(!err)
 		{
-			var query2 = 'select event_id, event_name FROM events WHERE user_id = "9"';//to be edited
-			conn.query(query2,function(err2,rows2){
-				if(!err2)
-				{
-					res.json(rows2);
-				}
-			});
+			res.send("1");
+		}
+		else
+		{
+			res.send("0");
 		}
 	})
 });
