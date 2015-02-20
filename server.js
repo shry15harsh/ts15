@@ -83,9 +83,8 @@ app.post('/editevent',function(req,res){
 	var json_obj = req.body;
 	var query = 'select * from events where event_id  = "' + json_obj['event_id'] +'"';
 	conn.query(query,function(err,rows){
-		if(!err)
-		{
-			res.json(rows2);
+		if(!err){
+			res.json(rows);
 		}
 	});
 });	
@@ -141,7 +140,7 @@ app.post('/events',function(req,res){
 });
 app.post('/delete',function(req, res){
 	var	json_obj = req.body;
-	var query = 'DELETE FROM events WHERE event_id = '+json_obj['eventid'];
+	var query = 'DELETE FROM events WHERE event_id = '+json_obj['event_id'];
 	conn.query(query,function(err,row){
 		if(!err){
 			res.json("done");

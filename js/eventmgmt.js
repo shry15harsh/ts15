@@ -1,6 +1,6 @@
 var prob_link, user;
 $(document).ready(function(){
-	prob_link = "";
+	
 });
 
 //Login stage functions
@@ -16,7 +16,7 @@ $('#login').click(function(){
 		}
 		else{
 			user = data['0']['id'];
-			$('#login-stage').css('display','none');
+			$('.stage').css('display','none');
 			$('#eventlist-stage').css('display','block');
 			var packet = {
 				id: user
@@ -33,7 +33,7 @@ $('#login').click(function(){
 //Event List Stage
 $('body').on('click','.events-list li .delete', function(){
 	var packet = {
-		eventid: $(this).parent().find('.event-name').attr('data-id')
+		event_id: $(this).parent().find('.event-name').attr('data-id')
 	};
 	var element = $(this).parent();
 	$.post('/delete', packet, function(result){
@@ -44,9 +44,24 @@ $('body').on('click','.events-list li .delete', function(){
 	});
 });
 
+$('body').on('click','.events-list li .edit', function(){
+	var packet = {
+		event_id: $(this).parent().find('.event-name').attr('data-id')
+	};
+	$('.stage').css('display','none');
+	$('#edit-event-stage').css('display','block');
+	$.post('/editevent', packet , function(data){
+		$('#edit-event-stage #event_name').html(data['0']['event_name']);
+		$('#edit-event-stage #event-description').html(data['0']['description']);
+		$('#edit-event-stage #problem_link').html(data['0']['url']);
+		$('edit-event-stage #dropdown').val(category_name);
+	});
+});
+
 $('#add').click(function(){
-	$('#eventlist-stage').css('display','none');
+	$('.stage').css('display','none');
 	$('#event-stage').css('display','block');
+	prob_link = "";
 });
 
 
@@ -72,11 +87,24 @@ $('#save').click(function(){
 		$.post("/addevent", info_bundle, function(data){
 			if(data=="done")
 				console.log('Done adding event');
-			else
-				console.log('Not done');
+				$('.stage').css('display','none');
+				$('#eventlist-stage').css('display','block');
+				var packet = {
+					id: user
+				};
+				$.post('/events', packet , function(data){
+					for(var i in data){
+						$('.events-list').append('<li><span class="event-name" data-id="'+data[i]['event_id']+'">'+data[i]['event_name']+'</span><span class="edit">Edit</span><span class="delete">Delete</span></li>');
+					}
+				});
+			else{
+				console.log('Event could not be added.');
+				alert('Please refresh and try again.');
+			}
 		});
 	}
 });
+
 $('#problem_link').click(function(){
 	var link = prompt("Enter the link to Problem Statement");
 	if(link != null && link != ''){
@@ -84,3 +112,6 @@ $('#problem_link').click(function(){
 		prob_link = link;
 	}
 });
+
+
+//Edit event Page
