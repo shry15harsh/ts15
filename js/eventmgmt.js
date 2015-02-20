@@ -15,6 +15,8 @@ $('#login').click(function(){
 			alert('Username or Password is wrong');
 		}
 		else{
+			console.log(data);
+			user = data;
 			$('#login-stage').css('display','none');
 			$('#eventlist-stage').css('display','block');
 			var packet = {
