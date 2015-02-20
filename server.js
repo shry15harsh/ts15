@@ -17,8 +17,8 @@ app.use(express.static(__dirname + '/', { maxAge : cacheTime }));
 
 app.use(bodyParser.urlencoded());
 
-app.listen(80, function(){
-	console.log('Listening on 80');
+app.listen(3000, function(){
+	console.log('Listening on 3000');
 /*	fs.readFile(__dirname+'/page_visit', {encoding: 'utf-8'}, function(err, data){
 		if(err){
 			page_hit = 0;
@@ -48,9 +48,10 @@ app.get('/visit', function(req, res){
 
 var mysql =  require('mysql');
 conn =  mysql.createConnection({
-	host : "127.0.0.1",
+	host : "localhost",
 	user : "root",
-	password: "tech@2015"
+	password: "evm",
+	//database: "techspardha",
 });
 conn.connect(function(err){
 	if(!err){
@@ -67,7 +68,7 @@ app.post('/login', function(req, res){
 	conn.query(query, function(err, rows){
 		if(!err){
 			if(rows.length == 1){
-				var query2 = 'select s_no, event_name FROM events WHERE user_id = "' +rows['0']['id']+'"';
+				var query2 = 'select event_id, event_name FROM events WHERE user_id = "' +rows['0']['id']+'"';
 				conn.query(query2, function(err, rows2){
 					res.json(rows2);
 				});
@@ -78,6 +79,54 @@ app.post('/login', function(req, res){
 		}
 	});
 });
+app.post('/postEdit',function(req,res){
+	var json_obj = req.body;
+	var query = 'select * from events where event_id  = "' + json_obj['event_id'] +'"';
+	conn.query(query,function(err,rows){
+		if(!err)
+		{
+			res.json(rows2);
+		}
+	});
+});	
+app.get('/addmyevent',function(req,res){
+	var json_obj =req.body;
+	//var query = 'select * from events';
+	var query = 'INSERT INTO events (event_name,description,url,category_key,user_id) VALUES("utkarsh","hello","www.google.com","5","9")'; // to be edited
+	conn.query(query,function(err,rows){
+		if(!err)
+		{
+			var query2 = 'select event_id, event_name FROM events WHERE user_id = "9"';//to be edited
+			conn.query(query2,function(err2,rows2){
+				if(!err2)
+				{
+					res.json(rows2);
+				}
+			});
+		}
+		else
+		{
+			res.send(rows);
+		}
+	});
+});
+app.get('/delete',function(req,res){
+	var	json_obj = req.body;
+	var query = 'DELETE FROM events WHERE event_id = "10"';//to be edited
+	conn.query(query,function(err,row){
+		if(!err)
+		{
+			var query2 = 'select event_id, event_name FROM events WHERE user_id = "9"';//to be edited
+			conn.query(query2,function(err2,rows2){
+				if(!err2)
+				{
+					res.json(rows2);
+				}
+			});
+		}
+	})
+});
+
 
 app.get('/techexpo', function(req, res){
 	res.writeHead(301, {
