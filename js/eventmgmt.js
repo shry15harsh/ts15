@@ -1,4 +1,4 @@
-var prob_link, user;
+var prob_link, user, current_edit_event;
 $(document).ready(function(){
 	
 });
@@ -45,6 +45,7 @@ $('body').on('click','.events-list li .delete', function(){
 });
 
 $('body').on('click','.events-list li .edit', function(){
+	current_edit_event = $(this).parent().find('.event-name').attr('data-id');
 	var packet = {
 		event_id: $(this).parent().find('.event-name').attr('data-id')
 	};
@@ -123,7 +124,8 @@ $('#edit-event-stage #save').click(function(){
 		event_name: $('#edit-event-stage #event_name').html(),
 		url: $('#problem_link').html(),
 		description: $('#edit-event-stage #event-description').html(),
-		category_name: $('#edit-event-stage #dropdown option:selected').val()
+		category_name: $('#edit-event-stage #dropdown option:selected').val(),
+		event_id: current_edit_event
 	};
 	console.log(info_bundle.event_name);
 	console.log(info_bundle.url);
