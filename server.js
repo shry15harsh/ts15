@@ -68,10 +68,9 @@ app.post('/login', function(req, res){
 	conn.query(query, function(err, rows){
 		if(!err){
 			if(rows.length == 1){
-				var query2 = 'select user_id FROM users WHERE id = "' + rows['0'].id + '"';
+				var query2 = 'select id FROM users WHERE username = "' + rows['0'].username + '"';
 				conn.query(query2, function(err, rows2){
-					console.log(rows2['0'].user_id);
-					res.send(rows2['0'].user_id);
+					res.send(rows2['0'].id);
 				});
 			}
 			else{
