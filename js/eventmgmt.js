@@ -70,7 +70,7 @@ $('#add').click(function(){
 $('#event-stage #save').click(function(){
 	var info_bundle = {
 		user_id: user,
-		event_name: $('#event-stage #event_name').html().text(),
+		event_name: $($('#event-stage #event_name').html()).text(),
 		url: prob_link,
 		description: $('#event-stage #event-description').html(),
 		category_name: $('#event-stage #dropdown option:selected').val()
@@ -121,7 +121,7 @@ $('#event-stage #problem_link').click(function(){
 $('#edit-event-stage #save').click(function(){
 	var info_bundle = {
 		user_id: user,
-		event_name: $('#edit-event-stage #event_name').html().text(),
+		event_name: $($('#edit-event-stage #event_name').html()).text(),
 		url: $('#edit-event-stage #problem_link').html(),
 		description: $('#edit-event-stage #event-description').html(),
 		category_name: $('#edit-event-stage #dropdown option:selected').val(),
