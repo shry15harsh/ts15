@@ -121,7 +121,7 @@ $('#edit-event-stage #save').click(function(){
 	var info_bundle = {
 		user_id: user,
 		event_name: $('#edit-event-stage #event_name').html(),
-		url: prob_link,
+		url: $('#problem_link').html(),
 		description: $('#edit-event-stage #event-description').html(),
 		category_name: $('#edit-event-stage #dropdown option:selected').val()
 	};
