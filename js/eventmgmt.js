@@ -25,8 +25,10 @@ $('#login').click(function(){
 });
 
 $('body').on('click','.events-list li .delete', function(){
-	var eventid = $(this).parent().find('.event-name').attr('data-id');
-	$.post('/delete', eventid, function(result){
+	var packet = {
+		eventid: $(this).parent().find('.event-name').attr('data-id')
+	};
+	$.post('/delete', packet, function(result){
 		if(result==1){
 			$(this).parent().remove();
 		}

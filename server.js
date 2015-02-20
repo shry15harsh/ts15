@@ -123,7 +123,7 @@ app.post('/events',function(req,res){
 });
 app.post('/delete',function(req, res){
 	var	json_obj = req.body;
-	var query = 'DELETE FROM events WHERE event_id = '+json_obj;
+	var query = 'DELETE FROM events WHERE event_id = '+json_obj['eventid'];
 	conn.query(query,function(err,row){
 		if(!err){
 			res.json("1");
