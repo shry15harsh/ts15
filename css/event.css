@@ -52,6 +52,13 @@ html,body{
 #eventlist-stage{
 	display: none;
 }
+#eventlist-stage #add{
+	float:right;
+	background: grey;
+	padding:5px;
+	color:white;
+	cursor: pointer;
+}
 #event-stage{
 	display: none;
 	color:white;

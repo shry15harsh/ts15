@@ -1,4 +1,4 @@
-var problem_link, user;
+var prob_link, user;
 $(document).ready(function(){
 	prob_link = "";
 });
@@ -17,13 +17,19 @@ $('#login').click(function(){
 		else{
 			$('#login-stage').css('display','none');
 			$('#eventlist-stage').css('display','block');
-			for(var i in data){
-				$('.events-list').append('<li><span class="event-name" data-id="'+data[i]['event_id']+'">'+data[i]['event_name']+'</span><span class="edit">Edit</span><span class="delete">Delete</span></li>');
-			}
+			var packet = {
+				id: user
+			};
+			$.post('/events', login_packet , function(data){
+				for(var i in data){
+					$('.events-list').append('<li><span class="event-name" data-id="'+data[i]['event_id']+'">'+data[i]['event_name']+'</span><span class="edit">Edit</span><span class="delete">Delete</span></li>');
+				}
+			});
 		}
 	});
 });
 
+//Event List Stage
 $('body').on('click','.events-list li .delete', function(){
 	var packet = {
 		eventid: $(this).parent().find('.event-name').attr('data-id')
@@ -37,32 +43,39 @@ $('body').on('click','.events-list li .delete', function(){
 	});
 });
 
+$('#add').click(function(){
+	$('#eventlist-stage').css('display','none');
+	$('#event-stage').css('display','block');
+});
+
+
+//Add Event Page
 $('#save').click(function(){
 	var info_bundle = {
 		event_name: $('#event_name').html(),
-		problem_link: prob_link,
+		url: prob_link,
 		description: $('#event-description').html(),
-		category: $('#dropdown option:selected').val()
+		category_name: $('#dropdown option:selected').val()
 	};
 	console.log(info_bundle.event_name);
-	console.log(info_bundle.problem_link);
+	console.log(info_bundle.url);
 	console.log(info_bundle.description);
-	console.log(info_bundle.categories);
+	console.log(info_bundle.category_name);
 	
 	//Check if no category is selected
-	if(info_bundle.categories == "none"){
+	if(info_bundle.category_name == "none"){
 		alert("Please select a category.");
 	}
 	else{
-		/*$.post("/addmyevent", info_bundle, function(data){
+		$.post("/addevent", info_bundle, function(data){
 			
-		});*/
+		});
 	}
 });
 $('#problem_link').click(function(){
 	var link = prompt("Enter the link to Problem Statement");
 	if(link != null && link != ''){
 		$('#problem_link').html(link);
-		info_bundle.problem_link = link;
+		prob_link = link;
 	}
 });
