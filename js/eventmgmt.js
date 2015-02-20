@@ -15,7 +15,7 @@ $('#login').click(function(){
 			alert('Username or Password is wrong');
 		}
 		else{
-			console.log(data);
+			console.log('user is '+ data);
 			user = data;
 			$('#login-stage').css('display','none');
 			$('#eventlist-stage').css('display','block');

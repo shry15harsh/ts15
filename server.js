@@ -70,7 +70,7 @@ app.post('/login', function(req, res){
 			if(rows.length == 1){
 				var query2 = 'select id FROM users WHERE username = "' + rows['0'].username + '"';
 				conn.query(query2, function(err, rows2){
-					res.json(rows2['0'].id);
+					res.send(rows2['0'].id);
 				});
 			}
 			else{
