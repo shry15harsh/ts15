@@ -29,7 +29,8 @@ $('body').on('click','.events-list li .delete', function(){
 		eventid: $(this).parent().find('.event-name').attr('data-id')
 	};
 	$.post('/delete', packet, function(result){
-		if(result==1){
+		if(result=="done"){
+			console.log('Event deleted');
 			$(this).parent().remove();
 		}
 	});

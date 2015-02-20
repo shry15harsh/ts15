@@ -126,10 +126,10 @@ app.post('/delete',function(req, res){
 	var query = 'DELETE FROM events WHERE event_id = '+json_obj['eventid'];
 	conn.query(query,function(err,row){
 		if(!err){
-			res.json("1");
+			res.json("done");
 		}
 		else{
-			res.json("0");
+			res.json("notdone");
 		}
 	})
 });
