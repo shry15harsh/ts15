@@ -54,6 +54,7 @@ $('#add').click(function(){
 //Add Event Page
 $('#save').click(function(){
 	var info_bundle = {
+		user_id: user,
 		event_name: $('#event_name').html(),
 		url: prob_link,
 		description: $('#event-description').html(),
@@ -70,7 +71,10 @@ $('#save').click(function(){
 	}
 	else{
 		$.post("/addevent", info_bundle, function(data){
-			
+			if(data=="done")
+				console.log('Done adding event');
+			else
+				console.log('Not done');
 		});
 	}
 });

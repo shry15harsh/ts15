@@ -105,8 +105,7 @@ app.post('/posteditevent',function(req,res){
 });
 app.post('/addevent',function(req,res){
 	var json_obj =req.body;
-	//var query = 'select * from events';
-	var query = 'select * from category_master where category_name = "'+json_obj['category_name']+'"'; // to be edited
+	var query = 'select * from category_master where category_name = "'+json_obj['category_name']+'"';
 	conn.query(query,function(err,rows){
 		if(!err)
 		{

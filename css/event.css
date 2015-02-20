@@ -53,7 +53,8 @@ html,body{
 	display: none;
 }
 #eventlist-stage #add{
-	float:right;
+	display: inline-block;
+	margin-bottom: 10px;
 	background: grey;
 	padding:5px;
 	color:white;
