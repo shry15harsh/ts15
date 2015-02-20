@@ -159,3 +159,10 @@ $('#edit-event-stage #save').click(function(){
 		});
 	}
 });
+
+$('#edit-event-stage #problem_link').click(function(){
+	var link = prompt("Enter the link to Problem Statement");
+	if(link != null && link != ''){
+		$('#problem_link').html(link);
+	}
+});
