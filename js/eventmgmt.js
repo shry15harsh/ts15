@@ -28,10 +28,11 @@ $('body').on('click','.events-list li .delete', function(){
 	var packet = {
 		eventid: $(this).parent().find('.event-name').attr('data-id')
 	};
+	var element = $(this).parent();
 	$.post('/delete', packet, function(result){
 		if(result=="done"){
 			console.log('Event deleted');
-			$(this).parent().remove();
+			element.remove();
 		}
 	});
 });
