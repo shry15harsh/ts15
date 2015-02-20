@@ -94,7 +94,7 @@ app.post('/posteditevent',function(req,res){
 	conn.query(query,function(err,rows){
 		if(!err)
 		{
-			var query2 = 'update table events set event_name="'+json_obj['event_name']+'",description="'+json_obj['description']+'",url="'+json_obj['url']+'",category_key="'+rows['0'].category_key+'" where event_id="'+json_obj['event_id']+'"';
+			var query2 = 'update events set event_name="'+json_obj['event_name']+'",description="'+json_obj['description']+'",url="'+json_obj['url']+'",category_key="'+rows['0'].category_key+'" where event_id="'+json_obj['event_id']+'"';
 			conn.query(query2,function(err2,rows2){
 				if(!err2){
 					res.send("done");
