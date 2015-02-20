@@ -81,7 +81,7 @@ app.post('/login', function(req, res){
 });
 app.post('/editevent',function(req,res){
 	var json_obj = req.body;
-	var query = 'select events.event_name, events.description, events.url, category_master.category_name from events,category_master where events.event_id  = "' + json_obj['event_id'] +'" and events.category_key = category_master.category_key ';
+	var query = 'select events.event_name as event_name, events.description as description, events.url as url, category_master.category_name as category_name from events,category_master where events.event_id  = "' + json_obj['event_id'] +'" and events.category_key = category_master.category_key ';
 	conn.query(query,function(err,rows){
 		if(!err){
 			res.json(rows);

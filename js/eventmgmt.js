@@ -93,6 +93,7 @@ $('#save').click(function(){
 					id: user
 				};
 				$.post('/events', packet , function(data){
+					$('.events-list').html('');
 					for(var i in data){
 						$('.events-list').append('<li><span class="event-name" data-id="'+data[i]['event_id']+'">'+data[i]['event_name']+'</span><span class="edit">Edit</span><span class="delete">Delete</span></li>');
 					}
