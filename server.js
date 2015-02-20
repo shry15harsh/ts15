@@ -79,7 +79,7 @@ app.post('/login', function(req, res){
 		}
 	});
 });
-app.post('/postEdit',function(req,res){
+app.post('/edit',function(req,res){
 	var json_obj = req.body;
 	var query = 'select * from events where event_id  = "' + json_obj['event_id'] +'"';
 	conn.query(query,function(err,rows){
@@ -89,7 +89,7 @@ app.post('/postEdit',function(req,res){
 		}
 	});
 });	
-app.get('/addmyevent',function(req,res){
+app.post('/addevent',function(req,res){
 	var json_obj =req.body;
 	//var query = 'select * from events';
 	var query = 'INSERT INTO events (event_name,description,url,category_key,user_id) VALUES("utkarsh","hello","www.google.com","5","9")'; // to be edited
@@ -139,7 +139,4 @@ app.get('/doraemon', function(req, res){
 		Location: 'http://techspardha.org:4082/old_doraemon.html'
 	});
 	res.end();
-});
-app.post('/addmyevent', function(req, res){
-	var event_obj = req.body;
 });
