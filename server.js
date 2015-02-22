@@ -112,7 +112,7 @@ app.post('/posteditevent',function(req,res){
 		{
 			var event_name = addslashes(json_obj['event_name']);
 			var description = addslashes(json_obj['description']);
-			var url = addslashes(json_obj['url']);
+			 var url = addslashes(json_obj['url']);
 			var category_key = addslashes(json_obj['category_key']);
 			var query2 = "update events set event_name='"+event_name+"',description='"+description+"',url='"+url+"',category_key='"+rows['0'].category_key+"' where event_id='"+json_obj['event_id']+"'";
 			console.log(query2);
