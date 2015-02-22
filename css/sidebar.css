@@ -1,0 +1,137 @@
+@font-face
+{
+	font-family:'dense';
+	src:url('../fonts/Dense-Regular.otf');
+}
+@font-face
+{
+	font-family:'futura';
+	src:url('../fonts/futura.TTF');
+}
+body{
+	width:97%;
+	height:92%;
+	overflow-y:hidden;
+	background:#1a1a1a;
+	font-family:Arial;
+	background-image: url('../images/url.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding:1.5%;
+	margin:0;
+}
+.screen
+{
+	position:relative;
+	background:rgba(224,238,224,0.6);
+	height:100%;
+	width:100%;
+	border-radius:15px;
+}
+.tsBox
+{
+	width:50%;
+	height:100%;
+	float:left;
+	text-align:center;
+}
+.tsDesc{
+	text-align:left;
+	font-family:'futura';
+	font-size:26px;
+	margin:10% 0 0 5%;
+	padding:1%;
+}
+.arrowContainer
+{
+	background:rgba(255,255,255,0.3);
+	height:50px;
+	width:50px;
+	display:inline-block;
+	border-radius:50%;
+	margin-top:15%;
+	padding:2%;
+	transition:all 0.5s;
+	-webkit-transition:all 0.5s;
+	cursor:pointer;
+}
+.arrowContainer:not(.arrow):hover
+{
+	background:rgba(255,255,255,0.8);
+}
+.arrow
+{
+	height:50px;
+	width:50px;
+	text-align:center;
+}
+.arrow .head
+{
+	height:10px;
+	width:10px;
+	transform-origin:0 0;
+	transform:rotate(45deg);
+	border-bottom:solid #e74c3c 3px;
+	border-right:solid #e74c3c 3px;
+	position:relative;
+	top:-30%;
+	left:50%;
+}
+.arrow .tail
+{
+	height:40px;
+	width:4px;
+	background:#e74c3c;
+	display: inline-block;
+	position:relative;
+}
+.sub
+{
+	font-size:20px;
+	font-style: italic;
+}
+.divider
+{
+	float:left;
+	//display: inline-block;
+	height:84%;
+	margin:4% 0;
+	background:white;
+	width:0.1%;
+	-moz-box-shadow:    0px 0px 5px white;
+	-webkit-box-shadow: 0px 0px 5px white;
+	box-shadow:         0px 0px 5px white;
+}
+.tsdesc .tsname
+{
+	font-size:130px;
+	text-shadow: 2px 2px 3px black;
+	font-family:'dense';
+	margin-bottom:10px;
+	margin-top:0px;
+	color:#333;
+}
+.theme{
+	float:left;
+	width:49.9%;
+	height:100%;
+	text-align:center;
+}
+.theme .date
+{
+	font-size: 20px;
+}
+.quote
+{
+	margin-top:30%;
+	display: inline-block;
+	font-size:25px;
+	font-family:futura;
+}
+.quote .madeInIndia
+{
+	font-size:26px;
+	text-shadow: 2px 2px 5px #333;
+	font-family: calibri; 
+	font-style:italic;
+}

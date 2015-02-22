@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2015 by original authors @ fontello.com</metadata>
+<defs>
+<font id="bottom" horiz-adv-x="1000" >
+<font-face font-family="bottom" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="commerical-building" unicode="&#xe800;" d="m50 800c-28 0-50-22-50-50 0 0 0-533 0-800 0-25 25-50 50-50 83 0 250 0 250 0l0 150c0 28 26 50 50 50l50 0c24 0 50-22 50-50 0-50 0-100 0-150 0 0 167 0 250 0 25 0 50 25 50 50 0 267 0 800 0 800 0 28-22 50-50 50z m100-150l150 0 0-100-150 0z m300 0l150 0 0-100-150 0z m-300-300l150 0 0-100-150 0z m300 0l150 0 0-100-150 0z" horiz-adv-x="750" />
+<glyph glyph-name="facebook" unicode="&#xe801;" d="m500 644l-142 0q-14 0-25-15t-11-37l0-102 178 0 0-148-178 0 0-442-170 0 0 442-152 0 0 148 152 0 0 86q0 94 59 159t147 65l142 0 0-156z" horiz-adv-x="500" />
+<glyph glyph-name="magic" unicode="&#xe802;" d="m664 526l164 163-60 60-164-164z m249 163q0-15-10-25l-717-718q-10-10-25-10t-25 10l-111 111q-10 10-10 25t10 25l718 718q10 10 25 10t25-10l110-111q10-10 10-25z m-753 106l54-16-54-17-17-55-17 55-55 17 55 16 17 55z m195-90l109-34-109-33-34-109-33 109-109 33 109 34 33 109z m519-267l55-17-55-16-17-55-17 55-54 16 54 17 17 55z m-357 357l54-16-54-17-17-55-17 55-54 17 54 16 17 55z" horiz-adv-x="928.6" />
+</font>
+</defs>
+</svg>

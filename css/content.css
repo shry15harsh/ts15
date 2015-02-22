@@ -1,0 +1,118 @@
+/*For top*/
+.menuBack .home
+{
+	position:fixed;
+	right:3%;
+}
+.menuBack .up
+{
+	padding:3%;
+	margin:10%;
+	font-family:'dense';
+	font-size:3em;
+	letter-spacing:3;
+	cursor:pointer;
+	transition: all 1s;
+	color:white;
+	font-weight:900;
+	display:inline-block;
+	min-width:120;
+}
+.menuBack .up .arrow
+{
+	display:inline-block;
+	transform:scale(-1,-1);
+	-webkit-transform:scale(-1,-1);
+	margin-left:-15%;
+	margin-top:-48%;
+}
+.menuBack .up .arrow .head
+{
+	border-color: white;
+}
+.menuBack .up .arrow .tail
+{
+	background:white;
+}
+.menuBack .up:hover
+{
+	color:#FF4454;
+}
+/*Event desctiption css*/
+.writeup
+{
+	position:relative;
+}
+.writeup ul
+{
+	margin-top:-4%;
+	z-index: -1;
+	background:orange;
+}
+.writeup ul li
+{
+	list-style-type:none;
+	display: none;
+	text-align:justify;
+	padding:2%;
+	margin:2px;
+	font-size:19px;
+	font-family:'futura';
+}
+/*Navbar at the bottom*/
+.navbar
+{
+	position:relative;
+	top:92%;
+	width:100%;
+}
+.navbar ul
+{
+	background:none;
+	position:relative;
+	min-width:75%;
+	width:auto;
+	text-align: center;
+	box-shadow:0px 0px 0px;
+	-webkit-box-shadow:0px 0px 0px;
+}
+.navbar ul li
+{
+	display:inline-block;
+	padding:2%;
+	position:relative;
+	margin: -2% -1%;
+	font-size:17px;
+	text-transform:capitalize;
+}
+.navbar .icon
+{
+	font-size:40px;
+	margin-left:-5%;
+	color:black;
+	min-width:40px;
+	text-align: center;
+	position: relative;
+}
+.navbar .circle
+{
+	border:1px solid #222;
+	height:50px;
+	width:50px;
+	border-radius:50%;
+	text-align: center;
+	cursor:pointer;
+	margin-top:-19px;
+	text-align:center;
+	transition:all 200ms ease-in-out;
+	transition-property:background,border-radius;
+	background:#FF4454;
+}
+.expand
+{
+	letter-spacing:3px;
+	color:white;
+	text-shadow:0px 0px 4px rgb(227,225,224);
+	font-size:20px;
+	text-align:center;
+}

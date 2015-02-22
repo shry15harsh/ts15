@@ -58,7 +58,12 @@ conn.connect(function(err){
 		conn.query("use techspardha");
 	}
 });
-
+app.get('/home',function(req,res){
+	res.sendfile('homepage.html');
+});
+app.get('/events',function(req,res){
+	res.sendfile('events.html');
+});
 /*
 	Event Dashboard
 */
@@ -94,7 +99,11 @@ app.post('/posteditevent',function(req,res){
 	conn.query(query,function(err,rows){
 		if(!err)
 		{
-			var query2 = "update events set event_name='"+json_obj['event_name']+"',description='"+json_obj['description']+"',url='"+json_obj['url']+"',category_key='"+rows['0'].category_key+"' where event_id='"+json_obj['event_id']+"'";
+			var event_name = addslashes(json_obj['event_name']);
+			var description = addslashes(json_obj['description']);
+			var url = addslashes(json_obj['url']);
+			var category_key = addslashes(json_obj['category_key']);
+			var query2 = "update events set event_name='"+event_name+"',description='"+description+"',url='"+url+"',category_key='"+rows['0'].category_key+"' where event_id='"+json_obj['event_id']+"'";
 			console.log(query2);
 			conn.query(query2,function(err2,rows2){
 				if(!err2){
@@ -107,13 +116,27 @@ app.post('/posteditevent',function(req,res){
 		}
 	});
 });
+function addslashes(string) {
+
+    return (string + '').replace(/\\/g, '\\\\').
+        replace(/\u0008/g, '\\b').
+        replace(/\t/g, '\\t').
+        replace(/\n/g, '\\n').
+        replace(/\f/g, '\\f').
+        replace(/\r/g, '\\r').
+        replace(/'/g, '\\\'').
+        replace(/"/g, '\\"');
+}
 app.post('/addevent',function(req,res){
 	var json_obj =req.body;
 	var query = 'select * from category_master where category_name = "'+json_obj['category_name']+'"';
 	conn.query(query,function(err,rows){
 		if(!err)
 		{
-			var query2 = 'INSERT INTO events (event_name,description,url,category_key,user_id) VALUES("'+json_obj['event_name']+'","'+json_obj['description']+'","'+json_obj['url']+'","'+rows['0'].category_key+'","'+json_obj['user_id']+'")';	
+			var event_name = addslashes(json_obj['event_name']);
+			var description = addslashes(json_obj['description']);
+			var url = addslashes(json_obj['url']);
+			var query2 = 'INSERT INTO events (event_name,description,url,category_key,user_id) VALUES("'+event_name+'","'+description+'","'+url+'","'+rows['0'].category_key+'","'+json_obj['user_id']+'")';	
 			conn.query(query2,function(err2,rows2){
 				if(!err2){
 					res.send("done");
@@ -149,7 +172,36 @@ app.post('/delete',function(req, res){
 		}
 	})
 });
-
+app.post('/category_event',function(req,res){
+	var json_obj = req.body;
+	var query = 'select event_id,event_name from events where category_key = "'+json_obj['category_id']+'"';
+	conn.query(query,function(err,rows){
+		if(!err)
+		{
+			console.log(rows);
+			res.json(rows);
+		}
+		else
+		{
+			res.json(err);
+		}
+		
+	});
+});
+app.post('/select_event',function(req,res){
+	var json_obj = res.body;
+	var query = 'select * from events where event_id = "1"';
+	conn.query(query,function(err,rows){
+		if(!err)
+		{
+			res.json(rows);
+		}
+		else
+		{
+			res.json(err);
+		}
+	});
+});
 
 app.get('/techexpo', function(req, res){
 	res.writeHead(301, {
