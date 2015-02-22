@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/', { maxAge : cacheTime }));
 
 app.use(bodyParser.urlencoded());
 
-app.listen(80, function(){
+app.listen(8000, function(){
 	console.log('Listening on 80');
 /*	fs.readFile(__dirname+'/page_visit', {encoding: 'utf-8'}, function(err, data){
 		if(err){
@@ -50,7 +50,7 @@ var mysql =  require('mysql');
 conn =  mysql.createConnection({
 	host : "localhost",
 	user : "root",
-	password: "tech@2015",
+	password: "evm",
 	//database: "techspardha",
 });
 conn.connect(function(err){
@@ -179,7 +179,6 @@ app.post('/category_event',function(req,res){
 	conn.query(query,function(err,rows){
 		if(!err)
 		{
-			console.log(rows);
 			res.json(rows);
 		}
 		else
@@ -190,12 +189,12 @@ app.post('/category_event',function(req,res){
 	});
 });
 app.post('/select_event',function(req,res){
-	var json_obj = res.body;
-	var query = 'select * from events where event_id = "1"';
+	var json_obj = req.body;
+	var query = 'select * from events where event_id = "'+json_obj['event_id']+'"';
 	conn.query(query,function(err,rows){
 		if(!err)
 		{
-			res.json(rows);
+			res.json(rows['0']);
 		}
 		else
 		{

@@ -23,7 +23,7 @@ function populateEventList(size,eventList)
 	$(".event-list ul").empty();
 	for(var i = 0;i<size;i++)
 	{
-		$(".event-list ul").append( "<li data-detail= \"+ eventList[i]['event_id'] +\">" + eventList[i]['event_name'] + "</li>");
+		$(".event-list ul").append( "<li data-detail= "+ eventList[i]['event_id'] +">" + eventList[i]['event_name'] + "</li>");
 	}
 	$(".event-list li").each(function(){
 			$(this).css({"background-color":"rgb("+color_array[(colorIndexli+1)%7]+")","box-shadow":"3px 3px 0.5px rgba(0,0,0,0.7)"});
@@ -36,12 +36,10 @@ function getRequest(category)
 	//category refers to the category that has been clicked
 	//send a JSON here regarding the events list from here
 	//return the JSON object to the calling function
-	var returnedList;
 	var category_request = 
 	{
 		category_id:parseInt(category.attr("data-detail")),
 	}
-	console.log(category_request);
 	$.post(
 		"/category_event",
 		category_request,
@@ -49,6 +47,49 @@ function getRequest(category)
 			var population = Object.keys(data).length;
 			populateEventList(population,data);
 	});
+}
+
+function getEvent(eventName,present,c)
+{
+	var information;
+	var event_request = 
+	{
+		event_id:parseInt(eventName.attr("data-detail")),
+	}
+	console.log(event_request);
+	$.post(
+		"/select_event",
+		event_request,
+		function(data,status){
+			information=data;
+			$(".space-active").animate({"top":"60%","opacity":"0"},500,function(){
+			///////////////////insertion json
+				//filtering div having display none presntly
+				c.children("h").text("");
+				c.css({"display":"block"});
+				//children() selecting required child insert json data here
+				c.children("h1").text(information.event_name);
+				c.attr({"data-detail":data+""});
+				c.children("p").text(information.description);
+				if(information.url!="")
+				{
+					c.children("h").text("Problem Statement");
+					c.children(".url").text(information.url);
+					c.children(".url").attr({"href":"http://"+information.url+""});
+				}
+				c.animate({"top":"30%"},200,function(){
+					$(this).addClass("space-active");
+					$(this).attr({"data-detail":present.attr("data-detail")+""});
+					console.log($(this).attr("data-detail"));
+				});
+				$(this).removeClass("space-active");
+				
+				$(".description-space").animate({"background-color":colorlev1[(colorIndex+1)%4]+""},300);
+				colorIndex++;
+				$(this).css({"display":"none","top":"0","opacity":"1"});
+			});
+	});
+	
 }
 function main(){
 		$(".category-list li").on("click", function(){
@@ -91,14 +132,13 @@ function main(){
 			else
 			{
 				getRequest(place);
-				/////////////////////////////////////call for json here and pass it as argument
 				/*$(".event-list li").each(function(e){
 						$(this).css({"background-color":"rgb("+color_array[(colorIndexli+1)%7]+")","box-shadow":"3px 3px 0.5px rgba(0,0,0,0.7)"});
 						colorIndexli++;
 				});*/
 			}
 			ccount=1;
-			//getRequest($(this));
+			
 			var col=$(".active-category").parent().css("background-color");
 			$(".category-list li").animate({"font-size":"30px","color":"black","letter-spacing":"0px","background-color":col+""},{duartion:50});
 			$(".active-category").removeClass("active-category");
@@ -114,33 +154,22 @@ function main(){
 		
 		var count=0;
 		
-		$(".event-list").on("click","li",function(){
+		$(".event-list").on("click","li",function(e){
 			var data=$(this).attr("data-detail");
+			var present=$(this);
 			var c=$(".description-space div").filter(function(){return $(this).hasClass("space-active")==false;});
-			var offx=$(this).offset().left;
-			var offy=$(this).offset().top;
+			//console.log(c.attr("data-detail")+" "+$(this).attr("data-detail"));
 			if($(".space-active").attr("data-detail")==$(this).attr("data-detail")&&category_change==false)
 			{
 				return;
 			}
-			
-			$(".space-active").animate({"top":"60%","opacity":"0"},500,function(){
-			///////////////////insertion json
-				//filtering div having display none presntly
-				
-				c.css({"display":"block"});
-				//children() selecting required child insert json data here
-				c.children("h1").text(data);
-				c.attr({"data-detail":data+""});
-				c.children("p").text($(".active-category").attr("data-detail"));
-				
-				c.animate({"top":"30%"},200,function(){$(this).addClass("space-active");});
-				$(this).removeClass("space-active");
-				
-				$(".description-space").animate({"background-color":colorlev1[(colorIndex+1)%4]+""},300);
-				colorIndex++;
-				$(this).css({"display":"none","top":"0","opacity":"1"});
-			});
+			var _self = $(e.target);
+			//use this _self everywhere
+			//send a JSON to retireve the information
+			//retrieve an object with the desired event details
+
+			getEvent(_self,present,c);
+
 			category_change=false;	
 		});
 }
