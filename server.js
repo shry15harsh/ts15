@@ -93,6 +93,17 @@ app.post('/editevent',function(req,res){
 		}
 	});
 });	
+function addslashes(string) {
+
+    return (string + '').replace(/\\/g, '\\\\').
+        replace(/\u0008/g, '\\b').
+        replace(/\t/g, '\\t').
+        replace(/\n/g, '\\n').
+        replace(/\f/g, '\\f').
+        replace(/\r/g, '\\r').
+        replace(/'/g, '\\\'').
+        replace(/"/g, '\\"');
+}
 app.post('/posteditevent',function(req,res){
 	var json_obj = req.body;
 	var query = 'select * from category_master where category_name = "'+json_obj['category_name']+'"';
@@ -116,17 +127,7 @@ app.post('/posteditevent',function(req,res){
 		}
 	});
 });
-function addslashes(string) {
 
-    return (string + '').replace(/\\/g, '\\\\').
-        replace(/\u0008/g, '\\b').
-        replace(/\t/g, '\\t').
-        replace(/\n/g, '\\n').
-        replace(/\f/g, '\\f').
-        replace(/\r/g, '\\r').
-        replace(/'/g, '\\\'').
-        replace(/"/g, '\\"');
-}
 app.post('/addevent',function(req,res){
 	var json_obj =req.body;
 	var query = 'select * from category_master where category_name = "'+json_obj['category_name']+'"';
