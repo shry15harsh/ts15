@@ -70,14 +70,14 @@ function getEvent(eventName,present,c)
 				//children() selecting required child insert json data here
 				c.children("h1").text(information.event_name);
 				c.attr({"data-detail":data+""});
-				c.children("p").text(information.description);
+				c.children("p").html(information.description);
 				if(information.url!="")
 				{
 					c.children("h").text("Problem Statement");
 					c.children(".url").text(information.url);
 					c.children(".url").attr({"href":"http://"+information.url+""});
 				}
-				c.animate({"top":"30%"},200,function(){
+				c.animate({"top":"15%"},200,function(){
 					$(this).addClass("space-active");
 					$(this).attr({"data-detail":present.attr("data-detail")+""});
 					console.log($(this).attr("data-detail"));
