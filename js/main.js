@@ -9,7 +9,7 @@ var colorIndexli=1;
 var n = ["AELAwns","ABRA","CC"];
 $(document).ready(function(e){
 	var colorIndex=1;
-	$(".active-category").css({"animation":"anim 0.1s linear forwards","-webkit-animation":"anim 0.1s linear forwards"});
+	$(".active-category").animate({"font-size":"40px","color":"white","letter-spacing": "2px","background-color": "black","font-weight": "400"},100);
 	$(".fakes").each(function(){
 		$(this).css({"left":colorIndex/2+"%","background-color":"rgb("+color_array[(colorIndex+2)%8]+")","z-index":100-colorIndex+""});
 		colorIndex++;
@@ -100,13 +100,13 @@ function main(){
 			ccount=1;
 			//getRequest($(this));
 			var col=$(".active-category").parent().css("background-color");
-			$(".active-category").animate({"font-size":"30px","color":"black","letter-spacing":"0px","background-color":col+"","-webkit-animation":"none"},200);
+			$(".category-list li").animate({"font-size":"30px","color":"black","letter-spacing":"0px","background-color":col+""},{duartion:50});
 			$(".active-category").removeClass("active-category");
 			$(".event-list").animate({"background-color":colorlev2[(colorIndex+1)%4]+""},{queue:false,duration:1500});
 			$(".event-list").animate({"left":(15+c/2)+"%"},900);	
 			$(".category-list").animate({"background-color":colorlev3[(colorIndex+1)%4]+""},700);
 			$(".description-space").animate({"background-color":colorlev1[(colorIndex+1)%4]+""},300);
-			$(this).css({"animation":"anim 0.2s linear forwards"});
+			$(this).animate({"font-size":"40px","color":"white","letter-spacing": "2px","background-color": "black","font-weight": "400"},200);
 			$(this).addClass("active-category");
 			category_change=true;
 			colorIndex++;
