@@ -68,7 +68,7 @@ function getEvent(eventName,present,c)
 				c.children("h").text("");
 				c.css({"display":"block"});
 				//children() selecting required child insert json data here
-				c.children("h1").text(information.event_name);
+				c.children("h1").html(information.event_name);
 				c.attr({"data-detail":data+""});
 				c.children("p").html(information.description);
 				if(information.url!="")
