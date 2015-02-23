@@ -67,7 +67,7 @@
 .navbar
 {
 	position:relative;
-	top:88%;
+	bottom:0%;
 	width:100%;
 	font-family:"PTNarrow";
 }
@@ -84,11 +84,14 @@
 .navbar ul li
 {
 	display:inline-block;
-	padding:2px;
+	padding:0px;
 	position:relative;
 	margin: -2% 1%;
 	font-size:18px;
+	min-width:auto;
+	width:15%;
 	text-transform:uppercase;
 	font-family:"PTNarrow";
-	background:red;
+	background:#e5e5e5;
+	border:1px solid #222;
 }
