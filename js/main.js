@@ -1,5 +1,5 @@
-var color_array=["#ef5350","#9575CD","#64B5F6","#81C784","#DCE775","#FFF176"];
-var colorlev1=["#43a047","#ff7043","#00bcd4","#d7ccc8"];//greens are "#96B566","#BCE27F",
+var colorlev1=["#ef5350","#9575CD","#64B5F6","#81C784","#DCE775","#FFF176"];
+//var colorlev1=["#43a047","#ff7043","#00bcd4","#d7ccc8"];//greens are "#96B566","#BCE27F",
 var colorlev2=[];
 var colorlev3=[];
 var category_change=false;
