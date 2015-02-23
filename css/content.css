@@ -1,4 +1,8 @@
 /*For top*/
+@font-face{
+	font-family:"PTNarrow";
+	src:url('../fonts/PTNarrow.ttf');
+}
 .menuBack .home
 {
 	position:fixed;
@@ -65,6 +69,7 @@
 	position:relative;
 	top:88%;
 	width:100%;
+	font-family:"PTNarrow";
 }
 .navbar ul
 {
@@ -79,10 +84,11 @@
 .navbar ul li
 {
 	display:inline-block;
-	padding:2%;
+	padding:2px;
 	position:relative;
-	margin: -2% -1%;
-	font-size:17px;
-	text-transform:capitalize;
+	margin: -2% 1%;
+	font-size:18px;
+	text-transform:uppercase;
+	font-family:"PTNarrow";
 	background:red;
 }
