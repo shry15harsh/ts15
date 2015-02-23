@@ -1,18 +1,18 @@
 $('document').ready(function(){
-	
+	$('.screen').css("transition-timing-function","cubic-bezier(0.910, 0.080, 0.450, 0.810)");
+	$('.screen').css("transition","all 1s");
+	$('.menuBack').css("transition-timing-function","cubic-bezier(0.910, 0.080, 0.450, 0.810)");	
+	$('.menuBack').css("transition","all 1s");	
 });
 
 var click = 0;
 
 $('.arrowContainer').click(function(){
-	$('.screen').css("transition","all 1s cubic-bezier(0.910, 0.080, 0.450, 0.810)");
-	$('.menuBack').css({"transition":"all 1s cubic-bezier(0.910, 0.080, 0.450, 0.810)","opacity":"0"});
-	
-	$(".menuBack").fadeIn("100",function(){
-		$('.screen').css({"transform":"translateY(-110%)"});
-		$('.menuBack').css({"transform":"translateY(-110%)"});
-		$('.menuBack').animate({"opacity":"1"});
-		$('.menuBack .navbar').css('position','fixed');
+		$('.screen').fadeOut("slow",function(){
+		$('.menuBack').fadeIn();
+		$('.screen').css("transform","translateY(-100%)");
+		$('.menuBack').css({"transform":"translateY(0%)"});
+		$('.menuBack .navbar').css("position","fixed");
 	});
 });
 
@@ -48,28 +48,10 @@ $('.menu li').click(function(){
 $('.home .up').click(function(){
 	//reverse the animation
 	//squeeze this Window and bring the cover down
-	$('.screen').css("transition","all 1s cubic-bezier(0.910, 0.080, 0.450, 0.810)");
-	$('.screen').css("-webkit-transition","all 1s cubic-bezier(0.910, 0.080, 0.450, 0.810)");
-	$('.menuBack').css("transition","all 1s cubic-bezier(0.910, 0.080, 0.450, 0.810)");
-	$('menuBack').css("-webkit-transition","all 1s cubic-bezier(0.910, 0.080, 0.450, 0.810)");
 	
-	
-	$('.menuBack').fadeOut("100",function(){
-		$('.menuBack').animate({"opacity":"0"},{duration:30,queue:false});
-		$('.screen').css({"transform":"translateY(0)"});
-		$('.screen').css({"-webkit-transform":"translateY(0)"});
+	$('.menuBack').fadeOut("slow",function(){
+		$('.screen').fadeIn();
+		$('.menuBack').css("transform","translateY(100%)");
+		$('.screen').css({"transform":"translateY(0%)"});
 	});
-	
-	
 });
-
-$('.navbar .circle').hover(function(){
-	$(this).children(".icon").css({"color":"#222"});
-	$(this).parent().children(".short").addClass("expand");
-	var block_width = parseInt($(this).parent().css('width'));
-	$(this).css("marginLeft",block_width*0.15+'px');
-	},function(){
-		$(this).children(".icon").css({"color":"black"});
-		$(this).parent().children(".short").removeClass("expand");
-		$(this).css("margin-left","0%");
-	});
