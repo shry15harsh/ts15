@@ -1,11 +1,12 @@
 var colorlev1=["#ef5350","#9575CD","#64B5F6","#81C784","#DCE775","#FFF176"];
-//var colorlev1=["#43a047","#ff7043","#00bcd4","#d7ccc8"];//greens are "#96B566","#BCE27F",
+var color_array=["#43a047","#ff7043","#00bcd4","#d7ccc8","#96B566","#BCE27F"]
 var colorlev2=[];
 var colorlev3=[];
 var category_change=false;
 var ccount=0,counter=0;
 var colorIndex = 1;
 var colorIndexli=1;
+var a=1;
 
 function shadeColor(color,percent) {
 
@@ -27,7 +28,6 @@ function shadeColor(color,percent) {
 
     return "#"+RR+GG+BB;
 }
-
 $(document).ready(function(e){
 	//fill arrays colorlev2 and colorlev3
 	var color_hash = colorlev1.length;
@@ -37,12 +37,13 @@ $(document).ready(function(e){
 		colorlev3[i] = shadeColor(colorlev1[i],12);
 	}
 	var colorIndex=1;
-	$(".active-category").animate({"font-size":"40px","color":"white","letter-spacing": "2px","background-color": "black","font-weight": "400"},100);
-	var iter = 0;
-	$(".fakes").each(function(){
-		$(this).css({"left":colorIndex/2+"%","background-color":shadeColor("#009688",6*iter),"z-index":100-colorIndex+""});
+	$(".active-category").animate({"font-size":"40px","color":"white","letter-spacing": "2px","background-color": "black","font-weight": "400"},100,function(e){
+		var iter = 0;
+		$(".fakes").each(function(){
+		$(this).css({"left":colorIndex/2+"%","background-color":color_array[(iter+1)%7]+"","z-index":299-colorIndex+""});
 		colorIndex++;
 		iter++;
+	});
 	});
 	requestAnimationFrame(main);
 });
@@ -57,6 +58,7 @@ function populateEventList(size,eventList)
 	}
 
 	var color = colorlev2[(colorIndex)%4];
+	var colorRGB = hexToRgb(color);
 	$(".event-list li").each(function(){
 			$(this).css({"backgroundColor":shadeColor(color,35),"box-shadow":"3px 3px 0.5px rgba(0,0,0,0.7)"});
 	});
@@ -138,7 +140,9 @@ function getEvent(eventName,present,c)
 				$(this).removeClass("space-active");
 				
 				var screen_color = present.css("backgroundColor");//in rgb format
-				$(".description-space").animate({"background-color":screen_color},300);
+
+				var colorrgb=screen_color.substr(4,(screen_color.length-5));
+				$(".description-space").animate({"background-color":"rgba("+colorrgb+",0.7)"},300);
 				$(this).css({"display":"none","top":"0","opacity":"1"});
 			});
 	});
@@ -157,7 +161,7 @@ function main(){
 				$(".event-list").css({"background-color":colorlev2[(colorIndex+1)%4]+""});
 				$(".event-list").animate({"background-color":colorlev2[(colorIndex+1)%4]+""},{queue:false,duration:1500});
 				
-				$(".event-list").css({"z-index":99-c+""});				
+				$(".event-list").css({"z-index":299-c+""});				
 				//call for json here and pass it as argument
 				
 				$(".event-list").animate({"left":"15%"},900);
@@ -177,7 +181,7 @@ function main(){
 			if(ccount==1)
 			{
 				$(".event-list").animate({"left":"0%"},400,function(){
-						$(this).css({"z-index":99-c+""});
+						$(this).css({"z-index":299-c+""});
 						$(".event-list").css({"background-color":colorlev1[(colorIndex+1)%4]+""});
 						getRequest(place);
 				});
@@ -197,7 +201,7 @@ function main(){
 			//$(".category-list").animate({"background-color":"#80cbc4"},700);
 			var screen_color = hexToRgb(colorlev1[(colorIndex+1)%4]);
 			$(".description-space").animate({"background-color":"rgba("+screen_color.r+","+screen_color.g+","+screen_color.b+",0.3)"},300);
-			$(this).animate({"font-size":"3em","color":"white","letter-spacing": "2px","background-color": "black","font-weight": "400"},200);
+			$(this).animate({"font-size":"2em","color":"white","letter-spacing": "2px","background-color": "black","font-weight": "400"},200);
 			$(this).addClass("active-category");
 			category_change=true;
 			colorIndex++;

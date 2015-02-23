@@ -6,6 +6,9 @@ $('document').ready(function(){
 });
 
 var click = 0;
+var intial_top;
+var initial_left;
+var initial_width;
 
 $('.arrowContainer').click(function(){
 		$('.screen').fadeOut("slow",function(){
@@ -30,6 +33,12 @@ $('.menu li').click(function(){
 			if(i!=num){
 				$('.menu li:nth-child('+i+') #item').parent().slideUp("500");
 			}
+		}
+		if(num==1)
+		{
+			$(".backdrop").css({"display":"block"});
+			$(".sections").css({"display":"block"});
+			return;
 		}
 		$('.writeup .content li:nth-child('+num+')').fadeIn(800);
 	}
