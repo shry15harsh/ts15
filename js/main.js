@@ -122,8 +122,8 @@ function getEvent(eventName,present,c)
 			//$(".space-active").animate({"top":"60%","opacity":"0"},500,function(){
 			///////////////////insertion json
 				//filtering div having display none presntly
-				c.children("h").text("");
-				c.css({"display":"block"});
+				//c.children("h").text("");
+				//c.css({"display":"block"});
 				//children() selecting required child insert json data here
 				c.children("h1").html(information.event_name);
 				c.attr({"data-detail":data+""});
@@ -134,11 +134,11 @@ function getEvent(eventName,present,c)
 					c.children(".url").text(information.url);
 					c.children(".url").attr({"href":information.url});
 				}
-				c.animate({"top":"15%"},200,function(){
+				/*c.animate({"top":"15%"},200,function(){
 					$(this).addClass("space-active");
 					$(this).attr({"data-detail":present.attr("data-detail")+""});
-				});
-				$(this).removeClass("space-active");
+				});*/
+				//$(this).removeClass("space-active");
 				
 				var screen_color = present.css("backgroundColor");//in rgb format
 
