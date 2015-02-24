@@ -122,9 +122,10 @@
 }
 .event-list li
 {
-  font-size: 1.5em;
+  font-size: 1.2em;
+  text-decoration: underline;
   height:40px;
-  box-shadow : 3px 3px 0.5px rgba(0,0,0,0.7);
+  //box-shadow : 3px 3px 0.5px rgba(0,0,0,0.7);
   font-family:futura;
 }
 .description-space{
