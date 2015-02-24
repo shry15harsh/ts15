@@ -123,17 +123,17 @@ function getEvent(eventName,present,c)
 			//$(".space-active").animate({"top":"60%","opacity":"0"},500,function(){
 			///////////////////insertion json
 				//filtering div having display none presntly
-				c.children("h").html("");
+				c.find("h").html("");
 				//c.css({"display":"block"});
 				//children() selecting required child insert json data here
-				c.children("h1").html(information.event_name);
+				c.find("h1").html(information.event_name);
 				c.attr({"data-detail":data+""});
-				c.children("p").html(information.description);
+				c.find("p").html(information.description);
 				if(/\S/.test(information.url))
 				{
-					c.children("h").html("<br><b>Problem Statement: </b>");
-					c.children(".url").text(information.url);
-					c.children(".url").attr({"href":information.url});
+					c.find("h").html("<br><b>Problem Statement: </b>");
+					c.find(".url").text(information.url);
+					c.find(".url").attr({"href":information.url});
 				}
 				//c.animate({"top":"15%"},200,function(){
 					//$(this).addClass("space-active");
@@ -152,10 +152,10 @@ function getEvent(eventName,present,c)
 
 $(".category-list li").on("click", function(){
 	//Clear description space
-	$('.description-space').children("h").html("");
-	$('.description-space').children("h1").html("");
-	$('.description-space').children("p").html('Click on the competition!!');
-	$('.description-space').children(".url").text("");
+	$('.description-space h').html("");
+	$('.description-space h1').html("");
+	$('.description-space p').html('Click on the competition!!');
+	$('.description-space .url').text("");
 	var place=$(this);
 	var c=$(this).index()+1;
 	if($(this).hasClass("active-category"))
@@ -164,7 +164,7 @@ $(".category-list li").on("click", function(){
 	}
 	//counter to 1 for avoiding improper animation in category1
 	counter=1;
-	$('.event-list').children("ul").html('Getting you the competitions!! Hold On!!');
+	$('.event-list').find("ul").html('Getting you the competitions!! Hold On!!');
 	//$(".event-list").animate({"left":"15%"},400,function(){
 			$(this).css({"z-index":299-c+""});
 			//$(".event-list").css({"background-color":colorlev1[(colorIndex+1)%4]+""});
@@ -201,10 +201,10 @@ $(".event-list").on("click","li",function(e){
 	$('.event-list li').css('color', '#646464');
 	$(this).css('color', 'white');
 	
-	$('.description-space').children("h").html("");
-	$('.description-space').children("h1").html("");
-	$('.description-space').children("p").html('Getting you the details!! Hold On!!');
-	$('.description-space').children(".url").text("");
+	$('.description-space h').html("");
+	$('.description-space h1').html("");
+	$('.description-space p').html('Getting you the details!! Hold On!!');
+	$('.description-space .url').text("");
 
 	getEvent(_self,present,$('.description-space'));
 
