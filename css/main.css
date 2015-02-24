@@ -84,7 +84,7 @@
   text-transform: capitalize;
   //box-shadow : 3px 3px 0.5px rgba(0,0,0,0.7);
   font-family:futura !important;;
-  color:rgb(100,100,100) !important;
+  color:rgb(100,100,100);
   margin-bottom:10px !important;
 }
 .description-space{

@@ -164,22 +164,16 @@ $(".category-list li").on("click", function(){
 	}
 	//counter to 1 for avoiding improper animation in category1
 	counter=1;
-	$('.event-list').find("ul").html('Getting you the competitions!! Hold On!!');
-	//$(".event-list").animate({"left":"15%"},400,function(){
-			$(this).css({"z-index":299-c+""});
-			//$(".event-list").css({"background-color":colorlev1[(colorIndex+1)%4]+""});
-			getRequest(place);
-		//});
-		//getRequest($(this));
+	$('.event-list').find("ul").html('Getting you the competitions!! Hold On!!');	
+	$(this).css({"z-index":299-c+""});
+	getRequest(place);
 	ccount=1;
 	
 	var col=$(".active-category").parent().css("background-color");
 	$(".category-list li").removeClass("active-category");
-	//$(".event-list").animate({"background-color":"none"},{queue:false,duration:1500});
-	//$(".event-list").animate({"left":(14.5+c/2)+"%"},900);	
+	$(this).addClass("active-category");
 	var screen_color = hexToRgb(colorlev1[(colorIndex+1)%4]);
 	$(".description-space").animate({"background-color":"rgba("+screen_color.r+","+screen_color.g+","+screen_color.b+",0.3)"},300);
-	$(this).addClass("active-category");
 	category_change=true;
 	colorIndex++;
 });
@@ -198,8 +192,10 @@ $(".event-list").on("click","li",function(e){
 	//send a JSON to retrieve the information
 	//retrieve an object with the desired event details
 	
-	$('.event-list li').css('color', '#646464 !important');
-	$(this).css('color', 'white !important');
+	//$('.event-list li').css('color', '#646464 !important');
+	//$(this).css('color', 'white !important');
+	$(".event-list li").removeClass("active-category");
+	$(this).addClass("active-category");
 	
 	$('.description-space h').html("");
 	$('.description-space h1').html("");
