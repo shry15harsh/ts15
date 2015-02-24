@@ -3,6 +3,7 @@ $('document').ready(function(){
 	$('.screen').css("transition","all 1s");
 	$('.menuBack').css("transition-timing-function","cubic-bezier(0.910, 0.080, 0.450, 0.810)");	
 	$('.menuBack').css("transition","all 1s");	
+	$('#events .event-list').scrollbar();
 });
 
 var click = 0;
