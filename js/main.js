@@ -60,7 +60,7 @@ function populateEventList(size,eventList)
 	var color = colorlev2[(colorIndex)%4];
 	var colorRGB = hexToRgb(color);
 	$(".event-list li").each(function(){
-			$(this).css({"backgroundColor":shadeColor(color,35),"box-shadow":"3px 3px 0.5px rgba(0,0,0,0.7)"});
+			//$(this).css({"backgroundColor":shadeColor(color,35),"box-shadow":"3px 3px 0.5px rgba(0,0,0,0.7)"});
 	});
 }
 
@@ -69,9 +69,10 @@ function getRequest(category)
 	//category refers to the category that has been clicked
 	//send a JSON here regarding the events list from here
 	//return the JSON object to the calling function
+	console.log('another request');
 	var category_request = 
 	{
-		category_id:parseInt(category.attr("data-detail")),
+		category_id:parseInt(category.attr("data-detail"))
 	}
 	$.post(
 		"/category_event",
