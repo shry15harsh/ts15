@@ -150,4 +150,8 @@
   font-family: futura;
   display: inline-block;
   width:90%;
+  text-align:center;
+}
+.description-space .description img{
+  display: inline-block;
 }

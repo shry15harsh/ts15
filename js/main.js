@@ -50,7 +50,7 @@ function shadeColor(color,percent) {
 
 function populateEventList(size,eventList)
 {
-
+	$(".event-list ul").html("");
 	$(".event-list ul").empty();
 	for(var i = 0;i<size;i++)
 	{
@@ -177,11 +177,12 @@ $(".category-list li").on("click", function(){
 	//counter to 1 for avoiding improper animation in category1
 	counter=1;
 	if(ccount==1){
-		$(".event-list").animate({"left":"15%"},400,function(){
+		$('.event-list').children("ul").html('Getting you the events!! Hold On!!');
+		//$(".event-list").animate({"left":"15%"},400,function(){
 				$(this).css({"z-index":299-c+""});
 				//$(".event-list").css({"background-color":colorlev1[(colorIndex+1)%4]+""});
 				getRequest(place);
-		});
+		//});
 		//getRequest($(this));
 	}
 	else{
