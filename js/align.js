@@ -6,6 +6,9 @@ $('document').ready(function(){
 	$(".event-list").mCustomScrollbar({
 		theme:"dark"
 	});
+	$(".description-space").mCustomScrollbar({
+		theme:"dark"
+	});
 });
 
 var click = 0;
