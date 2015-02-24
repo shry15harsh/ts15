@@ -219,7 +219,8 @@ $(".event-list").on("click","li",function(e){
 	
 	$('.description-space').children("h").html("");
 	$('.description-space').children("h1").html("");
-	$('.description-space').children("p").html('<img src="https://ssl.gstatic.com/s2/oz/images/notifications/spinner_32_041dcfce66a2d43215abb96b38313ba0.gif">');
+	$('.description-space').children("p").html('Getting you the details!! Hold On!!');
+	c.children(".url").text("");
 
 	getEvent(_self,present,$('.description-space'));
 
