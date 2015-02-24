@@ -130,10 +130,23 @@
   top:0%;
   right:0%;
   height: 100%;
-  width:84%;
+  width:65%;
   box-shadow: 2px 2px black;
   background:#16a085;
   overflow-y:scroll; 
   color:#212121;
   z-index:250;
+  text-align:center;
+}
+.description-space .heading{
+  text-align:center;
+  text-decoration: underline;
+  border:none;
+  font-family:futura;
+}
+.description-space .description{
+  text-align: justify;
+  font-family: futura;
+  display: inline-block;
+  width:90%;
 }
