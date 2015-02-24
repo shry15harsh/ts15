@@ -40,9 +40,9 @@
 .category-list{
   background-color:none;//rgba(100,100,100,0.4);//#80cbc4;
   position:absolute;
-  top:0;
+  top:100;
   left:0;
-  height:100%;
+  height:50%;
   width:15%;
   vertical-align: middle;
   z-index: 500;
@@ -109,7 +109,7 @@
   position: absolute;
   top:0;
   left:15%;
-  height:100%;
+  height:70%;
   width:15%;
   z-index:295;
   //background:rgba(255,255,255,1);
