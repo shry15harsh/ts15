@@ -152,7 +152,7 @@ function getEvent(eventName,present,c)
 $(".category-list li").on("click", function(){
 	var place=$(this);
 	var c=$(this).index()+1;
-	if($(this).attr("data-detail")=="1" && counter==0)
+	if($(this).attr("data-detail")=="1" )
 	{
 		getRequest(place);
 
@@ -162,7 +162,7 @@ $(".category-list li").on("click", function(){
 		$(".event-list").css({"z-index":299-c+""});				
 		//call for json here and pass it as argument
 		
-		$(".event-list").animate({"left":"15%"},900);
+		//$(".event-list").animate({"left":"15%"},900);
 
 		//$(".description-space").animate({"background-color":colorlev1[(colorIndex+1)%4]+""},300);
 		ccount=1;
@@ -178,7 +178,7 @@ $(".category-list li").on("click", function(){
 	if(ccount==1){
 		$(".event-list").animate({"left":"0%"},400,function(){
 				$(this).css({"z-index":299-c+""});
-				$(".event-list").css({"background-color":colorlev1[(colorIndex+1)%4]+""});
+				//$(".event-list").css({"background-color":colorlev1[(colorIndex+1)%4]+""});
 				getRequest(place);
 		});
 		//getRequest($(this));
@@ -190,8 +190,8 @@ $(".category-list li").on("click", function(){
 	
 	var col=$(".active-category").parent().css("background-color");
 	$(".category-list li").removeClass("active-category");
-	$(".event-list").animate({"background-color":"none"},{queue:false,duration:1500});
-	$(".event-list").animate({"left":(14.5+c/2)+"%"},900);	
+	//$(".event-list").animate({"background-color":"none"},{queue:false,duration:1500});
+	//$(".event-list").animate({"left":(14.5+c/2)+"%"},900);	
 	var screen_color = hexToRgb(colorlev1[(colorIndex+1)%4]);
 	$(".description-space").animate({"background-color":"rgba("+screen_color.r+","+screen_color.g+","+screen_color.b+",0.3)"},300);
 	$(this).addClass("active-category");
