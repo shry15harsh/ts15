@@ -186,7 +186,6 @@ $(".category-list li").on("click", function(){
 var count=0;
 
 $(".event-list").on("click","li",function(e){
-	console.log('ehy');
 	var data=$(this).attr("data-detail");
 	var present=$(this);
 	//var c=$(".description-space div").filter(function(){return $(this).hasClass("space-active")==false;});
@@ -198,7 +197,7 @@ $(".event-list").on("click","li",function(e){
 	//send a JSON to retrieve the information
 	//retrieve an object with the desired event details
 	
-	$('.event-list li').css('color', 'rgb(100,100,100)');
+	$('.event-list li').css('color', '#646464');
 	$(this).css('color', 'white');
 	
 	$('.description-space').children("h").html("");
