@@ -122,7 +122,7 @@ function getEvent(eventName,present,c)
 			//$(".space-active").animate({"top":"60%","opacity":"0"},500,function(){
 			///////////////////insertion json
 				//filtering div having display none presntly
-				//c.children("h").text("");
+				c.children("h").html("");
 				//c.css({"display":"block"});
 				//children() selecting required child insert json data here
 				c.children("h1").html(information.event_name);
@@ -130,7 +130,7 @@ function getEvent(eventName,present,c)
 				c.children("p").html(information.description);
 				if(information.url!="")
 				{
-					c.children("h").text("Problem Statement");
+					c.children("h").html("<b>Problem Statement: </b>");
 					c.children(".url").text(information.url);
 					c.children(".url").attr({"href":information.url});
 				}
@@ -206,13 +206,16 @@ $(".event-list").on("click","li",function(e){
 	var data=$(this).attr("data-detail");
 	var present=$(this);
 	//var c=$(".description-space div").filter(function(){return $(this).hasClass("space-active")==false;});
-	if($(".space-active").attr("data-detail")==$(this).attr("data-detail")&&category_change==false){
+	/*if($(".space-active").attr("data-detail")==$(this).attr("data-detail")&&category_change==false){
 		return;
-	}
+	}*/
 	var _self = $(e.target);
 	//use this _self everywhere
 	//send a JSON to retrieve the information
 	//retrieve an object with the desired event details
+	
+	$('.event-list li').css('color', '#222');
+	$(this).css('color', 'white');
 
 	getEvent(_self,present,$('.description-space'));
 
