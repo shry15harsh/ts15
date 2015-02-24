@@ -108,6 +108,7 @@ function rgb2hex(rgb){
 
 function getEvent(eventName,present,c)
 {
+	console.log('getting event');
 	var information;
 	var event_request = 
 	{
