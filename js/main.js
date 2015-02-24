@@ -143,7 +143,7 @@ function getEvent(eventName,present,c)
 				var screen_color = present.css("backgroundColor");//in rgb format
 
 				var colorrgb=screen_color.substr(4,(screen_color.length-5));
-				//$(".description-space").animate({"background-color":"rgba("+colorrgb+",0.7)"},300);
+				$(".description-space").animate({"background-color":"rgba("+colorrgb+",0.8)"},300);
 				$(this).css({"display":"none","top":"0","opacity":"1"});
 			//});
 	});
