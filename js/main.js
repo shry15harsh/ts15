@@ -198,8 +198,8 @@ $(".event-list").on("click","li",function(e){
 	//send a JSON to retrieve the information
 	//retrieve an object with the desired event details
 	
-	$('.event-list li').css('color', '#646464');
-	$(this).css('color', 'white');
+	$('.event-list li').css('color', '#646464 !important');
+	$(this).css('color', 'white !important');
 	
 	$('.description-space h').html("");
 	$('.description-space h1').html("");
