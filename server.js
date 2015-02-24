@@ -191,12 +191,10 @@ app.post('/select_event',function(req,res){
 	var json_obj = req.body;
 	var query = 'select * from events where event_id = "'+json_obj['event_id']+'"';
 	conn.query(query,function(err,rows){
-		if(!err)
-		{
+		if(!err){
 			res.json(rows['0']);
 		}
-		else
-		{
+		else{
 			res.json(err);
 		}
 	});

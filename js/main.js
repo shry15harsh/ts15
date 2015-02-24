@@ -132,7 +132,7 @@ function getEvent(eventName,present,c)
 				{
 					c.children("h").text("Problem Statement");
 					c.children(".url").text(information.url);
-					c.children(".url").attr({"href":"http://"+information.url+""});
+					c.children(".url").attr({"href":information.url});
 				}
 				c.animate({"top":"15%"},200,function(){
 					$(this).addClass("space-active");

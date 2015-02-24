@@ -3,10 +3,6 @@
   font-family:'futura';
   src:url('../fonts/futura.TTF');
 }
-@font-face{
-  font-family:'PTNarrow';
-  src:url('../fonts/PTNarrow.ttf');
-}
 .backdrop{
   position: absolute;
   width:100%;
