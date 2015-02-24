@@ -220,7 +220,7 @@ $(".event-list").on("click","li",function(e){
 	$('.description-space').children("h").html("");
 	$('.description-space').children("h1").html("");
 	$('.description-space').children("p").html('Getting you the details!! Hold On!!');
-	c.children(".url").text("");
+	$('.description-space').children(".url").text("");
 
 	getEvent(_self,present,$('.description-space'));
 
