@@ -77,9 +77,9 @@ $('.menu li').click(function(){
 		}
 		if(num==1)
 		{
-			$(".backdrop").css({"display":"block"});
-			$(".sections").css({"display":"block"});
-			return;
+			//$(".backdrop").css({"display":"block"});
+			//$(".sections").css({"display":"block"});
+			//return;
 		}
 		$('.writeup .content li:nth-child('+num+')').fadeIn(800);
 	}
