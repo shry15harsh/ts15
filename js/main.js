@@ -183,17 +183,7 @@ var count=0;
 $(".event-list").on("click","li",function(e){
 	var data=$(this).attr("data-detail");
 	var present=$(this);
-	//var c=$(".description-space div").filter(function(){return $(this).hasClass("space-active")==false;});
-	/*if($(".space-active").attr("data-detail")==$(this).attr("data-detail")&&category_change==false){
-		return;
-	}*/
 	var _self = $(e.target);
-	//use this _self everywhere
-	//send a JSON to retrieve the information
-	//retrieve an object with the desired event details
-	
-	//$('.event-list li').css('color', '#646464 !important');
-	//$(this).css('color', 'white !important');
 	$(".event-list li").removeClass("active-category");
 	$(this).addClass("active-category");
 	

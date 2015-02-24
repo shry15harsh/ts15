@@ -94,7 +94,7 @@
   height: 100%;
   width:70%;
   background:#16a085;
-  overflow-y:scroll; 
+  overflow:hidden;
   color:#212121;
   z-index:250;
   text-align:center;
