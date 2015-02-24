@@ -119,7 +119,7 @@ function getEvent(eventName,present,c)
 		event_request,
 		function(data,status){
 			information=data;
-			$(".space-active").animate({"top":"60%","opacity":"0"},500,function(){
+			//$(".space-active").animate({"top":"60%","opacity":"0"},500,function(){
 			///////////////////insertion json
 				//filtering div having display none presntly
 				c.children("h").text("");
@@ -145,7 +145,7 @@ function getEvent(eventName,present,c)
 				var colorrgb=screen_color.substr(4,(screen_color.length-5));
 				//$(".description-space").animate({"background-color":"rgba("+colorrgb+",0.7)"},300);
 				$(this).css({"display":"none","top":"0","opacity":"1"});
-			});
+			//});
 	});
 }
 
@@ -205,9 +205,8 @@ var count=0;
 $(".event-list").on("click","li",function(e){
 	var data=$(this).attr("data-detail");
 	var present=$(this);
-	var c=$(".description-space div").filter(function(){return $(this).hasClass("space-active")==false;});
-	if($(".space-active").attr("data-detail")==$(this).attr("data-detail")&&category_change==false)
-	{
+	//var c=$(".description-space div").filter(function(){return $(this).hasClass("space-active")==false;});
+	if($(".space-active").attr("data-detail")==$(this).attr("data-detail")&&category_change==false){
 		return;
 	}
 	var _self = $(e.target);
@@ -215,7 +214,7 @@ $(".event-list").on("click","li",function(e){
 	//send a JSON to retrieve the information
 	//retrieve an object with the desired event details
 
-	getEvent(_self,present,c);
+	getEvent(_self,present,$('.description-space'));
 
 	category_change=false;	
 });
