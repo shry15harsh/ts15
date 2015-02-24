@@ -28,7 +28,7 @@ function shadeColor(color,percent) {
 
     return "#"+RR+GG+BB;
 }
-$(document).ready(function(e){
+/*$(document).ready(function(e){
 	//fill arrays colorlev2 and colorlev3
 	var color_hash = colorlev1.length;
 	for(var i = 0;i<color_hash;i++)
@@ -37,16 +37,16 @@ $(document).ready(function(e){
 		colorlev3[i] = shadeColor(colorlev1[i],12);
 	}
 	var colorIndex=1;
-	$(".active-category").animate({"font-size":"40px","color":"white","letter-spacing": "2px","background-color": "black","font-weight": "400"},100,function(e){
+	$(".active-category").animate({"color":"white","letter-spacing": "2px","background-color": "black"},100,function(e){
 		var iter = 0;
 		$(".fakes").each(function(){
-		$(this).css({"left":colorIndex/2+"%","background-color":color_array[(iter+1)%7]+"","z-index":299-colorIndex+""});
+		$(this).css({"left":colorIndex/2+"%","z-index":299-colorIndex+""});
 		colorIndex++;
 		iter++;
 	});
 	});
 	requestAnimationFrame(main);
-});
+});*/
 
 function populateEventList(size,eventList)
 {
@@ -142,89 +142,78 @@ function getEvent(eventName,present,c)
 				var screen_color = present.css("backgroundColor");//in rgb format
 
 				var colorrgb=screen_color.substr(4,(screen_color.length-5));
-				$(".description-space").animate({"background-color":"rgba("+colorrgb+",0.7)"},300);
+				//$(".description-space").animate({"background-color":"rgba("+colorrgb+",0.7)"},300);
 				$(this).css({"display":"none","top":"0","opacity":"1"});
 			});
 	});
 }
 
-function main(){
-		$(".category-list li").on("click", function(){
-			var place=$(this);
-			var c=$(this).index()+1;
-			if($(this).attr("data-detail")=="1" && counter==0)
-			{
-				
-				
-				getRequest(place);
+$(".category-list li").on("click", function(){
+	var place=$(this);
+	var c=$(this).index()+1;
+	if($(this).attr("data-detail")=="1" && counter==0)
+	{
+		getRequest(place);
 
-				$(".event-list").css({"background-color":colorlev2[(colorIndex+1)%4]+""});
-				$(".event-list").animate({"background-color":colorlev2[(colorIndex+1)%4]+""},{queue:false,duration:1500});
-				
-				$(".event-list").css({"z-index":299-c+""});				
-				//call for json here and pass it as argument
-				
-				$(".event-list").animate({"left":"15%"},900);
-
-				//$(".category-list").animate({"background-color":"#80cbc4"},700);
-				$(".description-space").animate({"background-color":colorlev1[(colorIndex+1)%4]+""},300);
-				ccount=1;
-				category_change=true;
-				return;
-			}
-			else if($(this).hasClass("active-category"))
-			{
-				return;
-			}
-			//counter to 1 for avoiding improper animation in category1
-			counter=1;
-			if(ccount==1)
-			{
-				$(".event-list").animate({"left":"0%"},400,function(){
-						$(this).css({"z-index":299-c+""});
-						$(".event-list").css({"background-color":colorlev1[(colorIndex+1)%4]+""});
-						getRequest(place);
-				});
-				//getRequest($(this));
-			}
-			else
-			{
-				getRequest(place);
-			}
-			ccount=1;
-			
-			var col=$(".active-category").parent().css("background-color");
-			$(".category-list li").animate({"font-size":"2.5em","color":"#222","letter-spacing":"0px","background-color":"#80cbc4"},{duartion:50});
-			$(".active-category").removeClass("active-category");
-			$(".event-list").animate({"background-color":colorlev2[(colorIndex+1)%4]+""},{queue:false,duration:1500});
-			$(".event-list").animate({"left":(14.5+c/2)+"%"},900);	
-			//$(".category-list").animate({"background-color":"#80cbc4"},700);
-			var screen_color = hexToRgb(colorlev1[(colorIndex+1)%4]);
-			$(".description-space").animate({"background-color":"rgba("+screen_color.r+","+screen_color.g+","+screen_color.b+",0.3)"},300);
-			$(this).animate({"font-size":"2em","color":"white","letter-spacing": "2px","background-color": "black","font-weight": "400"},200);
-			$(this).addClass("active-category");
-			category_change=true;
-			colorIndex++;
-		});
+		//$(".event-list").css({"background-color":colorlev2[(colorIndex+1)%4]+""});
+		//$(".event-list").animate({"background-color":colorlev2[(colorIndex+1)%4]+""},{queue:false,duration:1500});
 		
-		var count=0;
+		$(".event-list").css({"z-index":299-c+""});				
+		//call for json here and pass it as argument
 		
-		$(".event-list").on("click","li",function(e){
-			var data=$(this).attr("data-detail");
-			var present=$(this);
-			var c=$(".description-space div").filter(function(){return $(this).hasClass("space-active")==false;});
-			//console.log(c.attr("data-detail")+" "+$(this).attr("data-detail"));
-			if($(".space-active").attr("data-detail")==$(this).attr("data-detail")&&category_change==false)
-			{
-				return;
-			}
-			var _self = $(e.target);
-			//use this _self everywhere
-			//send a JSON to retireve the information
-			//retrieve an object with the desired event details
+		$(".event-list").animate({"left":"15%"},900);
 
-			getEvent(_self,present,c);
-
-			category_change=false;	
+		//$(".description-space").animate({"background-color":colorlev1[(colorIndex+1)%4]+""},300);
+		ccount=1;
+		category_change=true;
+		return;
+	}
+	else if($(this).hasClass("active-category"))
+	{
+		return;
+	}
+	//counter to 1 for avoiding improper animation in category1
+	counter=1;
+	if(ccount==1){
+		$(".event-list").animate({"left":"0%"},400,function(){
+				$(this).css({"z-index":299-c+""});
+				$(".event-list").css({"background-color":colorlev1[(colorIndex+1)%4]+""});
+				getRequest(place);
 		});
-}
+		//getRequest($(this));
+	}
+	else{
+		getRequest(place);
+	}
+	ccount=1;
+	
+	var col=$(".active-category").parent().css("background-color");
+	$(".category-list li").removeClass("active-category");
+	$(".event-list").animate({"background-color":"none"},{queue:false,duration:1500});
+	$(".event-list").animate({"left":(14.5+c/2)+"%"},900);	
+	var screen_color = hexToRgb(colorlev1[(colorIndex+1)%4]);
+	$(".description-space").animate({"background-color":"rgba("+screen_color.r+","+screen_color.g+","+screen_color.b+",0.3)"},300);
+	$(this).addClass("active-category");
+	category_change=true;
+	colorIndex++;
+});
+
+var count=0;
+
+$(".event-list").on("click","li",function(e){
+	var data=$(this).attr("data-detail");
+	var present=$(this);
+	var c=$(".description-space div").filter(function(){return $(this).hasClass("space-active")==false;});
+	if($(".space-active").attr("data-detail")==$(this).attr("data-detail")&&category_change==false)
+	{
+		return;
+	}
+	var _self = $(e.target);
+	//use this _self everywhere
+	//send a JSON to retrieve the information
+	//retrieve an object with the desired event details
+
+	getEvent(_self,present,c);
+
+	category_change=false;	
+});

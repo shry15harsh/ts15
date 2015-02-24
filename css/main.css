@@ -3,11 +3,6 @@
   font-family:'futura';
   src:url('../fonts/futura.TTF');
 }
-@font-face
-{
-	font-family:'Garamond';
-	src:url('../fonts/AlternateGotNo2D.otf');
-}
 @font-face{
   font-family:'PTNarrow';
   src:url('../fonts/PTNarrow.ttf');
@@ -42,9 +37,12 @@
   -webkit-box-shadow:1px 1px 2px rgb(0,0,0);
   height:100%;
   width:15%;
+  background:rgba(100,100,100,0.5);
+  box-shadow: 1px 1px 2px black;
+  display: none;
 }
 .category-list{
-  background-color:#80cbc4;
+  background-color:none;//rgba(100,100,100,0.4);//#80cbc4;
   position:absolute;
   top:0;
   left:0;
@@ -52,17 +50,17 @@
   width:15%;
   vertical-align: middle;
   z-index: 500;
-  box-shadow: 1px 1px 2px rgb(0,0,0);
+  //box-shadow: 1px 1px 2px rgb(0,0,0);
   -webkit-box-shadow:1px 1px 2px rgb(0,0,0);
-  color: #222;
+  //color: #222;
   text-shadow: 0px 2px 3px #555;
 }
 .category-list li{
   list-style-type: none;
   padding:10px;
-  font-size: 2.5em;
-  font-weight: 300;
-  font-family: 'Garamond';
+  font-size: 1.5em;
+  //font-weight: 300;
+  font-family: futura;
   text-transform:capitalize;
   cursor:pointer;
   color: #222;
@@ -70,14 +68,15 @@
 }
 .active-category
 {
-  background:black;
-  color:white;
-  text-shadow: 0px 3px 8px #2A2A2A;
+  //background:black;
+  color:white !important;
+  //text-shadow: 0px 3px 8px #2A2A2A;
 }
 /*scale: 30% top and left 25%*/
 .generic-description-space1{
   top:30%;
   right:35%;
+  opacity:0;
 }
 .generic-description-space2{
   top:0%;
@@ -116,8 +115,8 @@
   height:100%;
   width:15%;
   z-index:295;
-  background:rgba(255,255,255);
-  box-shadow: 1px 1px 2px rgb(0,0,0);
+  background:none;//rgba(255,255,255);
+  //box-shadow: 1px 1px 2px rgb(0,0,0);
   -webkit-box-shadow:1px 1px 2px rgb(0,0,0));
 }
 .event-list li
