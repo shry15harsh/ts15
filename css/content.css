@@ -42,18 +42,18 @@
 {
 	color:#FF4454;
 }
-/*Event desctiption css*/
+/*Event description css*/
 .writeup
 {
 	position:relative;
 }
-.writeup ul
+.writeup .content
 {
 	margin-top:-4%;
-	z-index: -1;
+	//z-index: -1;
 	background:orange;
 }
-.writeup ul li
+.writeup .content .section
 {
 	list-style-type:none;
 	display: none;
