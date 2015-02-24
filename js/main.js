@@ -130,7 +130,7 @@ function getEvent(eventName,present,c)
 				c.children("p").html(information.description);
 				if(information.url!="")
 				{
-					c.children("h").html("<b>Problem Statement: </b>");
+					c.children("h").html("<br><b>Problem Statement: </b>");
 					c.children(".url").text(information.url);
 					c.children(".url").attr({"href":information.url});
 				}
@@ -151,8 +151,10 @@ function getEvent(eventName,present,c)
 
 $(".category-list li").on("click", function(){
 	//Clear description space
-	$('.description-space .heading').html('');
-	$('.description-space .description').html('');
+	$('.description-space').children("h").html("");
+	$('.description-space').children("h1").html("");
+	$('.description-space').children("p").html('Click on the category!!');
+	$('.description-space').children(".url").text("");
 	var place=$(this);
 	var c=$(this).index()+1;
 	if($(this).hasClass("active-category"))
@@ -161,7 +163,7 @@ $(".category-list li").on("click", function(){
 	}
 	//counter to 1 for avoiding improper animation in category1
 	counter=1;
-	$('.event-list').children("ul").html('Getting you the events!! Hold On!!');
+	$('.event-list').children("ul").html('Getting you the competitions!! Hold On!!');
 	//$(".event-list").animate({"left":"15%"},400,function(){
 			$(this).css({"z-index":299-c+""});
 			//$(".event-list").css({"background-color":colorlev1[(colorIndex+1)%4]+""});
