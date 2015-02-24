@@ -186,6 +186,7 @@ $(".category-list li").on("click", function(){
 var count=0;
 
 $(".event-list").on("click","li",function(e){
+	console.log('ehy');
 	var data=$(this).attr("data-detail");
 	var present=$(this);
 	//var c=$(".description-space div").filter(function(){return $(this).hasClass("space-active")==false;});
