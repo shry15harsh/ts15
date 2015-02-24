@@ -150,14 +150,15 @@ function getEvent(eventName,present,c)
 }
 
 $(".category-list li").on("click", function(){
+	//Clear description space
+	$('.description-space .heading').html('');
+	$('.description-space .description').html('');
 	var place=$(this);
 	var c=$(this).index()+1;
 	if($(this).attr("data-detail")=="1" )
 	{
 		getRequest(place);
 
-		//$(".event-list").css({"background-color":colorlev2[(colorIndex+1)%4]+""});
-		//$(".event-list").animate({"background-color":colorlev2[(colorIndex+1)%4]+""},{queue:false,duration:1500});
 		
 		$(".event-list").css({"z-index":299-c+""});				
 		//call for json here and pass it as argument
