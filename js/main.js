@@ -128,7 +128,7 @@ function getEvent(eventName,present,c)
 				c.children("h1").html(information.event_name);
 				c.attr({"data-detail":data+""});
 				c.children("p").html(information.description);
-				if(information.url!="")
+				if(/\S/.test(information.url))
 				{
 					c.children("h").html("<br><b>Problem Statement: </b>");
 					c.children(".url").text(information.url);
@@ -153,7 +153,7 @@ $(".category-list li").on("click", function(){
 	//Clear description space
 	$('.description-space').children("h").html("");
 	$('.description-space').children("h1").html("");
-	$('.description-space').children("p").html('Click on the category!!');
+	$('.description-space').children("p").html('Click on the competition!!');
 	$('.description-space').children(".url").text("");
 	var place=$(this);
 	var c=$(this).index()+1;
