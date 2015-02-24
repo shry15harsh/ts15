@@ -155,39 +155,19 @@ $(".category-list li").on("click", function(){
 	$('.description-space .description').html('');
 	var place=$(this);
 	var c=$(this).index()+1;
-	if($(this).attr("data-detail")=="1" )
-	{
-		getRequest(place);
-
-		
-		$(".event-list").css({"z-index":299-c+""});				
-		//call for json here and pass it as argument
-		
-		//$(".event-list").animate({"left":"15%"},900);
-
-		//$(".description-space").animate({"background-color":colorlev1[(colorIndex+1)%4]+""},300);
-		ccount=1;
-		category_change=true;
-		return;
-	}
-	else if($(this).hasClass("active-category"))
+	if($(this).hasClass("active-category"))
 	{
 		return;
 	}
 	//counter to 1 for avoiding improper animation in category1
 	counter=1;
-	if(ccount==1){
-		$('.event-list').children("ul").html('Getting you the events!! Hold On!!');
-		//$(".event-list").animate({"left":"15%"},400,function(){
-				$(this).css({"z-index":299-c+""});
-				//$(".event-list").css({"background-color":colorlev1[(colorIndex+1)%4]+""});
-				getRequest(place);
+	$('.event-list').children("ul").html('Getting you the events!! Hold On!!');
+	//$(".event-list").animate({"left":"15%"},400,function(){
+			$(this).css({"z-index":299-c+""});
+			//$(".event-list").css({"background-color":colorlev1[(colorIndex+1)%4]+""});
+			getRequest(place);
 		//});
 		//getRequest($(this));
-	}
-	else{
-		getRequest(place);
-	}
 	ccount=1;
 	
 	var col=$(".active-category").parent().css("background-color");
