@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>TechSpardha 2015, March 12-15</title>
+
+<meta name="description" content="Techspardha is annual technical fest of NIT Kurukshetra." /> 
+
+<meta property="og:title" content="Techspardha 2015" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://techspardha.org/" />
+<meta property="og:image" content="http://techspardha.org/logo.jpg" />
+<meta property="og:description" content="Techspardha is annual technical fest of NIT Kurukshetra." /> 
+
+<link href="../css/event.css" rel="stylesheet" type="text/css">
+
+<body>
+	<div id="login-stage" class="stage">
+		<h1 class="login-message"><div id="ts-logo"><img src="../images/biglogo.png">Techspardha 2015 Event Management Dashboard</h1>
+		<input id="username" type="text" placeholder="Your username"></input><br>
+		<input id="password" type="password" placeholder="Your Password"></input><br>
+		<button id="login">Login</button>
+	</div>
+	
+	<div id="eventlist-stage" class="stage">
+		<div id="add">Add New Event</div>
+		<div class="events-list">
+			<!--<li><span class="event-name" data-id="2">Excalibur</span><span class="edit">Edit</span><span class="delete">Delete</span></li>
+			<li><span class="event-name" data-id="3">Excalibur</span><span class="edit">Edit</span><span class="delete">Delete</span></li>
+			<li><span class="event-name" data-id="4">Excalibur</span><span class="edit">Edit</span><span class="delete">Delete</span></li>
+			<li><span class="event-name" data-id="25">Excalibur</span><span class="edit">Edit</span><span class="delete">Delete</span></li>-->
+		</div>
+	</div>
+	
+	<div id="event-stage" class="stage">
+		<div id="ts-logo">
+			<img src="../images/biglogo.png">
+		</div>
+		<div id="message">
+			Click the fields to edit
+		</div>
+		<div id="save">
+			Save
+		</div>
+		<h1 id="event_name" class="name" contenteditable="true">Name of your event</h1>
+		<div id="problem_link">Click to add Problem Statement Link. Try to shorten it using <a target="_blank" href="http://goo.gl">goo.gl</a></div>
+		<div class = "category">
+			<select id="dropdown" class = "dropdown">
+				<option value = "none" selected>Select a category</option>
+				<option value = "managerial" > Managerial</option>
+				<option value = "quizzes" > Quizzes</option>
+				<option value = "funzone" >Fun Zone</option>
+				<option value = "online" >Online Events</option>
+				<option value = "papyrus" >Papyrus</option>
+				<option value = "design" > Design</option>
+				<option value = "technopolis" > Technopolis</option>
+			</select>
+		</div>
+		<div id="event-description" class="description" contenteditable="true">Add description of your Event here. Write every detail including Time and Venue, Coordinators, Link to Problem Statement, if they are available. Do not write to be uploaded soon or anything.</div>
+	</div>
+	
+	<div id="edit-event-stage" class="stage">
+		<div id="ts-logo">
+			<img src="../images/biglogo.png">
+		</div>
+		<div id="message">
+			Click the fields to edit
+		</div>
+		<div id="save">
+			Save
+		</div>
+		<h1 id="event_name" class="name" contenteditable="true">Name of your event</h1>
+		<div id="problem_link">Click to add Problem Statement Link. Try to shorten it using <a target="_blank" href="http://goo.gl">goo.gl</a></div>
+		<div class = "category">
+			<select id="dropdown" class = "dropdown">
+				<option value = "none" selected>Select a category</option>
+				<option value = "managerial" > Managerial</option>
+				<option value = "quizzes" > Quizzes</option>
+				<option value = "funzone" >Fun Zone</option>
+				<option value = "online" >Online Events</option>
+				<option value = "papyrus" >Papyrus</option>
+				<option value = "design" > Design</option>
+				<option value = "technopolis" > Technopolis</option>
+			</select>
+		</div>
+		<div id="event-description" class="description" contenteditable="true">Add description of your Event here. Write every detail including Time and Venue, Coordinators, Link to Problem Statement, if they are available. Do not write to be uploaded soon or anything.</div>
+	</div>
+	<script src="../js/jquery-2.1.1.min.js"></script>
+	<script src="../js/eventmgmt.js"></script>
+	
+</body>
+</html>

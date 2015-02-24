@@ -1,0 +1,23 @@
+To keep any test snippet, keep it in a folder named as developer in test folder.
+For example, if Harsh is making some test snippet, so it wouljd reside in
+
+test > harsh > test_snippet
+
+
+.HTML file 
+	Proper Indentation must be there.
+	No internal CSS or JS must be used.
+	<link href=""> tag must reside in head just before </head>
+	<script> tag must reside in body just before </body>
+
+.CSS file
+	Use camelCasing for names
+	Make generic css files
+	Use only classes in generic css files
+
+.JS file
+	Use variable names like opacity_count
+	Use capital letter for constant, MAX_COUNT
+
+Before going to server for release, CSS and JS files are minified by node module 'minifier'. Filenames are then appended by '.min'.
+On server, content is encoded as GZip for faster serving.

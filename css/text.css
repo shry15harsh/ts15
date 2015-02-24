@@ -1,0 +1,70 @@
+@font-face {
+	font-family: "ElegantSans";
+	src: url("../fonts/LANENAR_.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+.zero{
+	position:absolute;
+	display: none;
+	
+	color:white;
+	font-weight:bold;
+	font-size:1.8em;
+	font-family: open sans;
+	
+	transition:all 1s;
+	-webkit-transition:all 1s;
+}
+.txt{
+	position:absolute;
+	display:none;//inline-block;
+	
+	color:white;
+	font-size:1.8em;
+	font-family:"ElegantSans";
+	letter-spacing: 2px;
+	
+	transition:all 1s;
+	-webkit-transition:all 1s;
+}
+.zero:before{
+	content:"0";
+}
+.ts{
+	position: absolute;
+	font-family:"ElegantSans";
+	font-size:60px;
+	left: 35%;
+	top:200px;
+	opacity:0;
+	display: none;
+	transition: all 1s;
+}
+.ts .madeinindia{
+	font-size:20px;
+	font-weight:bold;
+	font-style: italic;
+	float:right;
+}
+.ts .nit{
+	opacity:0;
+	font-size:20px;
+	font-weight:bold;
+	text-align: left;
+	transition: all 1s;
+}
+.mainText{
+	margin-top:30%;
+	font-size:1.2em;
+	font-family:"ElegantSans";
+	display: none;
+}
+.mainText a{
+	color:white;
+}
+#progress{
+	margin-top:20%;
+	font-size:1.2em;
+	font-family:"ElegantSans";
+}
