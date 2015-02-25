@@ -50,7 +50,7 @@ var mysql =  require('mysql');
 conn =  mysql.createConnection({
 	host : "localhost",
 	user : "root",
-	password: "evm",
+	password: "tech@2015",
 	//database: "techspardha",
 });
 conn.connect(function(err){
