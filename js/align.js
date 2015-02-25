@@ -111,6 +111,12 @@ $('.home .up').click(function(){
 });
 
 $('.navbar ul li').click(function(){
+	if($(this).attr('data-section') == 'credits'){
+		if(/\S/.test($('.navbar-content #'+$(this).attr('data-section')).html())){
+		}
+		else
+		$('.navbar-content #'+$(this).attr('data-section')).html('<h1> Website Credits </h1><iframe src="credits/credit.html"></iframe>');
+	}
 	$('.navbar-content').css('opacity','1');
 	$('.navbar-content').css('z-index','1000');
 	$('.navbar-content .navbar-section').css('display','none');
