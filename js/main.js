@@ -173,7 +173,7 @@ $(".category-list li").on("click", function(){
 	$(".category-list li").removeClass("active-category");
 	$(this).addClass("active-category");
 	var screen_color = hexToRgb(colorlev1[(colorIndex+1)%4]);
-	$(".description-space").animate({"background-color":"rgba("+screen_color.r+","+screen_color.g+","+screen_color.b+",0.3)"},300);
+	$(".description-space").animate({"background-color":"rgba("+screen_color.r+","+screen_color.g+","+screen_color.b+",0.9)"},300);
 	category_change=true;
 	colorIndex++;
 });

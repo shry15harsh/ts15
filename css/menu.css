@@ -23,16 +23,16 @@
 	position:relative;
 	z-index:1;
 }
-.menuBack ul li
+.menuBack .menu li
 {
 	font-family:'Garamond';
 	font-size:35px;
 	position: relative;
-	padding:15%;
+	padding:12%;
 	margin-top:1%;
 	list-style-type: none;
 }
-.menuBack ul li #item
+.menuBack .menu li #item
 {
 	text-transform: uppercase;
 	color:white;
@@ -40,11 +40,11 @@
 	-webkit-transition:all 1s;
 	cursor:pointer;
 }
-.menuBack ul li #item:hover
+.menuBack .menu li #item:hover
 {
 	color:#FF4454;
 }
-.menuBack ul li:not(:last-child)
+.menuBack .menu li:not(:last-child)
 {
 	border-bottom: solid thin rgba(197,197,195,0.2);
 }
