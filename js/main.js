@@ -130,7 +130,7 @@ function getEvent(eventName,present,c)
 				c.attr({"data-detail":data+""});
 				c.find("p").html(information.description);
 				
-				var set = c.find('p');
+				var set = c.find('p').find('span');
 				remove_style(set);
 				
 				if(/\S/.test(information.url))
