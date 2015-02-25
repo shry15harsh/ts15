@@ -105,6 +105,7 @@
   border:none;
   font-family:futura;
   color:white;
+  text-transform: capitalize;
 }
 .description-space .description{
   text-align: justify;
