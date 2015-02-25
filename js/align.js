@@ -9,7 +9,7 @@ $('document').ready(function(){
 	$(".description-space").mCustomScrollbar({
 		theme:"light"
 	});
-	$('.writeup li:nth-child(5)').mCustomScrollbar({
+	$('.writeup .section:nth-child(5)').mCustomScrollbar({
 		theme:"light"
 	});
 });
