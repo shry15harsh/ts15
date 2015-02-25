@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/', { maxAge : cacheTime }));
 
 app.use(bodyParser.urlencoded());
 
-app.listen(8000, function(){
+app.listen(80, function(){
 	console.log('Listening on 80');
 /*	fs.readFile(__dirname+'/page_visit', {encoding: 'utf-8'}, function(err, data){
 		if(err){
