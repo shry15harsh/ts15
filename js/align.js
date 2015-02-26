@@ -88,11 +88,11 @@ $('.menu li').click(function(){
 			//$(".sections").css({"display":"block"});
 			//return;
 		}
-		$('.writeup .content li:nth-child('+num+')').fadeIn(800);
+		$('.writeup .content .section:nth-child('+num+')').fadeIn(800);
 	}
 	else
 	{
-		$('.writeup .content li:nth-child('+num+')').css('display','none');
+		$('.writeup .content .section:nth-child('+num+')').css('display','none');
 		for(var i = 1;i<7;i++)
 		{
 			if(i!=num){
