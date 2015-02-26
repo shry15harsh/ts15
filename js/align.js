@@ -12,6 +12,10 @@ $('document').ready(function(){
 	$('.writeup .section:nth-child(5)').mCustomScrollbar({
 		theme:"light"
 	});
+	
+	$( document ).tooltip({
+		track: true
+	});
 });
 
 var click = 0;
