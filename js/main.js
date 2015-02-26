@@ -120,37 +120,26 @@ function getEvent(eventName,present,c)
 		event_request,
 		function(data,status){
 			information=data;
-			//$(".space-active").animate({"top":"60%","opacity":"0"},500,function(){
-			///////////////////insertion json
-				//filtering div having display none presntly
-				c.find("h").html("");
-				//c.css({"display":"block"});
-				//children() selecting required child insert json data here
-				c.find("h1").html(information.event_name);
-				c.attr({"data-detail":data+""});
-				c.find("p").html(information.description);
-				
-				var set = c.find('p').find('span');
-				remove_style(set);
-				
-				if(/\S/.test(information.url))
-				{
-					c.find("h").html("<br><b>Problem Statement: </b>");
-					c.find(".url").text(information.url);
-					c.find(".url").attr({"href":information.url});
-				}
-				//c.animate({"top":"15%"},200,function(){
-					//$(this).addClass("space-active");
-					$(this).attr({"data-detail":present.attr("data-detail")+""});
-				//});
-				//$(this).removeClass("space-active");
-				
-				var screen_color = present.css("backgroundColor");//in rgb format
+			c.find("h").html("");
+			c.find(".heading").html(information.event_name);
+			c.attr({"data-detail":data+""});
+			c.find(".description").html(information.description);
+			
+			var set = c.find('.description').find('span');
+			remove_style(set);
+			
+			if(/\S/.test(information.url))
+			{
+				c.find("h").html("<br><b>Problem Statement: </b>");
+				c.find(".url").text(information.url);
+				c.find(".url").attr({"href":information.url});
+			}
+			//$(this).attr({"data-detail":present.attr("data-detail")+""});
+			var screen_color = present.css("backgroundColor");//in rgb format
 
-				var colorrgb=screen_color.substr(4,(screen_color.length-5));
-				$(".description-space").animate({"background-color":"rgba("+colorrgb+",0.8)"},300);
-				$(this).css({"display":"none","top":"0","opacity":"1"});
-			//});
+			var colorrgb=screen_color.substr(4,(screen_color.length-5));
+			$(".description-space").animate({"background-color":"rgba("+colorrgb+",0.8)"},300);
+			$(this).css({"display":"none","top":"0","opacity":"1"});
 	});
 }
 
