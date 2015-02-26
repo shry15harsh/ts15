@@ -6,7 +6,7 @@ $('document').ready(function(){
 	$(".event-list").mCustomScrollbar({
 		theme:"light"
 	});
-	$(".description-space").mCustomScrollbar({
+	$(".description-space .description").mCustomScrollbar({
 		theme:"light"
 	});
 	$('.writeup .section:nth-child(5)').mCustomScrollbar({
