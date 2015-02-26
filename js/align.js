@@ -6,7 +6,7 @@ $('document').ready(function(){
 	$(".event-list").mCustomScrollbar({
 		theme:"light"
 	});
-	$(".description-space .description").mCustomScrollbar({
+	$(".description-space").mCustomScrollbar({
 		theme:"light"
 	});
 	$('.writeup .section:nth-child(5)').mCustomScrollbar({
@@ -92,6 +92,9 @@ $('.menu li').click(function(){
 	}
 	else
 	{
+		var set = $('.menu li');
+		remove_style(set);
+		
 		$('.writeup .content .section:nth-child('+num+')').css('display','none');
 		for(var i = 1;i<7;i++)
 		{
