@@ -9,7 +9,24 @@ $('document').ready(function(){
 	$(".description-space").mCustomScrollbar({
 		theme:"light"
 	});
+	
+	$('.writeup .section:nth-child(2)').mCustomScrollbar({
+		theme:"light"
+	});
+	$('.writeup .section:nth-child(3)').mCustomScrollbar({
+		theme:"light"
+	});
+	$('.writeup .section:nth-child(4)').mCustomScrollbar({
+		theme:"light"
+	});
 	$('.writeup .section:nth-child(5)').mCustomScrollbar({
+		theme:"light"
+	});
+	$('.writeup .section:nth-child(6)').mCustomScrollbar({
+		theme:"light"
+	});
+	
+	$('.navbar-section:nth-child(n<5)').mCustomScrollbar({
 		theme:"light"
 	});
 	
@@ -31,41 +48,6 @@ $('.arrowContainer').click(function(){
 		$('.menuBack .navbar').css("position","fixed");
 	});
 });
-
-/*$('.menu li').click(function(){
-	var num = $(this).attr("data-number");
-	num = parseInt(num);
-	//all elements before this go somewhere up and vanish
-	//all elements below this also vanish
-	++click;
-	click = click % 2;
-	if(click==1)//list not collapsed
-	{
-		for(var i = 1;i<6;i++)
-		{
-			if(i!=num){
-				$('.menu li:nth-child('+i+') #item').parent().slideUp("500");
-			}
-		}
-		/*if(num==1)
-		{
-			$(".backdrop").css({"display":"block"});
-			$(".sections").css({"display":"block"});
-			return;
-		}
-		$('.writeup .content li:nth-child('+num+')').fadeIn(800);
-	}
-	else
-	{
-		$('.writeup .content li:nth-child('+num+')').css('display','none');
-		for(var i = 1;i<6;i++)
-		{
-			if(i!=num){
-				$('.menu li:nth-child('+i+') #item').parent().slideDown("500");
-			}
-		}
-	}
-});*/
 
 $('.menu li').click(function(){
 	var num = $(this).attr("data-number");
