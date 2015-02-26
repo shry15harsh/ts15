@@ -67,6 +67,7 @@
 	bottom:0;
 	width:100%;
 	font-family:"PTNarrow";
+	z-index:-1;
 }
 .navbar ul
 {
