@@ -120,26 +120,26 @@ function getEvent(eventName,present,c)
 		event_request,
 		function(data,status){
 			information=data;
-			c.find("h").html("");
-			c.find(".heading").html(information.event_name);
-			c.attr({"data-detail":data+""});
-			c.find(".description").html(information.description);
+			$('.description-space h').html("");
+			$('.description-space .heading').html(information.event_name);
+			$('.description-space').attr({"data-detail":data+""});
+			$('.description-space .description').html(information.description);
 			
-			var set = c.find('.description').find('span');
+			var set = $('.description-space .description span');
 			remove_style(set);
 			
 			if(/\S/.test(information.url))
 			{
-				c.find("h").html("<br><b>Problem Statement: </b>");
-				c.find(".url").text(information.url);
-				c.find(".url").attr({"href":information.url});
+				$('.description-space h').html("<br><b>Problem Statement: </b>");
+				$('.description-space .url').text(information.url);
+				$('.description-space .url').attr({"href":information.url});
 			}
 			//$(this).attr({"data-detail":present.attr("data-detail")+""});
 			var screen_color = present.css("backgroundColor");//in rgb format
 
 			var colorrgb=screen_color.substr(4,(screen_color.length-5));
 			$(".description-space").animate({"background-color":"rgba("+colorrgb+",0.8)"},300);
-			$(this).css({"display":"none","top":"0","opacity":"1"});
+			//$(this).css({"display":"none","top":"0","opacity":"1"});
 	});
 }
 
