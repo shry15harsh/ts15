@@ -128,3 +128,34 @@
   height:80%;
   //z-index:1000; 
 }
+#saveElec{
+  position: absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:80%;
+  padding-top:10%;
+  background:black;//transparent;
+  z-index:5000;
+  color:transparent;//white;
+  font-family: futura;
+  text-align: center;
+  text-shadow: 1px 1px 0px white;
+  display: none;
+  transition: 1s all;
+}
+#showMe{
+  color:indianred;
+  font-weight: bold;
+  text-decoration: underline;
+  text-shadow: 1px 1px 5px grey;
+  text-align: center;
+  cursor: pointer;
+}
+.tsname::after{
+  //content:'Save Electricity';
+  font-size:20px;
+  font-family: calibri;
+  font-style:italic;
+  color:blue;
+}

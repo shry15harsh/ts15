@@ -121,3 +121,20 @@ $('#close-button').click(function(){
 	$('.navbar-content').css('z-index','-1000');
 	$('.navbar-content .navbar-section').css('display','none');
 });
+
+$('#showMe').click(function(){
+	$('#saveElec').css('display','block');
+	setTimeout(function(){
+		var shade = 1;
+		var id = setInterval(function(){
+		  $('#saveElec').css('text-shadow','1px 1px '+shade+'px white');
+		  console.log(shade);
+		  ++shade;
+		  if(shade==21){
+			$('#saveElec').css('display','none');
+			$('#saveElec').css('text-shadow','1px 1px 0px white');
+			clearInterval(id);
+		  }
+		},200);
+	},2000);
+});
