@@ -58,3 +58,6 @@
 {
 	margin:5%;
 }
+.menu #item span{
+	opacity:0;
+}
