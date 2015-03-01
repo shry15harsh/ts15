@@ -72,7 +72,7 @@ $('.menu li').click(function(){
 		}
 		$('.writeup .content .section:nth-child('+num+')').fadeIn(800);
 		setTimeout(function(){
-			$('.menu #item span').css('opacity','1');
+			$('.menu #item i').css('opacity','1');
 		},800);
 	}
 	else
@@ -87,7 +87,7 @@ $('.menu li').click(function(){
 				$('.menu li:nth-child('+i+') #item').parent().slideDown("500");
 			}
 		}
-		$('.menu #item span').css('opacity','0');
+		$('.menu #item i').css('opacity','0');
 	}
 });
 
