@@ -53,6 +53,13 @@ app.get('/youtube', function(req, res){
 	res.end();
 });
 
+app.get('/accommodation', function(req, res){
+	res.writeHead(301, {
+		Location: 'https://docs.google.com/forms/d/1cwXJQsAl8RJQXV74nqcSBeThYRPu04MNvs8kjpySQL0/viewform?usp=send_form'
+	});
+	res.end();
+});
+
 var mysql =  require('mysql');
 conn =  mysql.createConnection({
 	host : "localhost",
