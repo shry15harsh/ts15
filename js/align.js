@@ -22,13 +22,19 @@ $('document').ready(function(){
 	$('.writeup .section:nth-child(5)').mCustomScrollbar({
 		theme:"light"
 	});
+	
+	$('#hospitality').mCustomScrollbar({
+		theme:"light"
+	});
+	
 	$('.writeup .section:nth-child(6)').mCustomScrollbar({
 		theme:"light"
 	});
 	
-	$('.navbar-section:nth-child(n<5)').mCustomScrollbar({
+	/*$('.navbar-section').mCustomScrollbar({
 		theme:"light"
-	});
+	});*/
+	
 	
 	$( document ).tooltip({
 		track: true

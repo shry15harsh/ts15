@@ -46,6 +46,13 @@ app.get('/visit', function(req, res){
 	res.end();
 });*/
 
+app.get('/youtube', function(req, res){
+	res.writeHead(301, {
+		Location: 'https://www.youtube.com/channel/UCAzrQemb7hxtpDNgvudqyPQ'
+	});
+	res.end();
+});
+
 var mysql =  require('mysql');
 conn =  mysql.createConnection({
 	host : "localhost",
