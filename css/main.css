@@ -159,3 +159,12 @@
   font-style:italic;
   color:blue;
 }
+.lec{
+  width:100%;
+  display: inline-block;
+}
+.lec-img{
+  width:10%;
+  float: left;
+  margin:10px;
+}
