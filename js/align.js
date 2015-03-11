@@ -27,6 +27,10 @@ $('document').ready(function(){
 		theme:"light"
 	});
 	
+	$('#sponsors').mCustomScrollbar({
+		theme:"light"
+	});
+	
 	$('.writeup .section:nth-child(6)').mCustomScrollbar({
 		theme:"light"
 	});
