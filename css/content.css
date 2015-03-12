@@ -96,6 +96,20 @@
 .navbar ul li:hover{
 	border-bottom:1px solid rgba(255,255,255,1);
 }
+
+.here
+{
+	display:inline-block;
+	position:relative;
+	min-width:auto;
+	width:15%;
+	cursor: pointer;
+	border-bottom:1px solid rgba(255,255,255,0.2);
+}
+.here:hover
+{
+	border-bottom:1px solid rgba(255,255,255,1);
+}
 .navbar-content{
 	width:80%;
 	height:80%;

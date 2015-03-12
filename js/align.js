@@ -39,6 +39,9 @@ $('document').ready(function(){
 		theme:"light"
 	});*/
 	
+	$('#schedule').mCustomScrollbar({
+		theme:"light"
+	});
 	
 	$( document ).tooltip({
 		track: true
