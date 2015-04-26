@@ -10,7 +10,23 @@ $('#login').click(function(){
 		username: $('#username').val(),
 		password: $('#password').val()
 	};
-	$.post('/login', login_packet , function(data){
+	if(login_packet.username!=filterXSS(login_packet.username)){
+		alert('XSS performed');
+		var theCookies = document.cookie.split(';');
+	    var aString = '';
+	    for (var i = 1 ; i <= theCookies.length; i++) {
+        	aString += i + ' ' + theCookies[i-1] + "\n";
+	    }
+	    alert(aString);
+	}
+	if(login_packet.password!=filterXSS(login_packet.password)){
+		alert('XSS performed');
+	}
+	alert('No Xss performed, Can proceed further');
+	$('.stage').css('display','none');
+	$('#event-stage').css('display','block');
+	prob_link = "";
+	/*$.post('/login', login_packet , function(data){
 		if(data == "wrong"){
 			alert('Username or Password is wrong');
 		}
@@ -27,7 +43,7 @@ $('#login').click(function(){
 				}
 			});
 		}
-	});
+	});*/
 });
 
 //Event List Stage
@@ -72,7 +88,7 @@ $('#event-stage #save').click(function(){
 		user_id: user,
 		event_name: $('#event-stage #event_name').html().replace('/(<([^>]+)>)/ig',''),
 		url: prob_link,
-		description: $('#event-stage #event-description').html(),
+		description: $('#event-stage #event-description').val(),
 		category_name: $('#event-stage #dropdown option:selected').val()
 	};
 	console.log(info_bundle.event_name);
@@ -85,7 +101,14 @@ $('#event-stage #save').click(function(){
 		alert("Please select a category.");
 	}
 	else{
-		$.post("/addevent", info_bundle, function(data){
+		if(info_bundle.description!=filterXSS(info_bundle.description)){
+			alert('XSS performed in Description');
+		}
+		if(info_bundle.url!=filterXSS(info_bundle.url)){
+			alert('XSS performed in URL');
+		}
+		alert('No XSS detected, can proceed further');
+		/*$.post("/addevent", info_bundle, function(data){
 			if(data=="done"){
 				console.log('Done adding event');
 				$('.stage').css('display','none');
@@ -104,7 +127,8 @@ $('#event-stage #save').click(function(){
 				console.log('Event could not be added.');
 				alert('Please refresh and try again.');
 			}
-		});
+		});*/
+		
 	}
 });
 
